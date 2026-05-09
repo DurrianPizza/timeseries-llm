@@ -1,0 +1,20 @@
+model:
+  llm_name: "Qwen/Qwen2-0.5B-Instruct"
+  encoder_dim: 256
+  llm_dim: 896  # Qwen2-0.5B hidden size
+  max_seq_len: 2048
+
+training:
+  batch_size: 2
+  gradient_accumulation_steps: 8
+  learning_rate: 1e-4
+  warmup_steps: 100
+  max_steps: 10000
+  fp16: true
+
+data:
+  num_samples: 100000
+  min_len: 32
+  max_len: 2048
+  min_dims: 1
+  max_dims: 8
