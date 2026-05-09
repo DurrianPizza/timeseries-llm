@@ -1,0 +1,1 @@
+"""Data package: time series and QA generation."""
