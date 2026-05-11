@@ -36,7 +36,7 @@ class TimeSeriesDataset(Dataset):
 
     def __getitem__(self, idx) -> Dict[str, torch.Tensor]:
         ts, meta, qa_pairs = self.data_pool[idx]
-        qa_type, (question, answer) = qa_pairs[idx % len(qa_pairs)]
+        qa_type, (question, answer) = qa_pairs[0]
         prompt = f"Question: {question}\nAnswer:"
         encoding = self.tokenizer(
             prompt,
