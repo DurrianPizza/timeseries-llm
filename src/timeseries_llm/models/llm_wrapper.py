@@ -3,11 +3,42 @@ import torch.nn as nn
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
+def _load_model_and_tokenizer(model_name: str):
+    """Load model and tokenizer, trying HuggingFace first, then ModelScope.
+
+    Args:
+        model_name: Model identifier (HuggingFace path or ModelScope path)
+
+    Returns:
+        Tuple of (model, tokenizer)
+    """
+    # Try HuggingFace first
+    try:
+        model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True)
+        tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+        return model, tokenizer
+    except Exception:
+        pass
+
+    # Fall back to ModelScope
+    try:
+        from modelscope import AutoModelForCausalLM as MsModel
+        from modelscope import AutoTokenizer as MsTokenizer
+        model = MsModel.from_pretrained(model_name, trust_remote_code=True)
+        tokenizer = MsTokenizer.from_pretrained(model_name, trust_remote_code=True)
+        return model, tokenizer
+    except ImportError:
+        raise ImportError(
+            f"Failed to load model '{model_name}' from both HuggingFace and ModelScope. "
+            "Please install modelscope: uv add modelscope"
+        )
+
+
 class TimeSeriesLLM(nn.Module):
     """TimeSeries-LLM wrapper combining encoder + fusion + LLM.
 
     Args:
-        llm_name: HuggingFace model name for Qwen
+        llm_name: HuggingFace or ModelScope model name for Qwen
         encoder_dim: Hidden dim of TimeSeries encoder
         llm_dim: Hidden dim of LLM
     """
@@ -25,9 +56,12 @@ class TimeSeriesLLM(nn.Module):
         self.llm_dim = llm_dim
 
         # TimeSeries Encoder
+        # NOTE: in_channels is hardcoded to max_dims (8) as a workaround.
+        # Multi-dimensional time series inputs (up to 8 channels) are supported,
+        # but dynamic channel adaptation requires future encoder redesign.
         from timeseries_llm.models.encoder import TimeSeriesEncoder
         self.encoder = TimeSeriesEncoder(
-            in_channels=1,  # will be overridden based on input
+            in_channels=8,  # max_dims from config; matches data spec max_dims
             hidden_dim=encoder_dim,
             num_layers=num_encoder_layers,
         )
@@ -36,9 +70,8 @@ class TimeSeriesLLM(nn.Module):
         from timeseries_llm.models.fusion import MLPFusion
         self.fusion = MLPFusion(encoder_dim=encoder_dim, llm_dim=llm_dim)
 
-        # LLM
-        self.llm = AutoModelForCausalLM.from_pretrained(llm_name)
-        self.tokenizer = AutoTokenizer.from_pretrained(llm_name)
+        # LLM - try HuggingFace first, then ModelScope
+        self.llm, self.tokenizer = _load_model_and_tokenizer(llm_name)
 
     def forward(self, input_ids: torch.LongTensor, encoder_outputs: torch.Tensor, attention_mask: torch.Tensor = None, labels: torch.LongTensor = None):
         """
