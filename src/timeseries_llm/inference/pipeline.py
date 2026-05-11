@@ -42,7 +42,7 @@ class TimeSeriesPipeline:
         input_ids = inputs["input_ids"].to(self.device)
         outputs = self.model.generate(
             input_ids=input_ids,
-            encoder_output=encoder_output,
+            encoder_outputs=encoder_output,
             max_new_tokens=max_new_tokens,
         )
         answer = self.model.tokenizer.decode(outputs[0], skip_special_tokens=True)
