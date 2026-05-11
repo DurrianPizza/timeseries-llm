@@ -23,12 +23,19 @@ class TimeSeriesDataset(Dataset):
         self.qa_generator = QAGenerator()
         self.tokenizer = tokenizer
 
+        # Pre-generate all data at initialization
+        self.data_pool = []
+        for _ in range(num_samples):
+            ts, meta = self.ts_generator.generate()
+            qa_pairs = self.qa_generator.generate(ts)
+            # Store all QA pairs for each time series
+            self.data_pool.append((ts, meta, qa_pairs))
+
     def __len__(self):
         return self.num_samples
 
     def __getitem__(self, idx) -> Dict[str, torch.Tensor]:
-        ts, meta = self.ts_generator.generate()
-        qa_pairs = self.qa_generator.generate(ts)
+        ts, meta, qa_pairs = self.data_pool[idx]
         qa_type, (question, answer) = qa_pairs[idx % len(qa_pairs)]
         prompt = f"Question: {question}\nAnswer:"
         encoding = self.tokenizer(
