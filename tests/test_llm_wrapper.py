@@ -34,9 +34,9 @@ def test_forward_inputs():
             # Mock inputs
             batch_size = 1
             seq_len = 10
-            llm_dim = 896
+            encoder_dim = 256
             input_ids = torch.randint(0, 1000, (batch_size, 20))
-            encoder_output = torch.randn(batch_size, seq_len, llm_dim)
+            encoder_output = torch.randn(batch_size, seq_len, encoder_dim)
             attention_mask = torch.ones(batch_size, 20 + seq_len)
             # Should not raise
             llm.forward(input_ids=input_ids, encoder_outputs=encoder_output, attention_mask=attention_mask)
@@ -59,7 +59,7 @@ def test_generate():
             )
             batch_size = 1
             input_ids = torch.randint(0, 1000, (batch_size, 20))
-            encoder_output = torch.randn(batch_size, 10, 896)
+            encoder_output = torch.randn(batch_size, 10, 256)
             result = llm.generate(input_ids=input_ids, encoder_outputs=encoder_output, max_new_tokens=20)
             # Verify generate was called
             assert result is not None

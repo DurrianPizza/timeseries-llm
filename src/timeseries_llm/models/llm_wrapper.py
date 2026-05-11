@@ -44,7 +44,7 @@ class TimeSeriesLLM(nn.Module):
         """
         Args:
             input_ids: Token IDs for text input, shape (batch, text_seq_len)
-            encoder_outputs: TimeSeries encoded tensor, shape (batch, ts_seq_len, llm_dim)
+            encoder_outputs: TimeSeries encoded tensor, shape (batch, ts_seq_len, encoder_dim)
             attention_mask: Attention mask for combined sequence
             labels: Labels for language modeling loss
 
@@ -54,8 +54,9 @@ class TimeSeriesLLM(nn.Module):
         # Get LLM embeddings
         text_embeddings = self.llm.model.embed_tokens(input_ids)
 
-        # Concatenate: text + time series
-        combined_embeddings = torch.cat([text_embeddings, encoder_outputs], dim=1)
+        # Concatenate: text + time series (after fusion projection)
+        fused_encoder_outputs = self.fusion(encoder_outputs)
+        combined_embeddings = torch.cat([text_embeddings, fused_encoder_outputs], dim=1)
 
         # Forward through LLM
         outputs = self.llm(
@@ -65,22 +66,25 @@ class TimeSeriesLLM(nn.Module):
         )
         return outputs
 
-    def generate(self, input_ids: torch.LongTensor, encoder_outputs: torch.Tensor, max_new_tokens: int = 100) -> torch.LongTensor:
+    def generate(self, input_ids: torch.LongTensor, encoder_outputs: torch.Tensor, attention_mask: torch.Tensor = None, max_new_tokens: int = 100) -> torch.LongTensor:
         """Generate text given time series and question.
 
         Args:
             input_ids: Token IDs for text input
             encoder_outputs: TimeSeries encoded tensor
+            attention_mask: Attention mask for combined sequence
             max_new_tokens: Maximum tokens to generate
 
         Returns:
             Generated token IDs
         """
         text_embeddings = self.llm.model.embed_tokens(input_ids)
-        combined_embeddings = torch.cat([text_embeddings, encoder_outputs], dim=1)
+        fused_encoder_outputs = self.fusion(encoder_outputs)
+        combined_embeddings = torch.cat([text_embeddings, fused_encoder_outputs], dim=1)
 
         outputs = self.llm.generate(
             inputs_embeds=combined_embeddings,
+            attention_mask=attention_mask,
             max_new_tokens=max_new_tokens,
             do_sample=True,
             temperature=0.7,
