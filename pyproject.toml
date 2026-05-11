@@ -19,3 +19,6 @@ dev = ["pytest>=8.0.0", "black>=24.0.0", "ruff>=0.3.0"]
 
 [tool.uv]
 index-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+
+[tool.setuptools.packages.find]
+where = ["src"]
