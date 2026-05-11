@@ -3,9 +3,9 @@
 
 import argparse
 import yaml
-import torch
 from timeseries_llm.training.trainer import Trainer
 from timeseries_llm.inference.pipeline import TimeSeriesPipeline
+from timeseries_llm.data.generator import TimeSeriesGenerator
 
 
 def train(args):
@@ -29,7 +29,6 @@ def infer(args):
         checkpoint_path=args.checkpoint,
     )
 
-    from timeseries_llm.data.generator import TimeSeriesGenerator
     ts_gen = TimeSeriesGenerator()
     ts, _ = ts_gen.generate()
 
