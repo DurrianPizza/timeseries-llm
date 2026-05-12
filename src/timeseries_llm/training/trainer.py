@@ -153,34 +153,13 @@ class Trainer:
 
         # Encode time series
         encoder_output = self.model.encoder(ts)
-        logits = self.model(
+        outputs = self.model(
             input_ids=input_ids,
             encoder_outputs=encoder_output,
             attention_mask=attention_mask,
             labels=labels,
         )
-
-        # Compute weighted loss: boost loss for numerical tokens
-        # Shift logits and labels for next-token prediction
-        # Ensure they have the same sequence length
-        min_len = min(logits.shape[1], labels.shape[1])
-        shift_logits = logits[:, :min_len-1, :].contiguous()
-        shift_labels = labels[:, :min_len-1].contiguous()
-
-        # Get per-token loss
-        ce_loss = nn.functional.cross_entropy(shift_logits.view(-1, shift_logits.size(-1)), shift_labels.view(-1), reduction='none')
-
-        # Create weight mask for numerical tokens
-        # Decode tokens to find numbers
-        with torch.no_grad():
-            decoded = [self.model.tokenizer.decode([tok]) for tok in shift_labels.view(-1)]
-            weights = torch.ones_like(shift_labels, dtype=torch.float32)
-            for i, text in enumerate(decoded):
-                if any(c.isdigit() or c in '.-' for c in text):
-                    weights.view(-1)[i] = 10.0  # 10x weight for number tokens
-
-        # Apply weights and compute mean
-        loss = (ce_loss * weights.view(-1)).mean()
+        loss = outputs.loss
 
         if self.current_step % 10 == 0:
             print(f"[DEBUG] step={self.current_step}, loss={loss.item():.4f}")
@@ -193,7 +172,7 @@ class Trainer:
             for p in self.optimizer.param_groups[0]['params']:
                 if p.grad is not None:
                     grad_norms[id(p)] = p.grad.norm().item()
-            print(f"[DEBUG] step={self.current_step}, grad_norms count={len(grad_norms)}, values={list(grad_norms.values())[:3]}")
+            print(f"[DEBUG] grad_norms count={len(grad_norms)}, values={list(grad_norms.values())[:3]}")
 
         self.optimizer.step()
         return loss.item()

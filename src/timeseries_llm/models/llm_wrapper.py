@@ -137,7 +137,7 @@ class TimeSeriesLLM(nn.Module):
             attention_mask=extended_attention_mask,
             labels=labels,
         )
-        return outputs.logits
+        return outputs
 
     def generate(self, input_ids: torch.LongTensor, encoder_outputs: torch.Tensor, attention_mask: torch.Tensor = None, max_new_tokens: int = 100) -> torch.LongTensor:
         """Generate text given time series and question.
