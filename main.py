@@ -25,10 +25,11 @@ def infer(args):
     with open(args.config, "r") as f:
         config = yaml.safe_load(f)
 
+    model_config = config.get("model", {})
     pipeline = TimeSeriesPipeline(
-        llm_name=args.llm_name,
-        encoder_dim=args.encoder_dim,
-        llm_dim=args.llm_dim,
+        llm_name=args.llm_name or model_config.get("llm_name", "Qwen/Qwen3.5-0.8B"),
+        encoder_dim=args.encoder_dim or model_config.get("encoder_dim", 256),
+        llm_dim=args.llm_dim or model_config.get("llm_dim", 1024),
         checkpoint_path=args.checkpoint,
     )
 
