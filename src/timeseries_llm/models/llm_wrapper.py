@@ -95,16 +95,15 @@ class TimeSeriesLLM(nn.Module):
         self.encoder = self.encoder.to(device=device, dtype=self.llm.dtype)
         self.fusion = self.fusion.to(device=device, dtype=self.llm.dtype)
 
-    def forward(self, input_ids: torch.LongTensor, encoder_outputs: torch.Tensor, attention_mask: torch.Tensor = None, labels: torch.LongTensor = None):
+    def forward(self, input_ids: torch.LongTensor, encoder_outputs: torch.Tensor, attention_mask: torch.Tensor = None):
         """
         Args:
             input_ids: Token IDs for text input, shape (batch, text_seq_len)
             encoder_outputs: TimeSeries encoded tensor, shape (batch, ts_seq_len, encoder_dim)
             attention_mask: Attention mask for text tokens only (will be extended for time series)
-            labels: Labels for language modeling loss
 
         Returns:
-            LLM output with loss
+            LLM output logits
         """
         # Get LLM embeddings
         text_embeddings = self.llm.model.embed_tokens(input_ids)
@@ -130,19 +129,10 @@ class TimeSeriesLLM(nn.Module):
         else:
             extended_attention_mask = None
 
-        # Pad labels to match combined sequence length (use ignore_index=-100 for ts tokens)
-        if labels is not None:
-            text_len = labels.shape[1]
-            pad_len = combined_embeddings.shape[1] - text_len
-            if pad_len > 0:
-                pad_labels = labels.new_full((labels.shape[0], pad_len), -100)
-                labels = torch.cat([labels, pad_labels], dim=1)
-
-        # Forward through LLM
+        # Forward through LLM - don't pass labels, let trainer compute loss
         outputs = self.llm(
             inputs_embeds=combined_embeddings,
             attention_mask=extended_attention_mask,
-            labels=labels,
         )
         return outputs.logits
 
