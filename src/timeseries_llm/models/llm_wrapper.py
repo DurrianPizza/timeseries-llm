@@ -58,15 +58,16 @@ def _load_model_and_tokenizer(model_name: str, device: str = "cpu"):
 class TimeSeriesLLM(nn.Module):
     """TimeSeries-LLM wrapper combining encoder + fusion + LLM.
 
-    Supports two modes:
-    - mode="direct": Direct projection of time series values to LLM dim (Plan A)
-    - mode="encoder_decoder": Encoder with reconstruction decoder (Plan B)
+    Supports multiple modes:
+    - mode="direct": Direct projection of time series values to LLM dim
+    - mode="encoder_decoder": Encoder with reconstruction decoder
+    - mode="lossless": Lossless encoder with skip connections and multiple heads
 
     Args:
         llm_name: HuggingFace or ModelScope model name for Qwen
         encoder_dim: Hidden dim of TimeSeries encoder
         llm_dim: Hidden dim of LLM
-        mode: "direct" or "encoder_decoder"
+        mode: "direct", "encoder_decoder", or "lossless"
     """
 
     def __init__(
@@ -84,7 +85,7 @@ class TimeSeriesLLM(nn.Module):
         self.mode = mode
 
         if mode == "direct":
-            # Plan A: Direct projection - no compression, LLM sees raw values
+            # Direct projection - no compression, LLM sees raw values
             from timeseries_llm.models.timeseries_encoder import TimeSeriesEncoderDirect
             self.encoder = TimeSeriesEncoderDirect(
                 in_channels=1,
@@ -92,7 +93,7 @@ class TimeSeriesLLM(nn.Module):
             )
             self.has_decoder = False
         elif mode == "encoder_decoder":
-            # Plan B: Encoder with reconstruction decoder
+            # Encoder with reconstruction decoder
             from timeseries_llm.models.timeseries_encoder import TimeSeriesEncoderWithReconstruction
             self.encoder = TimeSeriesEncoderWithReconstruction(
                 in_channels=1,
@@ -100,8 +101,16 @@ class TimeSeriesLLM(nn.Module):
                 llm_dim=llm_dim,
             )
             self.has_decoder = True
+        elif mode == "lossless":
+            # Lossless encoder with skip connections for better gradient flow
+            from timeseries_llm.models.lossless_encoder import SimpleLosslessEncoder
+            self.encoder = SimpleLosslessEncoder(
+                in_channels=1,
+                llm_dim=llm_dim,
+            )
+            self.has_decoder = False
         else:
-            raise ValueError(f"Unknown mode: {mode}. Use 'direct' or 'encoder_decoder'")
+            raise ValueError(f"Unknown mode: {mode}. Use 'direct', 'encoder_decoder', or 'lossless'")
 
         # LLM - try HuggingFace first, then ModelScope
         self.llm, self.tokenizer = _load_model_and_tokenizer(llm_name, device=device)
