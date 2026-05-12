@@ -6,6 +6,30 @@ from typing import Dict, List, Tuple
 from timeseries_llm.data.generator import TimeSeriesGenerator, QAGenerator
 
 
+def collate_fn(batch):
+    """Collate function to pad variable-length time series."""
+    # Find max channels and length in this batch
+    max_channels = max(b["time_series"].shape[0] for b in batch)
+    max_len = max(b["time_series"].shape[1] for b in batch)
+
+    # Pad each time series to max size
+    padded_ts = []
+    for b in batch:
+        ts = b["time_series"]
+        pad_c = max_channels - ts.shape[0]
+        pad_l = max_len - ts.shape[1]
+        if pad_c > 0 or pad_l > 0:
+            ts = torch.nn.functional.pad(ts, (0, pad_l, 0, pad_c))
+        padded_ts.append(ts)
+
+    return {
+        "time_series": torch.stack(padded_ts),
+        "input_ids": torch.stack([b["input_ids"] for b in batch]),
+        "attention_mask": torch.stack([b["attention_mask"] for b in batch]),
+        "labels": torch.stack([b["labels"] for b in batch]),
+    }
+
+
 class TimeSeriesDataset(Dataset):
     """Dataset for time series QA pairs."""
 
@@ -108,7 +132,7 @@ class Trainer:
         return loss.item()
 
     def train(self):
-        dataloader = DataLoader(self.dataset, batch_size=self.batch_size, shuffle=True)
+        dataloader = DataLoader(self.dataset, batch_size=self.batch_size, shuffle=True, collate_fn=collate_fn)
         pbar = tqdm(total=self.max_steps, desc="Training")
         while self.current_step < self.max_steps:
             for batch in dataloader:
