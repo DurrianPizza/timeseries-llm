@@ -150,15 +150,35 @@ class Trainer:
         input_ids = batch["input_ids"].to(self.device)
         attention_mask = batch["attention_mask"].to(self.device)
         labels = batch["labels"].to(self.device)
-        # Encode time series - model.forward will apply fusion internally
+
+        # Encode time series
         encoder_output = self.model.encoder(ts)
-        outputs = self.model(
+        logits = self.model(
             input_ids=input_ids,
             encoder_outputs=encoder_output,
             attention_mask=attention_mask,
             labels=labels,
         )
-        loss = outputs.loss
+
+        # Compute weighted loss: boost loss for numerical tokens
+        # Shift logits and labels for next-token prediction
+        shift_logits = logits[..., :-1, :].contiguous()
+        shift_labels = labels[..., 1:].contiguous()
+
+        # Get per-token loss
+        ce_loss = nn.functional.cross_entropy(shift_logits.view(-1, shift_logits.size(-1)), shift_labels.view(-1), reduction='none')
+
+        # Create weight mask for numerical tokens
+        # Decode tokens to find numbers
+        with torch.no_grad():
+            decoded = [self.model.tokenizer.decode([tok]) for tok in shift_labels.view(-1)]
+            weights = torch.ones_like(shift_labels, dtype=torch.float32)
+            for i, text in enumerate(decoded):
+                if any(c.isdigit() or c in '.-' for c in text):
+                    weights.view(-1)[i] = 10.0  # 10x weight for number tokens
+
+        # Apply weights and compute mean
+        loss = (ce_loss * weights.view(-1)).mean()
 
         if self.current_step % 10 == 0:
             print(f"[DEBUG] step={self.current_step}, loss={loss.item():.4f}")
