@@ -120,11 +120,8 @@ class Trainer:
         input_ids = batch["input_ids"].to(self.device)
         attention_mask = batch["attention_mask"].to(self.device)
         labels = batch["labels"].to(self.device)
-        print(f"[DEBUG] ts shape: {ts.shape}")
+        # Encode time series - model.forward will apply fusion internally
         encoder_output = self.model.encoder(ts)
-        print(f"[DEBUG] encoder_output shape: {encoder_output.shape}")
-        encoder_output = self.model.fusion(encoder_output)
-        print(f"[DEBUG] fused encoder_output shape: {encoder_output.shape}")
         outputs = self.model(
             input_ids=input_ids,
             encoder_outputs=encoder_output,
