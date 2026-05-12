@@ -159,11 +159,31 @@ class Trainer:
             labels=labels,
         )
 
-        # Compute weighted loss: boost loss for numerical tokens
-        # Shift logits and labels for next-token prediction
-        min_len = min(logits.shape[1], labels.shape[1])
-        shift_logits = logits[:, :min_len-1, :].contiguous()
-        shift_labels = labels[:, :min_len-1].contiguous()
+        # logits shape: [text_len + ts_len, vocab] = [Q+A+TS, vocab]
+        # labels shape: [Q+A]
+        # For next-token prediction: logits[i] predicts labels[i+1]
+        # After shift: position i (0 to text_len-2) predicts labels[i+1] (answer tokens)
+
+        text_len = labels.shape[1]  # Q + A tokens
+
+        # Truncate logits to match labels-1 for correct alignment
+        # logits[:, :text_len-1] aligns with labels[:, 1:]
+        shift_logits = logits[:, :text_len-1, :].contiguous()
+        shift_labels = labels[:, 1:].contiguous()
+
+        # Question length (approx tokens in "Question: ... Answer:")
+        question_len = 15
+
+        # Create weight mask: only compute loss on answer portion
+        weights = torch.zeros_like(shift_labels, dtype=torch.float32)
+        weights[:, question_len-1:] = 1.0  # Answer positions get weight 1.0
+
+        # Boost numerical tokens
+        with torch.no_grad():
+            decoded = [self.tokenizer.decode([tok]) for tok in shift_labels.view(-1)]
+            for i, text in enumerate(decoded):
+                if any(c.isdigit() or c in '.-' for c in text):
+                    weights.view(-1)[i] *= 10.0
 
         # Get per-token loss
         ce_loss = nn.functional.cross_entropy(
@@ -172,16 +192,8 @@ class Trainer:
             reduction='none',
         )
 
-        # Create weight mask for numerical tokens
-        with torch.no_grad():
-            decoded = [self.tokenizer.decode([tok]) for tok in shift_labels.view(-1)]
-            weights = torch.ones_like(shift_labels, dtype=torch.float32)
-            for i, text in enumerate(decoded):
-                if any(c.isdigit() or c in '.-' for c in text):
-                    weights.view(-1)[i] = 10.0
-
         # Apply weights and compute mean
-        loss = (ce_loss * weights.view(-1)).mean()
+        loss = (ce_loss * weights.view(-1)).sum() / (weights.sum() + 1e-8)
 
         # Use accelerate.backward instead of loss.backward()
         self.accelerator.backward(loss)
