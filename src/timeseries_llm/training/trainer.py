@@ -144,10 +144,11 @@ class Trainer:
         self.model.train()
         self.optimizer.zero_grad()
 
-        ts = batch["time_series"]
-        input_ids = batch["input_ids"]
-        attention_mask = batch["attention_mask"]
-        labels = batch["labels"]
+        # Move batch data to device
+        ts = batch["time_series"].to(self.device)
+        input_ids = batch["input_ids"].to(self.device)
+        attention_mask = batch["attention_mask"].to(self.device)
+        labels = batch["labels"].to(self.device)
 
         # Encode time series
         encoder_output = self.model.encoder(ts)
