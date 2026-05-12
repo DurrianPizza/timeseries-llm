@@ -111,19 +111,17 @@ class Trainer:
         # Save tokenizer reference
         self.tokenizer = self.model.tokenizer
 
-        # Freeze LLM - only train encoder + fusion
-        for param in self.model.llm.parameters():
-            param.requires_grad = False
+        # Don't freeze LLM - use different learning rates
+        # LLM has small lr, encoder+fusion have larger lr
+        # This works better on MPS where freezing causes gradient issues
+        trainable_params = list(self.model.encoder.parameters()) + list(self.model.fusion.parameters()) + list(self.model.llm.parameters())
+        print(f"[INFO] Training encoder+fusion+LLM (LLM has small lr)")
 
-        trainable_params = [n for n, p in self.model.encoder.named_parameters()] + \
-                          [n for n, p in self.model.fusion.named_parameters()]
-        print(f"[INFO] Trainable parameters: {trainable_params}")
-
-        self.optimizer = torch.optim.AdamW(
-            list(self.model.encoder.parameters()) + list(self.model.fusion.parameters()),
-            lr=config["training"]["learning_rate"],
-            eps=1e-4,  # Larger epsilon for numerical stability on MPS
-        )
+        # Two param groups: encoder+fusion with normal lr, LLM with tiny lr
+        self.optimizer = torch.optim.AdamW([
+            {"params": list(self.model.encoder.parameters()) + list(self.model.fusion.parameters()), "lr": config["training"]["learning_rate"]},
+            {"params": list(self.model.llm.parameters()), "lr": config["training"]["learning_rate"] * 0.01},
+        ], eps=1e-4)
 
         print(f"[INFO] Pre-generating {config['data']['num_samples']} training samples...")
         self.dataset = TimeSeriesDataset(
