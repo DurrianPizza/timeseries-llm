@@ -117,6 +117,17 @@ class Trainer:
             device=str(self.device),
         )
         self.model.to(self.device)
+
+        # Freeze LLM, only train encoder + fusion
+        for param in self.model.llm.parameters():
+            param.requires_grad = False
+        # Check which modules are trainable
+        trainable_params = []
+        for name, param in self.model.named_parameters():
+            if param.requires_grad:
+                trainable_params.append(name)
+        print(f"[INFO] Trainable parameters: {trainable_params}")
+
         self.optimizer = torch.optim.AdamW(
             self.model.parameters(),
             lr=config["training"]["learning_rate"],
