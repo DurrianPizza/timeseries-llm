@@ -69,7 +69,6 @@ class TimeSeriesLLM(nn.Module):
         llm_name: str = "Qwen/Qwen3.5-0.8B",
         encoder_dim: int = 256,
         llm_dim: int = 896,
-        num_encoder_layers: int = 2,
         device: str = "cpu",
     ):
         super().__init__()
@@ -77,15 +76,11 @@ class TimeSeriesLLM(nn.Module):
         self.encoder_dim = encoder_dim
         self.llm_dim = llm_dim
 
-        # TimeSeries Encoder
-        # NOTE: in_channels is hardcoded to max_dims (8) as a workaround.
-        # Multi-dimensional time series inputs (up to 8 channels) are supported,
-        # but dynamic channel adaptation requires future encoder redesign.
+        # TimeSeries Encoder - linear projection without CNN/Transformer
         from timeseries_llm.models.encoder import TimeSeriesEncoder
         self.encoder = TimeSeriesEncoder(
-            in_channels=8,  # max_dims from config; matches data spec max_dims
+            in_channels=8,  # max_dims from config
             hidden_dim=encoder_dim,
-            num_layers=num_encoder_layers,
         )
 
         # Fusion MLP
