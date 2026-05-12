@@ -86,7 +86,7 @@ class TimeSeriesLLM(nn.Module):
         Args:
             input_ids: Token IDs for text input, shape (batch, text_seq_len)
             encoder_outputs: TimeSeries encoded tensor, shape (batch, ts_seq_len, encoder_dim)
-            attention_mask: Attention mask for combined sequence
+            attention_mask: Attention mask for text tokens only (will be extended for time series)
             labels: Labels for language modeling loss
 
         Returns:
@@ -94,20 +94,29 @@ class TimeSeriesLLM(nn.Module):
         """
         # Get LLM embeddings
         text_embeddings = self.llm.model.embed_tokens(input_ids)
-        print(f"[DEBUG llm_wrapper] input_ids shape: {input_ids.shape}")
-        print(f"[DEBUG llm_wrapper] text_embeddings shape: {text_embeddings.shape}")
-        print(f"[DEBUG llm_wrapper] encoder_outputs shape: {encoder_outputs.shape}")
+        text_seq_len = text_embeddings.shape[1]
 
         # Concatenate: text + time series (after fusion projection)
         fused_encoder_outputs = self.fusion(encoder_outputs)
-        print(f"[DEBUG llm_wrapper] fused_encoder_outputs shape: {fused_encoder_outputs.shape}")
+        ts_seq_len = fused_encoder_outputs.shape[1]
 
         combined_embeddings = torch.cat([text_embeddings, fused_encoder_outputs], dim=1)
+
+        # Extend attention mask to cover both text and time series tokens
+        # Time series tokens can attend to all time series tokens (full attention within ts)
+        # and can attend to all text tokens
+        if attention_mask is not None:
+            # attention_mask shape: (batch, text_seq_len)
+            # Extend with ones for time series tokens: (batch, ts_seq_len)
+            ts_attention_mask = attention_mask.new_ones(attention_mask.shape[0], ts_seq_len)
+            extended_attention_mask = torch.cat([attention_mask, ts_attention_mask], dim=1)
+        else:
+            extended_attention_mask = None
 
         # Forward through LLM
         outputs = self.llm(
             inputs_embeds=combined_embeddings,
-            attention_mask=attention_mask,
+            attention_mask=extended_attention_mask,
             labels=labels,
         )
         return outputs
@@ -118,19 +127,30 @@ class TimeSeriesLLM(nn.Module):
         Args:
             input_ids: Token IDs for text input
             encoder_outputs: TimeSeries encoded tensor
-            attention_mask: Attention mask for combined sequence
+            attention_mask: Attention mask for text tokens only
             max_new_tokens: Maximum tokens to generate
 
         Returns:
             Generated token IDs
         """
         text_embeddings = self.llm.model.embed_tokens(input_ids)
+        text_seq_len = text_embeddings.shape[1]
+
         fused_encoder_outputs = self.fusion(encoder_outputs)
+        ts_seq_len = fused_encoder_outputs.shape[1]
+
         combined_embeddings = torch.cat([text_embeddings, fused_encoder_outputs], dim=1)
+
+        # Extend attention mask for time series tokens
+        if attention_mask is not None:
+            ts_attention_mask = attention_mask.new_ones(attention_mask.shape[0], ts_seq_len)
+            extended_attention_mask = torch.cat([attention_mask, ts_attention_mask], dim=1)
+        else:
+            extended_attention_mask = None
 
         outputs = self.llm.generate(
             inputs_embeds=combined_embeddings,
-            attention_mask=attention_mask,
+            attention_mask=extended_attention_mask,
             max_new_tokens=max_new_tokens,
             do_sample=True,
             temperature=0.7,

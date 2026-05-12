@@ -1,0 +1,1869 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - link "Skip to content" [ref=e4] [cursor=pointer]:
+        - /url: "#start-of-content"
+      - banner [ref=e6]:
+        - heading "Navigation Menu" [level=2] [ref=e7]
+        - generic [ref=e8]:
+          - link "Homepage" [ref=e10] [cursor=pointer]:
+            - /url: /
+            - img [ref=e11]
+          - generic [ref=e13]:
+            - navigation "Global" [ref=e16]:
+              - list [ref=e17]:
+                - listitem [ref=e18]:
+                  - button "Platform" [ref=e20] [cursor=pointer]:
+                    - text: Platform
+                    - img [ref=e21]
+                - listitem [ref=e23]:
+                  - button "Solutions" [ref=e25] [cursor=pointer]:
+                    - text: Solutions
+                    - img [ref=e26]
+                - listitem [ref=e28]:
+                  - button "Resources" [ref=e30] [cursor=pointer]:
+                    - text: Resources
+                    - img [ref=e31]
+                - listitem [ref=e33]:
+                  - button "Open Source" [ref=e35] [cursor=pointer]:
+                    - text: Open Source
+                    - img [ref=e36]
+                - listitem [ref=e38]:
+                  - button "Enterprise" [ref=e40] [cursor=pointer]:
+                    - text: Enterprise
+                    - img [ref=e41]
+                - listitem [ref=e43]:
+                  - link "Pricing" [ref=e44] [cursor=pointer]:
+                    - /url: https://github.com/pricing
+                    - generic [ref=e45]: Pricing
+            - generic [ref=e46]:
+              - button "Search or jump to…" [ref=e49] [cursor=pointer]:
+                - img [ref=e51]
+              - link "Sign in" [ref=e54] [cursor=pointer]:
+                - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fhiyouga%2FLlamaFactory%2Fblob%2Fmain%2FREADME.md
+              - link "Sign up" [ref=e55] [cursor=pointer]:
+                - /url: /signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fblob%2Fshow&source=header-repo&source_repo=hiyouga%2FLlamaFactory
+              - button "Appearance settings" [ref=e58] [cursor=pointer]:
+                - img
+    - main [ref=e62]:
+      - generic [ref=e63]:
+        - generic [ref=e64]:
+          - generic [ref=e66]:
+            - img [ref=e67]
+            - link "hiyouga" [ref=e70] [cursor=pointer]:
+              - /url: /hiyouga
+            - generic [ref=e71]: /
+            - strong [ref=e72]:
+              - link "LlamaFactory" [ref=e73] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory
+            - generic [ref=e74]: Public
+          - generic [ref=e75]:
+            - list:
+              - listitem [ref=e76]:
+                - link "You must be signed in to change notification settings" [ref=e77] [cursor=pointer]:
+                  - /url: /login?return_to=%2Fhiyouga%2FLlamaFactory
+                  - img [ref=e78]
+                  - text: Notifications
+              - listitem [ref=e80]:
+                - link "Fork 8.7k" [ref=e81] [cursor=pointer]:
+                  - /url: /login?return_to=%2Fhiyouga%2FLlamaFactory
+                  - img [ref=e82]
+                  - text: Fork
+                  - generic "8,695" [ref=e84]: 8.7k
+              - listitem [ref=e85]:
+                - link "You must be signed in to star a repository" [ref=e87] [cursor=pointer]:
+                  - /url: /login?return_to=%2Fhiyouga%2FLlamaFactory
+                  - img [ref=e88]
+                  - text: Star
+                  - generic "71151 users starred this repository" [ref=e90]: 71.2k
+        - navigation "Repository" [ref=e91]:
+          - list [ref=e92]:
+            - listitem [ref=e93]:
+              - link "Code" [ref=e94] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory
+                - img [ref=e95]
+                - generic [ref=e97]: Code
+            - listitem [ref=e98]:
+              - link "Issues 956" [ref=e99] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory/issues
+                - img [ref=e100]
+                - generic [ref=e103]: Issues
+                - generic "956" [ref=e104]
+            - listitem [ref=e105]:
+              - link "Pull requests 49" [ref=e106] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory/pulls
+                - img [ref=e107]
+                - generic [ref=e109]: Pull requests
+                - generic "49" [ref=e110]
+            - listitem [ref=e111]:
+              - link "Discussions" [ref=e112] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory/discussions
+                - img [ref=e113]
+                - generic [ref=e115]: Discussions
+            - listitem [ref=e116]:
+              - link "Actions" [ref=e117] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory/actions
+                - img [ref=e118]
+                - generic [ref=e120]: Actions
+            - listitem [ref=e121]:
+              - link "Security and quality 4" [ref=e122] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory/security
+                - img [ref=e123]
+                - generic [ref=e125]: Security and quality
+                - generic "4" [ref=e126]
+            - listitem [ref=e127]:
+              - link "Insights" [ref=e128] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory/pulse
+                - img [ref=e129]
+                - generic [ref=e131]: Insights
+      - generic [ref=e139]:
+        - generic [ref=e141]:
+          - generic [ref=e144]:
+            - generic [ref=e145]:
+              - generic [ref=e146]:
+                - heading "Collapse file tree" [level=2] [ref=e147]:
+                  - button "Collapse file tree" [expanded] [ref=e148] [cursor=pointer]:
+                    - img [ref=e149]
+                - heading "Files" [level=2] [ref=e152]
+              - generic [ref=e153]:
+                - button "main branch" [ref=e155] [cursor=pointer]:
+                  - generic [ref=e156]:
+                    - generic [ref=e158]:
+                      - img [ref=e160]
+                      - generic [ref=e163]: main
+                    - generic:
+                      - img
+                - button "Search this repository (forward slash)" [ref=e165] [cursor=pointer]:
+                  - img [ref=e166]
+            - generic [ref=e169]:
+              - img [ref=e171]
+              - combobox "Go to file" [ref=e173]
+            - navigation "File Tree Navigation" [ref=e179]:
+              - tree "Files" [ref=e181]:
+                - treeitem ".ai" [level=1] [ref=e182]:
+                  - generic [ref=e183] [cursor=pointer]:
+                    - img [ref=e185]
+                    - generic [ref=e187]:
+                      - img [ref=e191]
+                      - generic [ref=e193]: .ai
+                - treeitem ".github" [level=1] [ref=e194]:
+                  - generic [ref=e195] [cursor=pointer]:
+                    - img [ref=e197]
+                    - generic [ref=e199]:
+                      - img [ref=e203]
+                      - generic [ref=e205]: .github
+                - treeitem "assets" [level=1] [ref=e206]:
+                  - generic [ref=e207] [cursor=pointer]:
+                    - img [ref=e209]
+                    - generic [ref=e211]:
+                      - img [ref=e215]
+                      - generic [ref=e217]: assets
+                - treeitem "data" [level=1] [ref=e218]:
+                  - generic [ref=e219] [cursor=pointer]:
+                    - img [ref=e221]
+                    - generic [ref=e223]:
+                      - img [ref=e227]
+                      - generic [ref=e229]: data
+                - treeitem "docker" [level=1] [ref=e230]:
+                  - generic [ref=e231] [cursor=pointer]:
+                    - img [ref=e233]
+                    - generic [ref=e235]:
+                      - img [ref=e239]
+                      - generic [ref=e241]: docker
+                - treeitem "docs" [level=1] [ref=e242]:
+                  - generic [ref=e243] [cursor=pointer]:
+                    - img [ref=e245]
+                    - generic [ref=e247]:
+                      - img [ref=e251]
+                      - generic [ref=e253]: docs
+                - treeitem "examples" [level=1] [ref=e254]:
+                  - generic [ref=e255] [cursor=pointer]:
+                    - img [ref=e257]
+                    - generic [ref=e259]:
+                      - img [ref=e263]
+                      - generic [ref=e265]: examples
+                - treeitem "requirements" [level=1] [ref=e266]:
+                  - generic [ref=e267] [cursor=pointer]:
+                    - img [ref=e269]
+                    - generic [ref=e271]:
+                      - img [ref=e275]
+                      - generic [ref=e277]: requirements
+                - treeitem "scripts" [level=1] [ref=e278]:
+                  - generic [ref=e279] [cursor=pointer]:
+                    - img [ref=e281]
+                    - generic [ref=e283]:
+                      - img [ref=e287]
+                      - generic [ref=e289]: scripts
+                - treeitem "src" [level=1] [ref=e290]:
+                  - generic [ref=e291] [cursor=pointer]:
+                    - img [ref=e293]
+                    - generic [ref=e295]:
+                      - img [ref=e299]
+                      - generic [ref=e301]: src
+                - treeitem "tests" [level=1] [ref=e302]:
+                  - generic [ref=e303] [cursor=pointer]:
+                    - img [ref=e305]
+                    - generic [ref=e307]:
+                      - img [ref=e311]
+                      - generic [ref=e313]: tests
+                - treeitem "tests_v1" [level=1] [ref=e314]:
+                  - generic [ref=e315] [cursor=pointer]:
+                    - img [ref=e317]
+                    - generic [ref=e319]:
+                      - img [ref=e323]
+                      - generic [ref=e325]: tests_v1
+                - treeitem ".dockerignore" [level=1] [ref=e326]:
+                  - generic [ref=e328] [cursor=pointer]:
+                    - img [ref=e331]
+                    - generic [ref=e333]: .dockerignore
+                - treeitem ".env.local" [level=1] [ref=e334]:
+                  - generic [ref=e336] [cursor=pointer]:
+                    - img [ref=e339]
+                    - generic [ref=e341]: .env.local
+                - treeitem ".gitattributes" [level=1] [ref=e342]:
+                  - generic [ref=e344] [cursor=pointer]:
+                    - img [ref=e347]
+                    - generic [ref=e349]: .gitattributes
+                - treeitem ".gitignore" [level=1] [ref=e350]:
+                  - generic [ref=e352] [cursor=pointer]:
+                    - img [ref=e355]
+                    - generic [ref=e357]: .gitignore
+                - treeitem ".pre-commit-config.yaml" [level=1] [ref=e358]:
+                  - generic [ref=e360] [cursor=pointer]:
+                    - img [ref=e363]
+                    - generic [ref=e365]: .pre-commit-config.yaml
+                - treeitem "CITATION.cff" [level=1] [ref=e366]:
+                  - generic [ref=e368] [cursor=pointer]:
+                    - img [ref=e371]
+                    - generic [ref=e373]: CITATION.cff
+                - treeitem "CLAUDE.md" [level=1] [ref=e374]:
+                  - generic [ref=e376] [cursor=pointer]:
+                    - img [ref=e379]
+                    - generic [ref=e381]: CLAUDE.md
+                - treeitem "LICENSE" [level=1] [ref=e382]:
+                  - generic [ref=e384] [cursor=pointer]:
+                    - img [ref=e387]
+                    - generic [ref=e389]: LICENSE
+                - treeitem "MANIFEST.in" [level=1] [ref=e390]:
+                  - generic [ref=e392] [cursor=pointer]:
+                    - img [ref=e395]
+                    - generic [ref=e397]: MANIFEST.in
+                - treeitem "Makefile" [level=1] [ref=e398]:
+                  - generic [ref=e400] [cursor=pointer]:
+                    - img [ref=e403]
+                    - generic [ref=e405]: Makefile
+                - treeitem "README.md" [level=1] [ref=e406]:
+                  - generic [ref=e408] [cursor=pointer]:
+                    - img [ref=e411]
+                    - generic [ref=e413]: README.md
+                - treeitem "README_zh.md" [level=1] [ref=e414]:
+                  - generic [ref=e416] [cursor=pointer]:
+                    - img [ref=e419]
+                    - generic [ref=e421]: README_zh.md
+                - treeitem "pyproject.toml" [level=1] [ref=e422]:
+                  - generic [ref=e424] [cursor=pointer]:
+                    - img [ref=e427]
+                    - generic [ref=e429]: pyproject.toml
+          - slider "Draggable pane splitter" [ref=e431]
+        - generic [ref=e434]:
+          - generic [ref=e438]:
+            - generic [ref=e440]:
+              - navigation "Breadcrumbs" [ref=e441]:
+                - heading "Breadcrumbs" [level=2] [ref=e442]
+                - list [ref=e443]:
+                  - listitem [ref=e444]:
+                    - link "LlamaFactory" [ref=e445] [cursor=pointer]:
+                      - /url: /hiyouga/LlamaFactory/tree/main
+              - generic [ref=e446]:
+                - text: /
+                - heading "README.md" [level=1] [ref=e447]
+              - button "Copy path" [ref=e448] [cursor=pointer]:
+                - img [ref=e449]
+            - button "More file actions" [ref=e455] [cursor=pointer]:
+              - img [ref=e456]
+          - generic [ref=e458]:
+            - generic [ref=e460]:
+              - heading "Latest commit" [level=2] [ref=e461]
+              - generic [ref=e462]:
+                - generic [ref=e464]:
+                  - link "frozenleaves" [ref=e465] [cursor=pointer]:
+                    - /url: /frozenleaves
+                    - img "frozenleaves" [ref=e466]
+                  - link "commits by frozenleaves" [ref=e467] [cursor=pointer]:
+                    - /url: /hiyouga/LlamaFactory/commits?author=frozenleaves
+                    - text: frozenleaves
+                - generic [ref=e470]:
+                  - link "[fix] fix qwen3_6 template doc (" [ref=e471] [cursor=pointer]:
+                    - /url: /hiyouga/LlamaFactory/commit/55bd4944b6fd77797d3d23b06d0bcf8a69974796
+                  - link "#10470" [ref=e472] [cursor=pointer]:
+                    - /url: https://github.com/hiyouga/LlamaFactory/pull/10470
+                  - link ")" [ref=e473] [cursor=pointer]:
+                    - /url: /hiyouga/LlamaFactory/commit/55bd4944b6fd77797d3d23b06d0bcf8a69974796
+              - generic [ref=e474]:
+                - generic [ref=e476]:
+                  - link "Commit 55bd494" [ref=e477] [cursor=pointer]:
+                    - /url: /hiyouga/LlamaFactory/commit/55bd4944b6fd77797d3d23b06d0bcf8a69974796
+                    - text: 55bd494
+                  - text: ·
+                  - generic "May 8, 2026, 11:47 AM GMT+8" [ref=e478]: May 8, 20264 days ago
+                - generic [ref=e479]:
+                  - heading "History" [level=2] [ref=e480]
+                  - link "History" [ref=e481] [cursor=pointer]:
+                    - /url: /hiyouga/LlamaFactory/commits/main/README.md
+                    - generic [ref=e482]:
+                      - generic:
+                        - img
+                      - generic [ref=e483]: History
+            - generic [ref=e485]:
+              - generic [ref=e487]:
+                - heading "File metadata and controls" [level=2] [ref=e488]
+                - list "File view" [ref=e490]:
+                  - listitem [ref=e491]:
+                    - button "Preview" [ref=e492] [cursor=pointer]:
+                      - generic [ref=e494]: Preview
+                  - listitem [ref=e495]:
+                    - button "Code" [ref=e496] [cursor=pointer]:
+                      - generic [ref=e498]: Code
+                  - listitem [ref=e499]:
+                    - button "Blame" [ref=e500] [cursor=pointer]:
+                      - generic [ref=e502]: Blame
+                - generic [ref=e503]:
+                  - generic [ref=e504]:
+                    - generic [ref=e505]:
+                      - link "Raw" [ref=e507] [cursor=pointer]:
+                        - /url: https://github.com/hiyouga/LlamaFactory/raw/refs/heads/main/README.md
+                        - generic [ref=e509]: Raw
+                      - button "Copy raw file" [ref=e511] [cursor=pointer]:
+                        - img [ref=e512]
+                      - button "Download raw file" [ref=e516] [cursor=pointer]:
+                        - img [ref=e517]
+                    - generic [ref=e520]:
+                      - button "You must be signed in to make or propose changes" [disabled] [ref=e522]:
+                        - img [ref=e523]
+                      - button "More edit options" [ref=e526] [cursor=pointer]:
+                        - img [ref=e527]
+                  - button "Outline" [ref=e529] [cursor=pointer]:
+                    - img [ref=e530]
+              - region "README.md" [ref=e533]:
+                - article [ref=e535]:
+                  - paragraph [ref=e536]:
+                    - link "# LLaMA Factory":
+                      - /url: /hiyouga/LlamaFactory/blob/main/assets/logo.png
+                      - img "# LLaMA Factory"
+                  - paragraph [ref=e537]:
+                    - link "GitHub Repo stars" [ref=e538] [cursor=pointer]:
+                      - /url: https://github.com/hiyouga/LLaMA-Factory/stargazers
+                      - img "GitHub Repo stars" [ref=e539]
+                    - link "GitHub last commit" [ref=e540] [cursor=pointer]:
+                      - /url: https://github.com/hiyouga/LLaMA-Factory/commits/main
+                      - img "GitHub last commit" [ref=e541]
+                    - link "GitHub contributors" [ref=e542] [cursor=pointer]:
+                      - /url: https://github.com/hiyouga/LLaMA-Factory/graphs/contributors
+                      - img "GitHub contributors" [ref=e543]
+                    - link "GitHub workflow" [ref=e544] [cursor=pointer]:
+                      - /url: https://github.com/hiyouga/LLaMA-Factory/actions/workflows/tests.yml
+                      - img "GitHub workflow" [ref=e545]
+                    - link "PyPI" [ref=e546] [cursor=pointer]:
+                      - /url: https://pypi.org/project/llamafactory/
+                      - img "PyPI" [ref=e547]
+                    - link "Citation" [ref=e548] [cursor=pointer]:
+                      - /url: https://scholar.google.com/scholar?cites=12620864006390196564
+                      - img "Citation" [ref=e549]
+                    - link "Docker Pulls" [ref=e550] [cursor=pointer]:
+                      - /url: https://hub.docker.com/r/hiyouga/llamafactory/tags
+                      - img "Docker Pulls" [ref=e551]
+                  - paragraph [ref=e552]:
+                    - link "Twitter" [ref=e553] [cursor=pointer]:
+                      - /url: https://twitter.com/llamafactory_ai
+                      - img "Twitter" [ref=e554]
+                    - link "Discord":
+                      - /url: https://discord.gg/rKfvV9r9FK
+                      - img "Discord"
+                    - link "WeChat" [ref=e555] [cursor=pointer]:
+                      - /url: https://github.com/hiyouga/llamafactory-community
+                      - img "WeChat" [ref=e556]
+                    - link "Blog" [ref=e557] [cursor=pointer]:
+                      - /url: https://blog.llamafactory.net/en/
+                      - img "Blog" [ref=e558]
+                  - paragraph [ref=e559]:
+                    - link "Open in Colab":
+                      - /url: https://colab.research.google.com/drive/1eRTPn37ltBbYsISy9Aw2NuI2Aq5CQrD9?usp=sharing
+                      - img "Open in Colab"
+                    - link "Open in DSW":
+                      - /url: https://gallery.pai-ml.com/#/preview/deepLearning/nlp/llama_factory
+                      - img "Open in DSW"
+                    - link "Open in Lab4ai":
+                      - /url: https://www.lab4ai.cn/course/detail?id=7c13e60f6137474eb40f6fd3983c0f46&utm_source=LLaMA-Factory
+                      - img "Open in Lab4ai"
+                    - link "Open in Online":
+                      - /url: https://www.llamafactory.com.cn/?utm_source=LLaMA-Factory
+                      - img "Open in Online"
+                    - link "Open in Spaces" [ref=e560] [cursor=pointer]:
+                      - /url: https://huggingface.co/spaces/hiyouga/LLaMA-Board
+                      - img "Open in Spaces" [ref=e561]
+                    - link "Open in Studios" [ref=e562] [cursor=pointer]:
+                      - /url: https://modelscope.cn/studios/hiyouga/LLaMA-Board
+                      - img "Open in Studios" [ref=e563]
+                    - link "Open in Novita" [ref=e564] [cursor=pointer]:
+                      - /url: https://novita.ai/templates-library/105981?sharer=88115474-394e-4bda-968e-b88e123d0c47
+                      - img "Open in Novita" [ref=e565]
+                  - generic [ref=e566]:
+                    - heading "Used by Amazon, NVIDIA, Aliyun, etc." [level=3] [ref=e567]:
+                      - text: Used by
+                      - link "Amazon" [ref=e568] [cursor=pointer]:
+                        - /url: https://aws.amazon.com/cn/blogs/machine-learning/how-apoidea-group-enhances-visual-information-extraction-from-banking-documents-with-multimodal-models-using-llama-factory-on-amazon-sagemaker-hyperpod/
+                      - text: ","
+                      - link "NVIDIA" [ref=e569] [cursor=pointer]:
+                        - /url: https://developer.nvidia.com/rtx/ai-toolkit
+                      - text: ","
+                      - link "Aliyun" [ref=e570] [cursor=pointer]:
+                        - /url: https://help.aliyun.com/zh/pai/use-cases/fine-tune-a-llama-3-model-with-llama-factory
+                      - text: ", etc."
+                    - 'link "Permalink: Used by Amazon, NVIDIA, Aliyun, etc." [ref=e571] [cursor=pointer]':
+                      - /url: "#used-by-amazon-nvidia-aliyun-etc"
+                      - img [ref=e572]
+                  - generic [ref=e574]:
+                    - generic [ref=e575]:
+                      - heading "Supporters ❤️" [level=3] [ref=e576]
+                      - 'link "Permalink: Supporters ❤️" [ref=e577] [cursor=pointer]':
+                        - /url: "#supporters-️"
+                        - img [ref=e578]
+                    - table [ref=e581]:
+                      - rowgroup [ref=e582]:
+                        - row "Warp sponsorship Warp, the agentic terminal for developers Available for MacOS, Linux, & Windows SerpAPI sponsorship" [ref=e583]:
+                          - columnheader "Warp sponsorship Warp, the agentic terminal for developers Available for MacOS, Linux, & Windows" [ref=e584]:
+                            - generic [ref=e585]:
+                              - link "Warp sponsorship" [ref=e586] [cursor=pointer]:
+                                - /url: https://warp.dev/llama-factory
+                                - img "Warp sponsorship"
+                              - link "Warp, the agentic terminal for developers" [ref=e587] [cursor=pointer]:
+                                - /url: https://warp.dev/llama-factory
+                              - link "Available for MacOS, Linux, & Windows" [ref=e588] [cursor=pointer]:
+                                - /url: https://warp.dev/llama-factory
+                          - columnheader "SerpAPI sponsorship" [ref=e589]:
+                            - link "SerpAPI sponsorship" [ref=e590] [cursor=pointer]:
+                              - /url: https://serpapi.com
+                              - img "SerpAPI sponsorship"
+                    - separator [ref=e591]
+                    - generic [ref=e592]:
+                      - heading "Easily fine-tune 100+ large language models with zero-code CLI and Web UI" [level=3] [ref=e593]:
+                        - text: Easily fine-tune 100+ large language models with zero-code
+                        - link "CLI" [ref=e594] [cursor=pointer]:
+                          - /url: "#quickstart"
+                        - text: and
+                        - link "Web UI" [ref=e595] [cursor=pointer]:
+                          - /url: "#fine-tuning-with-llama-board-gui-powered-by-gradio"
+                      - 'link "Permalink: Easily fine-tune 100+ large language models with zero-code CLI and Web UI" [ref=e596] [cursor=pointer]':
+                        - /url: "#easily-fine-tune-100-large-language-models-with-zero-code-cli-and-web-ui"
+                        - img [ref=e597]
+                    - paragraph [ref=e599]:
+                      - link "GitHub Trend" [ref=e600] [cursor=pointer]:
+                        - /url: https://camo.githubusercontent.com/406161a52d9ac8f4c98312ad5b7cf55b085e8bcfb0d27a03411d3e04a49be86a/68747470733a2f2f7472656e6473686966742e696f2f6170692f62616467652f7265706f7369746f726965732f34353335
+                        - img "GitHub Trend" [ref=e601]
+                  - paragraph [ref=e602]:
+                    - text: 👋 Join our
+                    - link "WeChat" [ref=e603] [cursor=pointer]:
+                      - /url: https://github.com/hiyouga/llamafactory-community/blob/main/wechat/main.jpg
+                    - text: ","
+                    - link "NPU" [ref=e604] [cursor=pointer]:
+                      - /url: https://github.com/hiyouga/llamafactory-community/blob/main/wechat/npu.jpg
+                    - text: ","
+                    - link "Lab4AI" [ref=e605] [cursor=pointer]:
+                      - /url: https://github.com/hiyouga/llamafactory-community/blob/main/wechat/lab4ai.jpg
+                    - text: ","
+                    - link "LLaMA Factory Online" [ref=e606] [cursor=pointer]:
+                      - /url: https://github.com/hiyouga/llamafactory-community/blob/main/wechat/online.jpg
+                    - text: user group.
+                  - paragraph [ref=e607]:
+                    - text: "[ English |"
+                    - link "中文" [ref=e608] [cursor=pointer]:
+                      - /url: /hiyouga/LlamaFactory/blob/main/README_zh.md
+                    - text: "]"
+                  - paragraph [ref=e609]:
+                    - strong [ref=e610]: Fine-tuning a large language model can be easy as...
+                  - group [ref=e611]:
+                    - generic "train_en.mp4" [ref=e612] [cursor=pointer]:
+                      - img [ref=e613]
+                      - text: train_en.mp4
+                  - paragraph [ref=e617]: "Start local training:"
+                  - list [ref=e618]:
+                    - listitem [ref=e619]:
+                      - text: Please refer to
+                      - link "usage" [ref=e620] [cursor=pointer]:
+                        - /url: "#getting-started"
+                  - paragraph [ref=e621]: "Start cloud training:"
+                  - list [ref=e622]:
+                    - listitem [ref=e623]:
+                      - strong [ref=e624]: Colab (free)
+                      - text: ":"
+                      - link "https://colab.research.google.com/drive/1eRTPn37ltBbYsISy9Aw2NuI2Aq5CQrD9?usp=sharing" [ref=e625] [cursor=pointer]:
+                        - /url: https://colab.research.google.com/drive/1eRTPn37ltBbYsISy9Aw2NuI2Aq5CQrD9?usp=sharing
+                    - listitem [ref=e626]:
+                      - strong [ref=e627]: PAI-DSW (free trial)
+                      - text: ":"
+                      - link "https://gallery.pai-ml.com/#/preview/deepLearning/nlp/llama_factory" [ref=e628] [cursor=pointer]:
+                        - /url: https://gallery.pai-ml.com/#/preview/deepLearning/nlp/llama_factory
+                    - listitem [ref=e629]:
+                      - strong [ref=e630]: LLaMA Factory Online
+                      - text: ":"
+                      - link "https://www.llamafactory.com.cn/?utm_source=LLaMA-Factory" [ref=e631] [cursor=pointer]:
+                        - /url: https://www.llamafactory.com.cn/?utm_source=LLaMA-Factory
+                    - listitem [ref=e632]:
+                      - strong [ref=e633]: Alaya NeW (cloud GPU deal)
+                      - text: ":"
+                      - link "https://docs.alayanew.com/docs/documents/useGuide/LLaMAFactory/mutiple/?utm_source=LLaMA-Factory" [ref=e634] [cursor=pointer]:
+                        - /url: https://docs.alayanew.com/docs/documents/useGuide/LLaMAFactory/mutiple/?utm_source=LLaMA-Factory
+                  - paragraph [ref=e635]: "Read technical notes:"
+                  - list [ref=e636]:
+                    - listitem [ref=e637]:
+                      - strong [ref=e638]: Documentation (WIP)
+                      - text: ":"
+                      - link "https://llamafactory.readthedocs.io/en/latest/" [ref=e639] [cursor=pointer]:
+                        - /url: https://llamafactory.readthedocs.io/en/latest/
+                    - listitem [ref=e640]:
+                      - strong [ref=e641]: Documentation (AMD GPU)
+                      - text: ":"
+                      - link "https://rocm.docs.amd.com/projects/ai-developer-hub/en/latest/notebooks/fine_tune/llama_factory_llama3.html" [ref=e642] [cursor=pointer]:
+                        - /url: https://rocm.docs.amd.com/projects/ai-developer-hub/en/latest/notebooks/fine_tune/llama_factory_llama3.html
+                    - listitem [ref=e643]:
+                      - strong [ref=e644]: Official Blog
+                      - text: ":"
+                      - link "https://blog.llamafactory.net/en/" [ref=e645] [cursor=pointer]:
+                        - /url: https://blog.llamafactory.net/en/
+                    - listitem [ref=e646]:
+                      - strong [ref=e647]: Official Course
+                      - text: ":"
+                      - link "https://www.lab4ai.cn/course/detail?id=7c13e60f6137474eb40f6fd3983c0f46&utm_source=LLaMA-Factory" [ref=e648] [cursor=pointer]:
+                        - /url: https://www.lab4ai.cn/course/detail?id=7c13e60f6137474eb40f6fd3983c0f46&utm_source=LLaMA-Factory
+                  - generic [ref=e649]:
+                    - paragraph [ref=e650]:
+                      - img [ref=e651]
+                      - text: Note
+                    - paragraph [ref=e653]: Except for the above links, all other websites are unauthorized third-party websites. Please carefully use them.
+                  - generic [ref=e654]:
+                    - heading "Table of Contents" [level=2] [ref=e655]
+                    - 'link "Permalink: Table of Contents" [ref=e656] [cursor=pointer]':
+                      - /url: "#table-of-contents"
+                      - img [ref=e657]
+                  - list [ref=e659]:
+                    - listitem [ref=e660]:
+                      - link "Features" [ref=e661] [cursor=pointer]:
+                        - /url: "#features"
+                    - listitem [ref=e662]:
+                      - link "Blogs" [ref=e663] [cursor=pointer]:
+                        - /url: "#blogs"
+                    - listitem [ref=e664]:
+                      - link "Changelog" [ref=e665] [cursor=pointer]:
+                        - /url: "#changelog"
+                    - listitem [ref=e666]:
+                      - link "Supported Models" [ref=e667] [cursor=pointer]:
+                        - /url: "#supported-models"
+                    - listitem [ref=e668]:
+                      - link "Supported Training Approaches" [ref=e669] [cursor=pointer]:
+                        - /url: "#supported-training-approaches"
+                    - listitem [ref=e670]:
+                      - link "Provided Datasets" [ref=e671] [cursor=pointer]:
+                        - /url: "#provided-datasets"
+                    - listitem [ref=e672]:
+                      - link "Requirement" [ref=e673] [cursor=pointer]:
+                        - /url: "#requirement"
+                    - listitem [ref=e674]:
+                      - link "Getting Started" [ref=e675] [cursor=pointer]:
+                        - /url: "#getting-started"
+                      - list [ref=e676]:
+                        - listitem [ref=e677]:
+                          - link "Installation" [ref=e678] [cursor=pointer]:
+                            - /url: "#installation"
+                        - listitem [ref=e679]:
+                          - link "Data Preparation" [ref=e680] [cursor=pointer]:
+                            - /url: "#data-preparation"
+                        - listitem [ref=e681]:
+                          - link "Quickstart" [ref=e682] [cursor=pointer]:
+                            - /url: "#quickstart"
+                        - listitem [ref=e683]:
+                          - link "Fine-Tuning with LLaMA Board GUI" [ref=e684] [cursor=pointer]:
+                            - /url: "#fine-tuning-with-llama-board-gui-powered-by-gradio"
+                        - listitem [ref=e685]:
+                          - link "LLaMA Factory Online" [ref=e686] [cursor=pointer]:
+                            - /url: "#llama-factory-online"
+                        - listitem [ref=e687]:
+                          - link "Build Docker" [ref=e688] [cursor=pointer]:
+                            - /url: "#build-docker"
+                        - listitem [ref=e689]:
+                          - link "Deploy with OpenAI-style API and vLLM" [ref=e690] [cursor=pointer]:
+                            - /url: "#deploy-with-openai-style-api-and-vllm"
+                        - listitem [ref=e691]:
+                          - link "Download from ModelScope Hub" [ref=e692] [cursor=pointer]:
+                            - /url: "#download-from-modelscope-hub"
+                        - listitem [ref=e693]:
+                          - link "Download from Modelers Hub" [ref=e694] [cursor=pointer]:
+                            - /url: "#download-from-modelers-hub"
+                        - listitem [ref=e695]:
+                          - link "Use W&B Logger" [ref=e696] [cursor=pointer]:
+                            - /url: "#use-wb-logger"
+                        - listitem [ref=e697]:
+                          - link "Use SwanLab Logger" [ref=e698] [cursor=pointer]:
+                            - /url: "#use-swanlab-logger"
+                    - listitem [ref=e699]:
+                      - link "Projects using LLaMA Factory" [ref=e700] [cursor=pointer]:
+                        - /url: "#projects-using-llama-factory"
+                    - listitem [ref=e701]:
+                      - link "License" [ref=e702] [cursor=pointer]:
+                        - /url: "#license"
+                    - listitem [ref=e703]:
+                      - link "Citation" [ref=e704] [cursor=pointer]:
+                        - /url: "#citation"
+                    - listitem [ref=e705]:
+                      - link "Acknowledgement" [ref=e706] [cursor=pointer]:
+                        - /url: "#acknowledgement"
+                  - generic [ref=e707]:
+                    - heading "Features" [level=2] [ref=e708]
+                    - 'link "Permalink: Features" [ref=e709] [cursor=pointer]':
+                      - /url: "#features"
+                      - img [ref=e710]
+                  - list [ref=e712]:
+                    - listitem [ref=e713]:
+                      - strong [ref=e714]: Various models
+                      - text: ": LLaMA, LLaVA, Mistral, Mixtral-MoE, Qwen3, Qwen3-VL, DeepSeek, Gemma, GLM, Phi, etc."
+                    - listitem [ref=e715]:
+                      - strong [ref=e716]: Integrated methods
+                      - text: ": (Continuous) pre-training, (multimodal) supervised fine-tuning, reward modeling, PPO, DPO, KTO, ORPO, etc."
+                    - listitem [ref=e717]:
+                      - strong [ref=e718]: Scalable resources
+                      - text: ": 16-bit full-tuning, freeze-tuning, LoRA and 2/3/4/5/6/8-bit QLoRA via AQLM/AWQ/GPTQ/LLM.int8/HQQ/EETQ."
+                    - listitem [ref=e719]:
+                      - strong [ref=e720]: Advanced algorithms
+                      - text: ":"
+                      - link "GaLore" [ref=e721] [cursor=pointer]:
+                        - /url: https://github.com/jiaweizzhao/GaLore
+                      - text: ","
+                      - link "BAdam" [ref=e722] [cursor=pointer]:
+                        - /url: https://github.com/Ledzy/BAdam
+                      - text: ","
+                      - link "APOLLO" [ref=e723] [cursor=pointer]:
+                        - /url: https://github.com/zhuhanqing/APOLLO
+                      - text: ","
+                      - link "Adam-mini" [ref=e724] [cursor=pointer]:
+                        - /url: https://github.com/zyushun/Adam-mini
+                      - text: ","
+                      - link "Muon" [ref=e725] [cursor=pointer]:
+                        - /url: https://github.com/KellerJordan/Muon
+                      - text: ","
+                      - link "OFT" [ref=e726] [cursor=pointer]:
+                        - /url: https://github.com/huggingface/peft/tree/main/src/peft/tuners/oft
+                      - text: ", DoRA, LongLoRA, LLaMA Pro, Mixture-of-Depths, LoRA+, LoftQ and PiSSA."
+                    - listitem [ref=e727]:
+                      - strong [ref=e728]: Practical tricks
+                      - text: ":"
+                      - link "FlashAttention-2" [ref=e729] [cursor=pointer]:
+                        - /url: https://github.com/Dao-AILab/flash-attention
+                      - text: ","
+                      - link "Unsloth" [ref=e730] [cursor=pointer]:
+                        - /url: https://github.com/unslothai/unsloth
+                      - text: ","
+                      - link "Liger Kernel" [ref=e731] [cursor=pointer]:
+                        - /url: https://github.com/linkedin/Liger-Kernel
+                      - text: ","
+                      - link "KTransformers" [ref=e732] [cursor=pointer]:
+                        - /url: https://github.com/kvcache-ai/ktransformers/
+                      - text: ", RoPE scaling, NEFTune and rsLoRA."
+                    - listitem [ref=e733]:
+                      - strong [ref=e734]: Wide tasks
+                      - text: ": Multi-turn dialogue, tool using, image understanding, visual grounding, video recognition, audio understanding, etc."
+                    - listitem [ref=e735]:
+                      - strong [ref=e736]: Experiment monitors
+                      - text: ": LlamaBoard, TensorBoard, Wandb, MLflow,"
+                      - link "SwanLab" [ref=e737] [cursor=pointer]:
+                        - /url: https://github.com/SwanHubX/SwanLab
+                      - text: ", etc."
+                    - listitem [ref=e738]:
+                      - strong [ref=e739]: Faster inference
+                      - text: ": OpenAI-style API, Gradio UI and CLI with"
+                      - link "vLLM worker" [ref=e740] [cursor=pointer]:
+                        - /url: https://github.com/vllm-project/vllm
+                      - text: or
+                      - link "SGLang worker" [ref=e741] [cursor=pointer]:
+                        - /url: https://github.com/sgl-project/sglang
+                      - text: .
+                  - generic [ref=e742]:
+                    - heading "Day-N Support for Fine-Tuning Cutting-Edge Models" [level=3] [ref=e743]
+                    - 'link "Permalink: Day-N Support for Fine-Tuning Cutting-Edge Models" [ref=e744] [cursor=pointer]':
+                      - /url: "#day-n-support-for-fine-tuning-cutting-edge-models"
+                      - img [ref=e745]
+                  - table [ref=e748]:
+                    - rowgroup [ref=e749]:
+                      - row "Support Date Model Name" [ref=e750]:
+                        - columnheader "Support Date" [ref=e751]
+                        - columnheader "Model Name" [ref=e752]
+                    - rowgroup [ref=e753]:
+                      - row "Day 0 Qwen3 / Qwen2.5-VL / Gemma 3 / GLM-4.1V / InternLM 3 / MiniCPM-o-2.6" [ref=e754]:
+                        - cell "Day 0" [ref=e755]
+                        - cell "Qwen3 / Qwen2.5-VL / Gemma 3 / GLM-4.1V / InternLM 3 / MiniCPM-o-2.6" [ref=e756]
+                      - row "Day 1 Llama 3 / GLM-4 / Mistral Small / PaliGemma2 / Llama 4" [ref=e757]:
+                        - cell "Day 1" [ref=e758]
+                        - cell "Llama 3 / GLM-4 / Mistral Small / PaliGemma2 / Llama 4" [ref=e759]
+                  - generic [ref=e760]:
+                    - heading "Blogs" [level=2] [ref=e761]
+                    - 'link "Permalink: Blogs" [ref=e762] [cursor=pointer]':
+                      - /url: "#blogs"
+                      - img [ref=e763]
+                  - generic [ref=e765]:
+                    - paragraph [ref=e766]:
+                      - img [ref=e767]
+                      - text: Tip
+                    - paragraph [ref=e769]: Now we have a dedicated blog for LLaMA Factory!
+                    - paragraph [ref=e770]:
+                      - text: "Website:"
+                      - link "https://blog.llamafactory.net/en/" [ref=e771] [cursor=pointer]:
+                        - /url: https://blog.llamafactory.net/en/
+                  - list [ref=e772]:
+                    - listitem [ref=e773]:
+                      - text: 💡
+                      - 'link "KTransformers Fine-Tuning × LLaMA Factory: Fine-tuning 1000 Billion models with 2 4090-GPU + CPU" [ref=e774] [cursor=pointer]':
+                        - /url: https://blog.llamafactory.net/en/posts/ktransformers/
+                      - text: (English)
+                    - listitem [ref=e775]:
+                      - text: 💡
+                      - 'link "Easy Dataset × LLaMA Factory: Enabling LLMs to Efficiently Learn Domain Knowledge" [ref=e776] [cursor=pointer]':
+                        - /url: https://buaa-act.feishu.cn/wiki/GVzlwYcRFiR8OLkHbL6cQpYin7g
+                      - text: (English)
+                    - listitem [ref=e777]:
+                      - link "Fine-tune a mental health LLM using LLaMA-Factory" [ref=e778] [cursor=pointer]:
+                        - /url: https://www.lab4ai.cn/project/detail?id=25cce32ec131497b9e06a93336a0817f&type=project&utm_source=LLaMA-Factory
+                      - text: (Chinese)
+                    - listitem [ref=e779]:
+                      - link "Fine-tune GPT-OSS for Role-Playing using LLaMA-Factory" [ref=e780] [cursor=pointer]:
+                        - /url: https://docs.llamafactory.com.cn/docs/documents/best-practice/gptroleplay/?utm_source=LLaMA-Factory
+                      - text: (Chinese)
+                    - listitem [ref=e781]:
+                      - link "A One-Stop Code-Free Model Reinforcement Learning and Deployment Platform based on LLaMA-Factory and EasyR1" [ref=e782] [cursor=pointer]:
+                        - /url: https://aws.amazon.com/cn/blogs/china/building-llm-model-hub-based-on-llamafactory-and-easyr1/
+                      - text: (Chinese)
+                    - listitem [ref=e783]:
+                      - link "How Apoidea Group enhances visual information extraction from banking documents with multimodal models using LLaMA-Factory on Amazon SageMaker HyperPod" [ref=e784] [cursor=pointer]:
+                        - /url: https://aws.amazon.com/cn/blogs/machine-learning/how-apoidea-group-enhances-visual-information-extraction-from-banking-documents-with-multimodal-models-using-llama-factory-on-amazon-sagemaker-hyperpod/
+                      - text: (English)
+                  - group [ref=e785]:
+                    - generic "All Blogs" [ref=e786] [cursor=pointer]
+                  - generic [ref=e787]:
+                    - heading "Changelog" [level=2] [ref=e788]
+                    - 'link "Permalink: Changelog" [ref=e789] [cursor=pointer]':
+                      - /url: "#changelog"
+                      - img [ref=e790]
+                  - paragraph [ref=e792]:
+                    - text: "[25/10/26] We support Megatron-core training backend with"
+                    - link "mcore_adapter" [ref=e793] [cursor=pointer]:
+                      - /url: https://github.com/alibaba/ROLL/tree/main/mcore_adapter
+                      - strong [ref=e794]: mcore_adapter
+                    - text: . See
+                    - 'link "PR #9237" [ref=e795] [cursor=pointer]':
+                      - /url: https://github.com/hiyouga/LLaMA-Factory/pull/9237
+                    - text: to get started.
+                  - paragraph [ref=e796]:
+                    - text: "[25/08/22] We supported"
+                    - strong [ref=e797]:
+                      - link "OFT" [ref=e798] [cursor=pointer]:
+                        - /url: https://arxiv.org/abs/2306.07280
+                    - text: and
+                    - strong [ref=e799]:
+                      - link "OFTv2" [ref=e800] [cursor=pointer]:
+                        - /url: https://arxiv.org/abs/2506.19847
+                    - text: . See
+                    - link "examples" [ref=e801] [cursor=pointer]:
+                      - /url: /hiyouga/LlamaFactory/blob/main/examples/README.md
+                    - text: for usage.
+                  - paragraph [ref=e802]:
+                    - text: "[25/08/20] We supported fine-tuning the"
+                    - strong [ref=e803]:
+                      - link "Intern-S1-mini" [ref=e804] [cursor=pointer]:
+                        - /url: https://huggingface.co/internlm/Intern-S1-mini
+                    - text: models. See
+                    - 'link "PR #8976" [ref=e805] [cursor=pointer]':
+                      - /url: https://github.com/hiyouga/LLaMA-Factory/pull/8976
+                    - text: to get started.
+                  - paragraph [ref=e806]:
+                    - text: "[25/08/06] We supported fine-tuning the"
+                    - strong [ref=e807]:
+                      - link "GPT-OSS" [ref=e808] [cursor=pointer]:
+                        - /url: https://github.com/openai/gpt-oss
+                    - text: models. See
+                    - 'link "PR #8826" [ref=e809] [cursor=pointer]':
+                      - /url: https://github.com/hiyouga/LLaMA-Factory/pull/8826
+                    - text: to get started.
+                  - group [ref=e810]:
+                    - generic "Full Changelog" [ref=e811] [cursor=pointer]
+                  - generic [ref=e812]:
+                    - paragraph [ref=e813]:
+                      - img [ref=e814]
+                      - text: Tip
+                    - paragraph [ref=e816]: If you cannot use the latest feature, please pull the latest code and install LLaMA-Factory again.
+                  - generic [ref=e817]:
+                    - heading "Supported Models" [level=2] [ref=e818]
+                    - 'link "Permalink: Supported Models" [ref=e819] [cursor=pointer]':
+                      - /url: "#supported-models"
+                      - img [ref=e820]
+                  - table [ref=e823]:
+                    - rowgroup [ref=e824]:
+                      - row "Model Model size Template" [ref=e825]:
+                        - columnheader "Model" [ref=e826]
+                        - columnheader "Model size" [ref=e827]
+                        - columnheader "Template" [ref=e828]
+                    - rowgroup [ref=e829]:
+                      - row "BLOOM/BLOOMZ 560M/1.1B/1.7B/3B/7.1B/176B -" [ref=e830]:
+                        - cell "BLOOM/BLOOMZ" [ref=e831]:
+                          - link "BLOOM/BLOOMZ" [ref=e832] [cursor=pointer]:
+                            - /url: https://huggingface.co/bigscience
+                        - cell "560M/1.1B/1.7B/3B/7.1B/176B" [ref=e833]
+                        - cell "-" [ref=e834]
+                      - row "DeepSeek (LLM/Code/MoE) 7B/16B/67B/236B deepseek" [ref=e835]:
+                        - cell "DeepSeek (LLM/Code/MoE)" [ref=e836]:
+                          - link "DeepSeek (LLM/Code/MoE)" [ref=e837] [cursor=pointer]:
+                            - /url: https://huggingface.co/deepseek-ai
+                        - cell "7B/16B/67B/236B" [ref=e838]
+                        - cell "deepseek" [ref=e839]
+                      - row "DeepSeek 3-3.2 236B/671B deepseek3" [ref=e840]:
+                        - cell "DeepSeek 3-3.2" [ref=e841]:
+                          - link "DeepSeek 3-3.2" [ref=e842] [cursor=pointer]:
+                            - /url: https://huggingface.co/deepseek-ai
+                        - cell "236B/671B" [ref=e843]
+                        - cell "deepseek3" [ref=e844]
+                      - row "DeepSeek R1 (Distill) 1.5B/7B/8B/14B/32B/70B/671B deepseekr1" [ref=e845]:
+                        - cell "DeepSeek R1 (Distill)" [ref=e846]:
+                          - link "DeepSeek R1 (Distill)" [ref=e847] [cursor=pointer]:
+                            - /url: https://huggingface.co/deepseek-ai
+                        - cell "1.5B/7B/8B/14B/32B/70B/671B" [ref=e848]
+                        - cell "deepseekr1" [ref=e849]
+                      - row "ERNIE-4.5 0.3B/21B/300B ernie_nothink" [ref=e850]:
+                        - cell "ERNIE-4.5" [ref=e851]:
+                          - link "ERNIE-4.5" [ref=e852] [cursor=pointer]:
+                            - /url: https://huggingface.co/baidu
+                        - cell "0.3B/21B/300B" [ref=e853]
+                        - cell "ernie_nothink" [ref=e854]
+                      - row "Falcon/Falcon H1 0.5B/1.5B/3B/7B/11B/34B/40B/180B falcon/falcon_h1" [ref=e855]:
+                        - cell "Falcon/Falcon H1" [ref=e856]:
+                          - link "Falcon/Falcon H1" [ref=e857] [cursor=pointer]:
+                            - /url: https://huggingface.co/tiiuae
+                        - cell "0.5B/1.5B/3B/7B/11B/34B/40B/180B" [ref=e858]
+                        - cell "falcon/falcon_h1" [ref=e859]
+                      - row "Gemma/Gemma 2/CodeGemma 2B/7B/9B/27B gemma/gemma2" [ref=e860]:
+                        - cell "Gemma/Gemma 2/CodeGemma" [ref=e861]:
+                          - link "Gemma/Gemma 2/CodeGemma" [ref=e862] [cursor=pointer]:
+                            - /url: https://huggingface.co/google
+                        - cell "2B/7B/9B/27B" [ref=e863]
+                        - cell "gemma/gemma2" [ref=e864]
+                      - row "Gemma 3/Gemma 3n 270M/1B/4B/6B/8B/12B/27B gemma3/gemma3n" [ref=e865]:
+                        - cell "Gemma 3/Gemma 3n" [ref=e866]:
+                          - link "Gemma 3/Gemma 3n" [ref=e867] [cursor=pointer]:
+                            - /url: https://huggingface.co/google
+                        - cell "270M/1B/4B/6B/8B/12B/27B" [ref=e868]
+                        - cell "gemma3/gemma3n" [ref=e869]
+                      - row "GLM-4/GLM-4-0414/GLM-Z1 9B/32B glm4/glmz1" [ref=e870]:
+                        - cell "GLM-4/GLM-4-0414/GLM-Z1" [ref=e871]:
+                          - link "GLM-4/GLM-4-0414/GLM-Z1" [ref=e872] [cursor=pointer]:
+                            - /url: https://huggingface.co/zai-org
+                        - cell "9B/32B" [ref=e873]
+                        - cell "glm4/glmz1" [ref=e874]
+                      - row "GLM-4.5/GLM-4.5(6)V 9B/106B/355B glm4_moe/glm4_5v" [ref=e875]:
+                        - cell "GLM-4.5/GLM-4.5(6)V" [ref=e876]:
+                          - link "GLM-4.5/GLM-4.5(6)V" [ref=e877] [cursor=pointer]:
+                            - /url: https://huggingface.co/zai-org
+                        - cell "9B/106B/355B" [ref=e878]
+                        - cell "glm4_moe/glm4_5v" [ref=e879]
+                      - row "GPT-2 0.1B/0.4B/0.8B/1.5B -" [ref=e880]:
+                        - cell "GPT-2" [ref=e881]:
+                          - link "GPT-2" [ref=e882] [cursor=pointer]:
+                            - /url: https://huggingface.co/openai-community
+                        - cell "0.1B/0.4B/0.8B/1.5B" [ref=e883]
+                        - cell "-" [ref=e884]
+                      - row "GPT-OSS 20B/120B gpt_oss" [ref=e885]:
+                        - cell "GPT-OSS" [ref=e886]:
+                          - link "GPT-OSS" [ref=e887] [cursor=pointer]:
+                            - /url: https://huggingface.co/openai
+                        - cell "20B/120B" [ref=e888]
+                        - cell "gpt_oss" [ref=e889]
+                      - row "Granite 3-4 1B/2B/3B/7B/8B granite3/granite4" [ref=e890]:
+                        - cell "Granite 3-4" [ref=e891]:
+                          - link "Granite 3-4" [ref=e892] [cursor=pointer]:
+                            - /url: https://huggingface.co/ibm-granite
+                        - cell "1B/2B/3B/7B/8B" [ref=e893]
+                        - cell "granite3/granite4" [ref=e894]
+                      - row "Hunyuan/Hunyuan1.5 (MT) 0.5B/1.8B/4B/7B/13B hunyuan/hunyuan_small" [ref=e895]:
+                        - cell "Hunyuan/Hunyuan1.5 (MT)" [ref=e896]:
+                          - link "Hunyuan/Hunyuan1.5 (MT)" [ref=e897] [cursor=pointer]:
+                            - /url: https://huggingface.co/tencent/
+                        - cell "0.5B/1.8B/4B/7B/13B" [ref=e898]
+                        - cell "hunyuan/hunyuan_small" [ref=e899]
+                      - row "InternLM 2-3 7B/8B/20B intern2" [ref=e900]:
+                        - cell "InternLM 2-3" [ref=e901]:
+                          - link "InternLM 2-3" [ref=e902] [cursor=pointer]:
+                            - /url: https://huggingface.co/internlm
+                        - cell "7B/8B/20B" [ref=e903]
+                        - cell "intern2" [ref=e904]
+                      - row "InternVL 2.5-3.5 1B/2B/4B/8B/14B/30B/38B/78B/241B intern_vl" [ref=e905]:
+                        - cell "InternVL 2.5-3.5" [ref=e906]:
+                          - link "InternVL 2.5-3.5" [ref=e907] [cursor=pointer]:
+                            - /url: https://huggingface.co/OpenGVLab
+                        - cell "1B/2B/4B/8B/14B/30B/38B/78B/241B" [ref=e908]
+                        - cell "intern_vl" [ref=e909]
+                      - row "Intern-S1-mini 8B intern_s1" [ref=e910]:
+                        - cell "Intern-S1-mini" [ref=e911]:
+                          - link "Intern-S1-mini" [ref=e912] [cursor=pointer]:
+                            - /url: https://huggingface.co/internlm/
+                        - cell "8B" [ref=e913]
+                        - cell "intern_s1" [ref=e914]
+                      - row "Kimi-VL 16B kimi_vl" [ref=e915]:
+                        - cell "Kimi-VL" [ref=e916]:
+                          - link "Kimi-VL" [ref=e917] [cursor=pointer]:
+                            - /url: https://huggingface.co/moonshotai
+                        - cell "16B" [ref=e918]
+                        - cell "kimi_vl" [ref=e919]
+                      - row "Ling 2.0 (mini/flash) 16B/100B bailing_v2" [ref=e920]:
+                        - cell "Ling 2.0 (mini/flash)" [ref=e921]:
+                          - link "Ling 2.0 (mini/flash)" [ref=e922] [cursor=pointer]:
+                            - /url: https://huggingface.co/inclusionAI
+                        - cell "16B/100B" [ref=e923]
+                        - cell "bailing_v2" [ref=e924]
+                      - row "LFM 2.5 (VL) 1.2B/1.6B lfm2/lfm2_vl" [ref=e925]:
+                        - cell "LFM 2.5 (VL)" [ref=e926]:
+                          - link "LFM 2.5 (VL)" [ref=e927] [cursor=pointer]:
+                            - /url: https://huggingface.co/LiquidAI
+                        - cell "1.2B/1.6B" [ref=e928]
+                        - cell "lfm2/lfm2_vl" [ref=e929]
+                      - row "Llama 7B/13B/33B/65B -" [ref=e930]:
+                        - cell "Llama" [ref=e931]:
+                          - link "Llama" [ref=e932] [cursor=pointer]:
+                            - /url: https://github.com/facebookresearch/llama
+                        - cell "7B/13B/33B/65B" [ref=e933]
+                        - cell "-" [ref=e934]
+                      - row "Llama 2 7B/13B/70B llama2" [ref=e935]:
+                        - cell "Llama 2" [ref=e936]:
+                          - link "Llama 2" [ref=e937] [cursor=pointer]:
+                            - /url: https://huggingface.co/meta-llama
+                        - cell "7B/13B/70B" [ref=e938]
+                        - cell "llama2" [ref=e939]
+                      - row "Llama 3-3.3 1B/3B/8B/70B llama3" [ref=e940]:
+                        - cell "Llama 3-3.3" [ref=e941]:
+                          - link "Llama 3-3.3" [ref=e942] [cursor=pointer]:
+                            - /url: https://huggingface.co/meta-llama
+                        - cell "1B/3B/8B/70B" [ref=e943]
+                        - cell "llama3" [ref=e944]
+                      - row "Llama 4 109B/402B llama4" [ref=e945]:
+                        - cell "Llama 4" [ref=e946]:
+                          - link "Llama 4" [ref=e947] [cursor=pointer]:
+                            - /url: https://huggingface.co/meta-llama
+                        - cell "109B/402B" [ref=e948]
+                        - cell "llama4" [ref=e949]
+                      - row "Llama 3.2 Vision 11B/90B mllama" [ref=e950]:
+                        - cell "Llama 3.2 Vision" [ref=e951]:
+                          - link "Llama 3.2 Vision" [ref=e952] [cursor=pointer]:
+                            - /url: https://huggingface.co/meta-llama
+                        - cell "11B/90B" [ref=e953]
+                        - cell "mllama" [ref=e954]
+                      - row "LLaVA-1.5 7B/13B llava" [ref=e955]:
+                        - cell "LLaVA-1.5" [ref=e956]:
+                          - link "LLaVA-1.5" [ref=e957] [cursor=pointer]:
+                            - /url: https://huggingface.co/llava-hf
+                        - cell "7B/13B" [ref=e958]
+                        - cell "llava" [ref=e959]
+                      - row "LLaVA-NeXT 7B/8B/13B/34B/72B/110B llava_next" [ref=e960]:
+                        - cell "LLaVA-NeXT" [ref=e961]:
+                          - link "LLaVA-NeXT" [ref=e962] [cursor=pointer]:
+                            - /url: https://huggingface.co/llava-hf
+                        - cell "7B/8B/13B/34B/72B/110B" [ref=e963]
+                        - cell "llava_next" [ref=e964]
+                      - row "LLaVA-NeXT-Video 7B/34B llava_next_video" [ref=e965]:
+                        - cell "LLaVA-NeXT-Video" [ref=e966]:
+                          - link "LLaVA-NeXT-Video" [ref=e967] [cursor=pointer]:
+                            - /url: https://huggingface.co/llava-hf
+                        - cell "7B/34B" [ref=e968]
+                        - cell "llava_next_video" [ref=e969]
+                      - row "MiMo 7B/309B mimo/mimo_v2" [ref=e970]:
+                        - cell "MiMo" [ref=e971]:
+                          - link "MiMo" [ref=e972] [cursor=pointer]:
+                            - /url: https://huggingface.co/XiaomiMiMo
+                        - cell "7B/309B" [ref=e973]
+                        - cell "mimo/mimo_v2" [ref=e974]
+                      - row "MiniCPM 4 0.5B/8B cpm4" [ref=e975]:
+                        - cell "MiniCPM 4" [ref=e976]:
+                          - link "MiniCPM 4" [ref=e977] [cursor=pointer]:
+                            - /url: https://huggingface.co/openbmb
+                        - cell "0.5B/8B" [ref=e978]
+                        - cell "cpm4" [ref=e979]
+                      - row "MiniCPM-o/MiniCPM-V 4.5 8B/9B minicpm_o/minicpm_v" [ref=e980]:
+                        - cell "MiniCPM-o/MiniCPM-V 4.5" [ref=e981]:
+                          - link "MiniCPM-o/MiniCPM-V 4.5" [ref=e982] [cursor=pointer]:
+                            - /url: https://huggingface.co/openbmb
+                        - cell "8B/9B" [ref=e983]
+                        - cell "minicpm_o/minicpm_v" [ref=e984]
+                      - row "MiniMax-M1/MiniMax-M2 229B/456B minimax1/minimax2" [ref=e985]:
+                        - cell "MiniMax-M1/MiniMax-M2" [ref=e986]:
+                          - link "MiniMax-M1/MiniMax-M2" [ref=e987] [cursor=pointer]:
+                            - /url: https://huggingface.co/MiniMaxAI/models
+                        - cell "229B/456B" [ref=e988]
+                        - cell "minimax1/minimax2" [ref=e989]
+                      - row "Ministral 3 3B/8B/14B ministral3" [ref=e990]:
+                        - cell "Ministral 3" [ref=e991]:
+                          - link "Ministral 3" [ref=e992] [cursor=pointer]:
+                            - /url: https://huggingface.co/mistralai
+                        - cell "3B/8B/14B" [ref=e993]
+                        - cell "ministral3" [ref=e994]
+                      - row "Mistral/Mixtral 7B/8x7B/8x22B mistral" [ref=e995]:
+                        - cell "Mistral/Mixtral" [ref=e996]:
+                          - link "Mistral/Mixtral" [ref=e997] [cursor=pointer]:
+                            - /url: https://huggingface.co/mistralai
+                        - cell "7B/8x7B/8x22B" [ref=e998]
+                        - cell "mistral" [ref=e999]
+                      - row "PaliGemma/PaliGemma2 3B/10B/28B paligemma" [ref=e1000]:
+                        - cell "PaliGemma/PaliGemma2" [ref=e1001]:
+                          - link "PaliGemma/PaliGemma2" [ref=e1002] [cursor=pointer]:
+                            - /url: https://huggingface.co/google
+                        - cell "3B/10B/28B" [ref=e1003]
+                        - cell "paligemma" [ref=e1004]
+                      - row "Phi-3/Phi-3.5 4B/14B phi" [ref=e1005]:
+                        - cell "Phi-3/Phi-3.5" [ref=e1006]:
+                          - link "Phi-3/Phi-3.5" [ref=e1007] [cursor=pointer]:
+                            - /url: https://huggingface.co/microsoft
+                        - cell "4B/14B" [ref=e1008]
+                        - cell "phi" [ref=e1009]
+                      - row "Phi-3-small 7B phi_small" [ref=e1010]:
+                        - cell "Phi-3-small" [ref=e1011]:
+                          - link "Phi-3-small" [ref=e1012] [cursor=pointer]:
+                            - /url: https://huggingface.co/microsoft
+                        - cell "7B" [ref=e1013]
+                        - cell "phi_small" [ref=e1014]
+                      - row "Phi-4-mini/Phi-4 3.8B/14B phi4_mini/phi4" [ref=e1015]:
+                        - cell "Phi-4-mini/Phi-4" [ref=e1016]:
+                          - link "Phi-4-mini/Phi-4" [ref=e1017] [cursor=pointer]:
+                            - /url: https://huggingface.co/microsoft
+                        - cell "3.8B/14B" [ref=e1018]
+                        - cell "phi4_mini/phi4" [ref=e1019]
+                      - row "Pixtral 12B pixtral" [ref=e1020]:
+                        - cell "Pixtral" [ref=e1021]:
+                          - link "Pixtral" [ref=e1022] [cursor=pointer]:
+                            - /url: https://huggingface.co/mistralai
+                        - cell "12B" [ref=e1023]
+                        - cell "pixtral" [ref=e1024]
+                      - row "Qwen2 (Code/Math/MoE/QwQ) 0.5B/1.5B/3B/7B/14B/32B/72B/110B qwen" [ref=e1025]:
+                        - cell "Qwen2 (Code/Math/MoE/QwQ)" [ref=e1026]:
+                          - link "Qwen2 (Code/Math/MoE/QwQ)" [ref=e1027] [cursor=pointer]:
+                            - /url: https://huggingface.co/Qwen
+                        - cell "0.5B/1.5B/3B/7B/14B/32B/72B/110B" [ref=e1028]
+                        - cell "qwen" [ref=e1029]
+                      - row "Qwen3 (MoE/Instruct/Thinking/Next) 0.6B/1.7B/4B/8B/14B/32B/80B/235B qwen3/qwen3_nothink" [ref=e1030]:
+                        - cell "Qwen3 (MoE/Instruct/Thinking/Next)" [ref=e1031]:
+                          - link "Qwen3 (MoE/Instruct/Thinking/Next)" [ref=e1032] [cursor=pointer]:
+                            - /url: https://huggingface.co/Qwen
+                        - cell "0.6B/1.7B/4B/8B/14B/32B/80B/235B" [ref=e1033]
+                        - cell "qwen3/qwen3_nothink" [ref=e1034]
+                      - row "Qwen3.5 0.8B/2B/4B/9B/27B/35B/122B/397B qwen3_5/qwen3_5_nothink" [ref=e1035]:
+                        - cell "Qwen3.5" [ref=e1036]:
+                          - link "Qwen3.5" [ref=e1037] [cursor=pointer]:
+                            - /url: https://huggingface.co/Qwen
+                        - cell "0.8B/2B/4B/9B/27B/35B/122B/397B" [ref=e1038]
+                        - cell "qwen3_5/qwen3_5_nothink" [ref=e1039]
+                      - row "Qwen3.6 27B/35B qwen3_6" [ref=e1040]:
+                        - cell "Qwen3.6" [ref=e1041]:
+                          - link "Qwen3.6" [ref=e1042] [cursor=pointer]:
+                            - /url: https://huggingface.co/Qwen
+                        - cell "27B/35B" [ref=e1043]
+                        - cell "qwen3_6" [ref=e1044]
+                      - row "Qwen2-Audio 7B qwen2_audio" [ref=e1045]:
+                        - cell "Qwen2-Audio" [ref=e1046]:
+                          - link "Qwen2-Audio" [ref=e1047] [cursor=pointer]:
+                            - /url: https://huggingface.co/Qwen
+                        - cell "7B" [ref=e1048]
+                        - cell "qwen2_audio" [ref=e1049]
+                      - row "Qwen2.5-Omni 3B/7B qwen2_omni" [ref=e1050]:
+                        - cell "Qwen2.5-Omni" [ref=e1051]:
+                          - link "Qwen2.5-Omni" [ref=e1052] [cursor=pointer]:
+                            - /url: https://huggingface.co/Qwen
+                        - cell "3B/7B" [ref=e1053]
+                        - cell "qwen2_omni" [ref=e1054]
+                      - row "Qwen3-Omni 30B qwen3_omni" [ref=e1055]:
+                        - cell "Qwen3-Omni" [ref=e1056]:
+                          - link "Qwen3-Omni" [ref=e1057] [cursor=pointer]:
+                            - /url: https://huggingface.co/Qwen
+                        - cell "30B" [ref=e1058]
+                        - cell "qwen3_omni" [ref=e1059]
+                      - row "Qwen2-VL/Qwen2.5-VL/QVQ 2B/3B/7B/32B/72B qwen2_vl" [ref=e1060]:
+                        - cell "Qwen2-VL/Qwen2.5-VL/QVQ" [ref=e1061]:
+                          - link "Qwen2-VL/Qwen2.5-VL/QVQ" [ref=e1062] [cursor=pointer]:
+                            - /url: https://huggingface.co/Qwen
+                        - cell "2B/3B/7B/32B/72B" [ref=e1063]
+                        - cell "qwen2_vl" [ref=e1064]
+                      - row "Qwen3-VL 2B/4B/8B/30B/32B/235B qwen3_vl" [ref=e1065]:
+                        - cell "Qwen3-VL" [ref=e1066]:
+                          - link "Qwen3-VL" [ref=e1067] [cursor=pointer]:
+                            - /url: https://huggingface.co/Qwen
+                        - cell "2B/4B/8B/30B/32B/235B" [ref=e1068]
+                        - cell "qwen3_vl" [ref=e1069]
+                      - row "Seed (OSS/Coder) 8B/36B seed_oss/seed_coder" [ref=e1070]:
+                        - cell "Seed (OSS/Coder)" [ref=e1071]:
+                          - link "Seed (OSS/Coder)" [ref=e1072] [cursor=pointer]:
+                            - /url: https://huggingface.co/ByteDance-Seed
+                        - cell "8B/36B" [ref=e1073]
+                        - cell "seed_oss/seed_coder" [ref=e1074]
+                      - row "StarCoder 2 3B/7B/15B -" [ref=e1075]:
+                        - cell "StarCoder 2" [ref=e1076]:
+                          - link "StarCoder 2" [ref=e1077] [cursor=pointer]:
+                            - /url: https://huggingface.co/bigcode
+                        - cell "3B/7B/15B" [ref=e1078]
+                        - cell "-" [ref=e1079]
+                      - row "TeleChat 2-2.5 3B/7B/35B/115B telechat2" [ref=e1080]:
+                        - cell "TeleChat 2-2.5" [ref=e1081]:
+                          - link "TeleChat 2-2.5" [ref=e1082] [cursor=pointer]:
+                            - /url: https://huggingface.co/Tele-AI
+                        - cell "3B/7B/35B/115B" [ref=e1083]
+                        - cell "telechat2" [ref=e1084]
+                      - row "Yuan 2 2B/51B/102B yuan" [ref=e1085]:
+                        - cell "Yuan 2" [ref=e1086]:
+                          - link "Yuan 2" [ref=e1087] [cursor=pointer]:
+                            - /url: https://huggingface.co/IEITYuan
+                        - cell "2B/51B/102B" [ref=e1088]
+                        - cell "yuan" [ref=e1089]
+                  - generic [ref=e1090]:
+                    - paragraph [ref=e1091]:
+                      - img [ref=e1092]
+                      - text: Note
+                    - paragraph [ref=e1094]:
+                      - text: For the "base" models, the
+                      - code [ref=e1095]: template
+                      - text: argument can be chosen from
+                      - code [ref=e1096]: default
+                      - text: ","
+                      - code [ref=e1097]: alpaca
+                      - text: ","
+                      - code [ref=e1098]: vicuna
+                      - text: etc. But make sure to use the
+                      - strong [ref=e1099]: corresponding template
+                      - text: for the "instruct/chat" models.
+                    - paragraph [ref=e1100]:
+                      - text: If the model has both reasoning and non-reasoning versions, please use the
+                      - code [ref=e1101]: _nothink
+                      - text: suffix to distinguish between them. For example,
+                      - code [ref=e1102]: qwen3
+                      - text: and
+                      - code [ref=e1103]: qwen3_nothink
+                      - text: .
+                    - paragraph [ref=e1104]:
+                      - text: Remember to use the
+                      - strong [ref=e1105]: SAME
+                      - text: template in training and inference.
+                    - paragraph [ref=e1106]:
+                      - text: "*: You should install the"
+                      - code [ref=e1107]: transformers
+                      - text: from main branch and use
+                      - code [ref=e1108]: DISABLE_VERSION_CHECK=1
+                      - text: to skip version check.
+                    - paragraph [ref=e1109]:
+                      - text: "**: You need to install a specific version of"
+                      - code [ref=e1110]: transformers
+                      - text: to use the corresponding model.
+                  - paragraph [ref=e1111]:
+                    - text: Please refer to
+                    - link "constants.py" [ref=e1112] [cursor=pointer]:
+                      - /url: /hiyouga/LlamaFactory/blob/main/src/llamafactory/extras/constants.py
+                    - text: for a full list of models we supported.
+                  - paragraph [ref=e1113]:
+                    - text: You also can add a custom chat template to
+                    - link "template.py" [ref=e1114] [cursor=pointer]:
+                      - /url: /hiyouga/LlamaFactory/blob/main/src/llamafactory/data/template.py
+                    - text: .
+                  - generic [ref=e1115]:
+                    - heading "Supported Training Approaches" [level=2] [ref=e1116]
+                    - 'link "Permalink: Supported Training Approaches" [ref=e1117] [cursor=pointer]':
+                      - /url: "#supported-training-approaches"
+                      - img [ref=e1118]
+                  - table [ref=e1121]:
+                    - rowgroup [ref=e1122]:
+                      - row "Approach Full-tuning Freeze-tuning LoRA QLoRA OFT QOFT" [ref=e1123]:
+                        - columnheader "Approach" [ref=e1124]
+                        - columnheader "Full-tuning" [ref=e1125]
+                        - columnheader "Freeze-tuning" [ref=e1126]
+                        - columnheader "LoRA" [ref=e1127]
+                        - columnheader "QLoRA" [ref=e1128]
+                        - columnheader "OFT" [ref=e1129]
+                        - columnheader "QOFT" [ref=e1130]
+                    - rowgroup [ref=e1131]:
+                      - row "Pre-Training ✅ ✅ ✅ ✅ ✅ ✅" [ref=e1132]:
+                        - cell "Pre-Training" [ref=e1133]
+                        - cell "✅" [ref=e1134]
+                        - cell "✅" [ref=e1135]
+                        - cell "✅" [ref=e1136]
+                        - cell "✅" [ref=e1137]
+                        - cell "✅" [ref=e1138]
+                        - cell "✅" [ref=e1139]
+                      - row "Supervised Fine-Tuning ✅ ✅ ✅ ✅ ✅ ✅" [ref=e1140]:
+                        - cell "Supervised Fine-Tuning" [ref=e1141]
+                        - cell "✅" [ref=e1142]
+                        - cell "✅" [ref=e1143]
+                        - cell "✅" [ref=e1144]
+                        - cell "✅" [ref=e1145]
+                        - cell "✅" [ref=e1146]
+                        - cell "✅" [ref=e1147]
+                      - row "Reward Modeling ✅ ✅ ✅ ✅ ✅ ✅" [ref=e1148]:
+                        - cell "Reward Modeling" [ref=e1149]
+                        - cell "✅" [ref=e1150]
+                        - cell "✅" [ref=e1151]
+                        - cell "✅" [ref=e1152]
+                        - cell "✅" [ref=e1153]
+                        - cell "✅" [ref=e1154]
+                        - cell "✅" [ref=e1155]
+                      - row "PPO Training ✅ ✅ ✅ ✅ ✅ ✅" [ref=e1156]:
+                        - cell "PPO Training" [ref=e1157]
+                        - cell "✅" [ref=e1158]
+                        - cell "✅" [ref=e1159]
+                        - cell "✅" [ref=e1160]
+                        - cell "✅" [ref=e1161]
+                        - cell "✅" [ref=e1162]
+                        - cell "✅" [ref=e1163]
+                      - row "DPO Training ✅ ✅ ✅ ✅ ✅ ✅" [ref=e1164]:
+                        - cell "DPO Training" [ref=e1165]
+                        - cell "✅" [ref=e1166]
+                        - cell "✅" [ref=e1167]
+                        - cell "✅" [ref=e1168]
+                        - cell "✅" [ref=e1169]
+                        - cell "✅" [ref=e1170]
+                        - cell "✅" [ref=e1171]
+                      - row "KTO Training ✅ ✅ ✅ ✅ ✅ ✅" [ref=e1172]:
+                        - cell "KTO Training" [ref=e1173]
+                        - cell "✅" [ref=e1174]
+                        - cell "✅" [ref=e1175]
+                        - cell "✅" [ref=e1176]
+                        - cell "✅" [ref=e1177]
+                        - cell "✅" [ref=e1178]
+                        - cell "✅" [ref=e1179]
+                      - row "ORPO Training ✅ ✅ ✅ ✅ ✅ ✅" [ref=e1180]:
+                        - cell "ORPO Training" [ref=e1181]
+                        - cell "✅" [ref=e1182]
+                        - cell "✅" [ref=e1183]
+                        - cell "✅" [ref=e1184]
+                        - cell "✅" [ref=e1185]
+                        - cell "✅" [ref=e1186]
+                        - cell "✅" [ref=e1187]
+                      - row "SimPO Training ✅ ✅ ✅ ✅ ✅ ✅" [ref=e1188]:
+                        - cell "SimPO Training" [ref=e1189]
+                        - cell "✅" [ref=e1190]
+                        - cell "✅" [ref=e1191]
+                        - cell "✅" [ref=e1192]
+                        - cell "✅" [ref=e1193]
+                        - cell "✅" [ref=e1194]
+                        - cell "✅" [ref=e1195]
+                  - generic [ref=e1196]:
+                    - paragraph [ref=e1197]:
+                      - img [ref=e1198]
+                      - text: Tip
+                    - paragraph [ref=e1200]:
+                      - text: The implementation details of PPO can be found in
+                      - link "this blog" [ref=e1201] [cursor=pointer]:
+                        - /url: https://newfacade.github.io/notes-on-reinforcement-learning/17-ppo-trl.html
+                      - text: .
+                  - generic [ref=e1202]:
+                    - heading "Provided Datasets" [level=2] [ref=e1203]
+                    - 'link "Permalink: Provided Datasets" [ref=e1204] [cursor=pointer]':
+                      - /url: "#provided-datasets"
+                      - img [ref=e1205]
+                  - group [ref=e1207]:
+                    - generic "Pre-training datasets" [ref=e1208] [cursor=pointer]
+                  - group [ref=e1209]:
+                    - generic "Supervised fine-tuning datasets" [ref=e1210] [cursor=pointer]
+                  - group [ref=e1211]:
+                    - generic "Preference datasets" [ref=e1212] [cursor=pointer]
+                  - paragraph [ref=e1213]: Some datasets require confirmation before using them, so we recommend logging in with your Hugging Face account using these commands.
+                  - generic [ref=e1214]:
+                    - generic [ref=e1215]:
+                      - text: pip install
+                      - generic [ref=e1216]: "\"huggingface_hub<1.0.0\""
+                      - text: huggingface-cli login
+                    - button "Copy code to clipboard" [ref=e1218] [cursor=pointer]:
+                      - img [ref=e1219]
+                  - generic [ref=e1222]:
+                    - heading "Requirement" [level=2] [ref=e1223]
+                    - 'link "Permalink: Requirement" [ref=e1224] [cursor=pointer]':
+                      - /url: "#requirement"
+                      - img [ref=e1225]
+                  - table [ref=e1228]:
+                    - rowgroup [ref=e1229]:
+                      - row "Mandatory Minimum Recommend" [ref=e1230]:
+                        - columnheader "Mandatory" [ref=e1231]
+                        - columnheader "Minimum" [ref=e1232]
+                        - columnheader "Recommend" [ref=e1233]
+                    - rowgroup [ref=e1234]:
+                      - row "python 3.11 >=3.11" [ref=e1235]:
+                        - cell "python" [ref=e1236]
+                        - cell "3.11" [ref=e1237]
+                        - cell ">=3.11" [ref=e1238]
+                      - row "torch 2.0.0 2.6.0" [ref=e1239]:
+                        - cell "torch" [ref=e1240]
+                        - cell "2.0.0" [ref=e1241]
+                        - cell "2.6.0" [ref=e1242]
+                      - row "torchvision 0.15.0 0.21.0" [ref=e1243]:
+                        - cell "torchvision" [ref=e1244]
+                        - cell "0.15.0" [ref=e1245]
+                        - cell "0.21.0" [ref=e1246]
+                      - row "transformers 4.49.0 4.50.0" [ref=e1247]:
+                        - cell "transformers" [ref=e1248]
+                        - cell "4.49.0" [ref=e1249]
+                        - cell "4.50.0" [ref=e1250]
+                      - row "datasets 2.16.0 3.2.0" [ref=e1251]:
+                        - cell "datasets" [ref=e1252]
+                        - cell "2.16.0" [ref=e1253]
+                        - cell "3.2.0" [ref=e1254]
+                      - row "accelerate 0.34.0 1.2.1" [ref=e1255]:
+                        - cell "accelerate" [ref=e1256]
+                        - cell "0.34.0" [ref=e1257]
+                        - cell "1.2.1" [ref=e1258]
+                      - row "peft 0.14.0 0.15.1" [ref=e1259]:
+                        - cell "peft" [ref=e1260]
+                        - cell "0.14.0" [ref=e1261]
+                        - cell "0.15.1" [ref=e1262]
+                      - row "trl 0.8.6 0.9.6" [ref=e1263]:
+                        - cell "trl" [ref=e1264]
+                        - cell "0.8.6" [ref=e1265]
+                        - cell "0.9.6" [ref=e1266]
+                  - table [ref=e1268]:
+                    - rowgroup [ref=e1269]:
+                      - row "Optional Minimum Recommend" [ref=e1270]:
+                        - columnheader "Optional" [ref=e1271]
+                        - columnheader "Minimum" [ref=e1272]
+                        - columnheader "Recommend" [ref=e1273]
+                    - rowgroup [ref=e1274]:
+                      - row "CUDA 11.6 12.2" [ref=e1275]:
+                        - cell "CUDA" [ref=e1276]
+                        - cell "11.6" [ref=e1277]
+                        - cell "12.2" [ref=e1278]
+                      - row "deepspeed 0.10.0 0.16.4" [ref=e1279]:
+                        - cell "deepspeed" [ref=e1280]
+                        - cell "0.10.0" [ref=e1281]
+                        - cell "0.16.4" [ref=e1282]
+                      - row "bitsandbytes 0.39.0 0.43.1" [ref=e1283]:
+                        - cell "bitsandbytes" [ref=e1284]
+                        - cell "0.39.0" [ref=e1285]
+                        - cell "0.43.1" [ref=e1286]
+                      - row "vllm 0.4.3 0.8.2" [ref=e1287]:
+                        - cell "vllm" [ref=e1288]
+                        - cell "0.4.3" [ref=e1289]
+                        - cell "0.8.2" [ref=e1290]
+                      - row "flash-attn 2.5.6 2.7.2" [ref=e1291]:
+                        - cell "flash-attn" [ref=e1292]
+                        - cell "2.5.6" [ref=e1293]
+                        - cell "2.7.2" [ref=e1294]
+                  - generic [ref=e1295]:
+                    - heading "Hardware Requirement" [level=3] [ref=e1296]
+                    - 'link "Permalink: Hardware Requirement" [ref=e1297] [cursor=pointer]':
+                      - /url: "#hardware-requirement"
+                      - img [ref=e1298]
+                  - paragraph [ref=e1300]:
+                    - text: "*"
+                    - emphasis [ref=e1301]: estimated
+                  - table [ref=e1303]:
+                    - rowgroup [ref=e1304]:
+                      - row "Method Bits 7B 14B 30B 70B xB" [ref=e1305]:
+                        - columnheader "Method" [ref=e1306]
+                        - columnheader "Bits" [ref=e1307]
+                        - columnheader "7B" [ref=e1308]
+                        - columnheader "14B" [ref=e1309]
+                        - columnheader "30B" [ref=e1310]
+                        - columnheader "70B" [ref=e1311]
+                        - columnheader "xB" [ref=e1312]:
+                          - code [ref=e1313]: x
+                          - text: B
+                    - rowgroup [ref=e1314]:
+                      - row "Full (bf16 or fp16) 32 120GB 240GB 600GB 1200GB 18xGB" [ref=e1315]:
+                        - cell "Full (bf16 or fp16)" [ref=e1316]:
+                          - text: Full (
+                          - code [ref=e1317]: bf16
+                          - text: or
+                          - code [ref=e1318]: fp16
+                          - text: )
+                        - cell "32" [ref=e1319]
+                        - cell "120GB" [ref=e1320]
+                        - cell "240GB" [ref=e1321]
+                        - cell "600GB" [ref=e1322]
+                        - cell "1200GB" [ref=e1323]
+                        - cell "18xGB" [ref=e1324]:
+                          - code [ref=e1325]: 18x
+                          - text: GB
+                      - row "Full (pure_bf16) 16 60GB 120GB 300GB 600GB 8xGB" [ref=e1326]:
+                        - cell "Full (pure_bf16)" [ref=e1327]:
+                          - text: Full (
+                          - code [ref=e1328]: pure_bf16
+                          - text: )
+                        - cell "16" [ref=e1329]
+                        - cell "60GB" [ref=e1330]
+                        - cell "120GB" [ref=e1331]
+                        - cell "300GB" [ref=e1332]
+                        - cell "600GB" [ref=e1333]
+                        - cell "8xGB" [ref=e1334]:
+                          - code [ref=e1335]: 8x
+                          - text: GB
+                      - row "Freeze/LoRA/GaLore/APOLLO/BAdam/OFT 16 16GB 32GB 64GB 160GB 2xGB" [ref=e1336]:
+                        - cell "Freeze/LoRA/GaLore/APOLLO/BAdam/OFT" [ref=e1337]
+                        - cell "16" [ref=e1338]
+                        - cell "16GB" [ref=e1339]
+                        - cell "32GB" [ref=e1340]
+                        - cell "64GB" [ref=e1341]
+                        - cell "160GB" [ref=e1342]
+                        - cell "2xGB" [ref=e1343]:
+                          - code [ref=e1344]: 2x
+                          - text: GB
+                      - row "QLoRA / QOFT 8 10GB 20GB 40GB 80GB xGB" [ref=e1345]:
+                        - cell "QLoRA / QOFT" [ref=e1346]
+                        - cell "8" [ref=e1347]
+                        - cell "10GB" [ref=e1348]
+                        - cell "20GB" [ref=e1349]
+                        - cell "40GB" [ref=e1350]
+                        - cell "80GB" [ref=e1351]
+                        - cell "xGB" [ref=e1352]:
+                          - code [ref=e1353]: x
+                          - text: GB
+                      - row "QLoRA / QOFT 4 6GB 12GB 24GB 48GB x/2GB" [ref=e1354]:
+                        - cell "QLoRA / QOFT" [ref=e1355]
+                        - cell "4" [ref=e1356]
+                        - cell "6GB" [ref=e1357]
+                        - cell "12GB" [ref=e1358]
+                        - cell "24GB" [ref=e1359]
+                        - cell "48GB" [ref=e1360]
+                        - cell "x/2GB" [ref=e1361]:
+                          - code [ref=e1362]: x/2
+                          - text: GB
+                      - row "QLoRA / QOFT 2 4GB 8GB 16GB 24GB x/4GB" [ref=e1363]:
+                        - cell "QLoRA / QOFT" [ref=e1364]
+                        - cell "2" [ref=e1365]
+                        - cell "4GB" [ref=e1366]
+                        - cell "8GB" [ref=e1367]
+                        - cell "16GB" [ref=e1368]
+                        - cell "24GB" [ref=e1369]
+                        - cell "x/4GB" [ref=e1370]:
+                          - code [ref=e1371]: x/4
+                          - text: GB
+                  - generic [ref=e1372]:
+                    - heading "Getting Started" [level=2] [ref=e1373]
+                    - 'link "Permalink: Getting Started" [ref=e1374] [cursor=pointer]':
+                      - /url: "#getting-started"
+                      - img [ref=e1375]
+                  - generic [ref=e1377]:
+                    - heading "Installation" [level=3] [ref=e1378]
+                    - 'link "Permalink: Installation" [ref=e1379] [cursor=pointer]':
+                      - /url: "#installation"
+                      - img [ref=e1380]
+                  - generic [ref=e1382]:
+                    - paragraph [ref=e1383]:
+                      - img [ref=e1384]
+                      - text: Important
+                    - paragraph [ref=e1386]: Installation is mandatory.
+                  - generic [ref=e1387]:
+                    - heading "Install from Source" [level=4] [ref=e1388]
+                    - 'link "Permalink: Install from Source" [ref=e1389] [cursor=pointer]':
+                      - /url: "#install-from-source"
+                      - img [ref=e1390]
+                  - generic [ref=e1392]:
+                    - generic [ref=e1393]: git clone --depth 1 https://github.com/hiyouga/LlamaFactory.git cd LlamaFactory pip install -e . pip install -r requirements/metrics.txt
+                    - button "Copy code to clipboard" [ref=e1395] [cursor=pointer]:
+                      - img [ref=e1396]
+                  - paragraph [ref=e1399]:
+                    - text: "Optional dependencies available:"
+                    - code [ref=e1400]: metrics
+                    - text: ","
+                    - code [ref=e1401]: deepspeed
+                    - text: ". Install with:"
+                    - code [ref=e1402]: pip install -e . && pip install -r requirements/metrics.txt -r requirements/deepspeed.txt
+                  - paragraph [ref=e1403]:
+                    - text: Additional dependencies for specific features are available in
+                    - code [ref=e1404]: examples/requirements/
+                    - text: .
+                  - generic [ref=e1405]:
+                    - heading "Install from Docker Image" [level=4] [ref=e1406]
+                    - 'link "Permalink: Install from Docker Image" [ref=e1407] [cursor=pointer]':
+                      - /url: "#install-from-docker-image"
+                      - img [ref=e1408]
+                  - generic [ref=e1410]:
+                    - generic [ref=e1411]: docker run -it --rm --gpus=all --ipc=host hiyouga/llamafactory:latest
+                    - button "Copy code to clipboard" [ref=e1413] [cursor=pointer]:
+                      - img [ref=e1414]
+                  - paragraph [ref=e1417]: This image is built on Ubuntu 22.04 (x86_64), CUDA 12.4, Python 3.11, PyTorch 2.6.0, and Flash-attn 2.7.4.
+                  - paragraph [ref=e1418]:
+                    - text: "Find the pre-built images:"
+                    - link "https://hub.docker.com/r/hiyouga/llamafactory/tags" [ref=e1419] [cursor=pointer]:
+                      - /url: https://hub.docker.com/r/hiyouga/llamafactory/tags
+                  - paragraph [ref=e1420]:
+                    - text: Please refer to
+                    - link "build docker" [ref=e1421] [cursor=pointer]:
+                      - /url: "#build-docker"
+                    - text: to build the image yourself.
+                  - group [ref=e1422]:
+                    - generic "Setting up a virtual environment with uv" [ref=e1423] [cursor=pointer]
+                  - group [ref=e1424]:
+                    - generic "For Windows users" [ref=e1425] [cursor=pointer]
+                  - group [ref=e1426]:
+                    - generic "For Ascend NPU users" [ref=e1427] [cursor=pointer]
+                  - generic [ref=e1428]:
+                    - heading "Data Preparation" [level=3] [ref=e1429]
+                    - 'link "Permalink: Data Preparation" [ref=e1430] [cursor=pointer]':
+                      - /url: "#data-preparation"
+                      - img [ref=e1431]
+                  - paragraph [ref=e1433]:
+                    - text: Please refer to
+                    - link "data/README.md" [ref=e1434] [cursor=pointer]:
+                      - /url: /hiyouga/LlamaFactory/blob/main/data/README.md
+                    - text: for checking the details about the format of dataset files. You can use datasets on HuggingFace / ModelScope / Modelers hub, load the dataset in local disk, or specify a path to s3/gcs cloud storage.
+                  - generic [ref=e1435]:
+                    - paragraph [ref=e1436]:
+                      - img [ref=e1437]
+                      - text: Note
+                    - paragraph [ref=e1439]:
+                      - text: Please update
+                      - code [ref=e1440]: data/dataset_info.json
+                      - text: to use your custom dataset.
+                  - paragraph [ref=e1441]:
+                    - text: You can also use
+                    - strong [ref=e1442]:
+                      - link "Easy Dataset" [ref=e1443] [cursor=pointer]:
+                        - /url: https://github.com/ConardLi/easy-dataset
+                    - text: ","
+                    - strong [ref=e1444]:
+                      - link "DataFlow" [ref=e1445] [cursor=pointer]:
+                        - /url: https://github.com/OpenDCAI/DataFlow
+                    - text: and
+                    - strong [ref=e1446]:
+                      - link "GraphGen" [ref=e1447] [cursor=pointer]:
+                        - /url: https://github.com/open-sciencelab/GraphGen
+                    - text: to create synthetic data for fine-tuning.
+                  - generic [ref=e1448]:
+                    - heading "Quickstart" [level=3] [ref=e1449]
+                    - 'link "Permalink: Quickstart" [ref=e1450] [cursor=pointer]':
+                      - /url: "#quickstart"
+                      - img [ref=e1451]
+                  - paragraph [ref=e1453]:
+                    - text: Use the following 3 commands to run LoRA
+                    - strong [ref=e1454]: fine-tuning
+                    - text: ","
+                    - strong [ref=e1455]: inference
+                    - text: and
+                    - strong [ref=e1456]: merging
+                    - text: of the Qwen3-4B-Instruct model, respectively.
+                  - generic [ref=e1457]:
+                    - generic [ref=e1458]: llamafactory-cli train examples/train_lora/qwen3_lora_sft.yaml llamafactory-cli chat examples/inference/qwen3_lora_sft.yaml llamafactory-cli export examples/merge_lora/qwen3_lora_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1460] [cursor=pointer]:
+                      - img [ref=e1461]
+                  - paragraph [ref=e1464]:
+                    - text: See
+                    - link "examples/README.md" [ref=e1465] [cursor=pointer]:
+                      - /url: /hiyouga/LlamaFactory/blob/main/examples/README.md
+                    - text: for advanced usage (including distributed training).
+                  - generic [ref=e1466]:
+                    - paragraph [ref=e1467]:
+                      - img [ref=e1468]
+                      - text: Tip
+                    - paragraph [ref=e1470]:
+                      - text: Use
+                      - code [ref=e1471]: llamafactory-cli help
+                      - text: to show help information.
+                    - paragraph [ref=e1472]:
+                      - text: Read
+                      - link "FAQs" [ref=e1473] [cursor=pointer]:
+                        - /url: https://github.com/hiyouga/LLaMA-Factory/issues/4614
+                      - text: first if you encounter any problems.
+                  - generic [ref=e1474]:
+                    - heading "Fine-Tuning with LLaMA Board GUI (powered by Gradio)" [level=3] [ref=e1475]:
+                      - text: Fine-Tuning with LLaMA Board GUI (powered by
+                      - link "Gradio" [ref=e1476] [cursor=pointer]:
+                        - /url: https://github.com/gradio-app/gradio
+                      - text: )
+                    - 'link "Permalink: Fine-Tuning with LLaMA Board GUI (powered by Gradio)" [ref=e1477] [cursor=pointer]':
+                      - /url: "#fine-tuning-with-llama-board-gui-powered-by-gradio"
+                      - img [ref=e1478]
+                  - generic [ref=e1480]:
+                    - generic [ref=e1481]: llamafactory-cli webui
+                    - button "Copy code to clipboard" [ref=e1483] [cursor=pointer]:
+                      - img [ref=e1484]
+                  - generic [ref=e1487]:
+                    - heading "LLaMA Factory Online" [level=3] [ref=e1488]
+                    - 'link "Permalink: LLaMA Factory Online" [ref=e1489] [cursor=pointer]':
+                      - /url: "#llama-factory-online"
+                      - img [ref=e1490]
+                  - paragraph [ref=e1492]:
+                    - text: Read our
+                    - link "documentation" [ref=e1493] [cursor=pointer]:
+                      - /url: https://docs.llamafactory.com.cn/docs/documents/quickstart/getstarted/?utm_source=LLaMA-Factory
+                    - text: .
+                  - generic [ref=e1494]:
+                    - heading "Build Docker" [level=3] [ref=e1495]
+                    - 'link "Permalink: Build Docker" [ref=e1496] [cursor=pointer]':
+                      - /url: "#build-docker"
+                      - img [ref=e1497]
+                  - paragraph [ref=e1499]: "For CUDA users:"
+                  - generic [ref=e1500]:
+                    - generic [ref=e1501]: cd docker/docker-cuda/ docker compose up -d docker compose exec llamafactory bash
+                    - button "Copy code to clipboard" [ref=e1503] [cursor=pointer]:
+                      - img [ref=e1504]
+                  - paragraph [ref=e1507]: "For Ascend NPU users:"
+                  - generic [ref=e1508]:
+                    - generic [ref=e1509]: cd docker/docker-npu/ docker compose up -d docker compose exec llamafactory bash
+                    - button "Copy code to clipboard" [ref=e1511] [cursor=pointer]:
+                      - img [ref=e1512]
+                  - paragraph [ref=e1515]: "For AMD ROCm users:"
+                  - generic [ref=e1516]:
+                    - generic [ref=e1517]: cd docker/docker-rocm/ docker compose up -d docker compose exec llamafactory bash
+                    - button "Copy code to clipboard" [ref=e1519] [cursor=pointer]:
+                      - img [ref=e1520]
+                  - group [ref=e1523]:
+                    - generic "Build without Docker Compose" [ref=e1524] [cursor=pointer]
+                  - group [ref=e1525]:
+                    - generic "Use Docker volumes" [ref=e1526] [cursor=pointer]
+                  - generic [ref=e1527]:
+                    - heading "Deploy with OpenAI-style API and vLLM" [level=3] [ref=e1528]
+                    - 'link "Permalink: Deploy with OpenAI-style API and vLLM" [ref=e1529] [cursor=pointer]':
+                      - /url: "#deploy-with-openai-style-api-and-vllm"
+                      - img [ref=e1530]
+                  - generic [ref=e1532]:
+                    - generic [ref=e1533]: API_PORT=8000 llamafactory-cli api examples/inference/qwen3.yaml infer_backend=vllm vllm_enforce_eager=true
+                    - button "Copy code to clipboard" [ref=e1535] [cursor=pointer]:
+                      - img [ref=e1536]
+                  - generic [ref=e1539]:
+                    - paragraph [ref=e1540]:
+                      - img [ref=e1541]
+                      - text: Tip
+                    - paragraph [ref=e1543]:
+                      - text: Visit
+                      - link "this page" [ref=e1544] [cursor=pointer]:
+                        - /url: https://platform.openai.com/docs/api-reference/chat/create
+                      - text: for API document.
+                    - paragraph [ref=e1545]:
+                      - text: "Examples:"
+                      - link "Image understanding" [ref=e1546] [cursor=pointer]:
+                        - /url: /hiyouga/LlamaFactory/blob/main/scripts/api_example/test_image.py
+                      - text: "|"
+                      - link "Function calling" [ref=e1547] [cursor=pointer]:
+                        - /url: /hiyouga/LlamaFactory/blob/main/scripts/api_example/test_toolcall.py
+                  - generic [ref=e1548]:
+                    - heading "Download from ModelScope Hub" [level=3] [ref=e1549]
+                    - 'link "Permalink: Download from ModelScope Hub" [ref=e1550] [cursor=pointer]':
+                      - /url: "#download-from-modelscope-hub"
+                      - img [ref=e1551]
+                  - paragraph [ref=e1553]: If you have trouble with downloading models and datasets from Hugging Face, you can use ModelScope.
+                  - generic [ref=e1554]:
+                    - generic [ref=e1555]:
+                      - text: export USE_MODELSCOPE_HUB=1
+                      - generic [ref=e1556]: "# `set USE_MODELSCOPE_HUB=1` for Windows"
+                    - button "Copy code to clipboard" [ref=e1558] [cursor=pointer]:
+                      - img [ref=e1559]
+                  - paragraph [ref=e1562]:
+                    - text: Train the model by specifying a model ID of the ModelScope Hub as the
+                    - code [ref=e1563]: model_name_or_path
+                    - text: . You can find a full list of model IDs at
+                    - link "ModelScope Hub" [ref=e1564] [cursor=pointer]:
+                      - /url: https://modelscope.cn/models
+                    - text: ", e.g.,"
+                    - code [ref=e1565]: LLM-Research/Meta-Llama-3-8B-Instruct
+                    - text: .
+                  - generic [ref=e1566]:
+                    - heading "Download from Modelers Hub" [level=3] [ref=e1567]
+                    - 'link "Permalink: Download from Modelers Hub" [ref=e1568] [cursor=pointer]':
+                      - /url: "#download-from-modelers-hub"
+                      - img [ref=e1569]
+                  - paragraph [ref=e1571]: You can also use Modelers Hub to download models and datasets.
+                  - generic [ref=e1572]:
+                    - generic [ref=e1573]:
+                      - text: export USE_OPENMIND_HUB=1
+                      - generic [ref=e1574]: "# `set USE_OPENMIND_HUB=1` for Windows"
+                    - button "Copy code to clipboard" [ref=e1576] [cursor=pointer]:
+                      - img [ref=e1577]
+                  - paragraph [ref=e1580]:
+                    - text: Train the model by specifying a model ID of the Modelers Hub as the
+                    - code [ref=e1581]: model_name_or_path
+                    - text: . You can find a full list of model IDs at
+                    - link "Modelers Hub" [ref=e1582] [cursor=pointer]:
+                      - /url: https://modelers.cn/models
+                    - text: ", e.g.,"
+                    - code [ref=e1583]: TeleAI/TeleChat-7B-pt
+                    - text: .
+                  - generic [ref=e1584]:
+                    - heading "Use W&B Logger" [level=3] [ref=e1585]
+                    - 'link "Permalink: Use W&B Logger" [ref=e1586] [cursor=pointer]':
+                      - /url: "#use-wb-logger"
+                      - img [ref=e1587]
+                  - paragraph [ref=e1589]:
+                    - text: To use
+                    - link "Weights & Biases" [ref=e1590] [cursor=pointer]:
+                      - /url: https://wandb.ai
+                    - text: for logging experimental results, you need to add the following arguments to yaml files.
+                  - generic [ref=e1591]:
+                    - generic [ref=e1592]:
+                      - text: "report_to: wandb run_name: test_run"
+                      - generic [ref=e1593]: "# optional"
+                    - button "Copy code to clipboard" [ref=e1595] [cursor=pointer]:
+                      - img [ref=e1596]
+                  - paragraph [ref=e1599]:
+                    - text: Set
+                    - code [ref=e1600]: WANDB_API_KEY
+                    - text: to
+                    - link "your key" [ref=e1601] [cursor=pointer]:
+                      - /url: https://wandb.ai/authorize
+                    - text: when launching training tasks to log in with your W&B account.
+                  - generic [ref=e1602]:
+                    - heading "Use SwanLab Logger" [level=3] [ref=e1603]
+                    - 'link "Permalink: Use SwanLab Logger" [ref=e1604] [cursor=pointer]':
+                      - /url: "#use-swanlab-logger"
+                      - img [ref=e1605]
+                  - paragraph [ref=e1607]:
+                    - text: To use
+                    - link "SwanLab" [ref=e1608] [cursor=pointer]:
+                      - /url: https://github.com/SwanHubX/SwanLab
+                    - text: for logging experimental results, you need to add the following arguments to yaml files.
+                  - generic [ref=e1609]:
+                    - generic [ref=e1610]:
+                      - text: "use_swanlab: true swanlab_run_name: test_run"
+                      - generic [ref=e1611]: "# optional"
+                    - button "Copy code to clipboard" [ref=e1613] [cursor=pointer]:
+                      - img [ref=e1614]
+                  - paragraph [ref=e1617]: "When launching training tasks, you can log in to SwanLab in three ways:"
+                  - list [ref=e1618]:
+                    - listitem [ref=e1619]:
+                      - text: Add
+                      - code [ref=e1620]: swanlab_api_key=<your_api_key>
+                      - text: to the yaml file, and set it to your
+                      - link "API key" [ref=e1621] [cursor=pointer]:
+                        - /url: https://swanlab.cn/settings
+                      - text: .
+                    - listitem [ref=e1622]:
+                      - text: Set the environment variable
+                      - code [ref=e1623]: SWANLAB_API_KEY
+                      - text: to your
+                      - link "API key" [ref=e1624] [cursor=pointer]:
+                        - /url: https://swanlab.cn/settings
+                      - text: .
+                    - listitem [ref=e1625]:
+                      - text: Use the
+                      - code [ref=e1626]: swanlab login
+                      - text: command to complete the login.
+                  - generic [ref=e1627]:
+                    - heading "Projects using LLaMA Factory" [level=2] [ref=e1628]
+                    - 'link "Permalink: Projects using LLaMA Factory" [ref=e1629] [cursor=pointer]':
+                      - /url: "#projects-using-llama-factory"
+                      - img [ref=e1630]
+                  - paragraph [ref=e1632]: If you have a project that should be incorporated, please contact via email or create a pull request.
+                  - group [ref=e1633]:
+                    - generic "Click to show" [ref=e1634] [cursor=pointer]
+                  - generic [ref=e1635]:
+                    - heading "License" [level=2] [ref=e1636]
+                    - 'link "Permalink: License" [ref=e1637] [cursor=pointer]':
+                      - /url: "#license"
+                      - img [ref=e1638]
+                  - paragraph [ref=e1640]:
+                    - text: This repository is licensed under the
+                    - link "Apache-2.0 License" [ref=e1641] [cursor=pointer]:
+                      - /url: /hiyouga/LlamaFactory/blob/main/LICENSE
+                    - text: .
+                  - paragraph [ref=e1642]:
+                    - text: "Please follow the model licenses to use the corresponding model weights:"
+                    - link "BLOOM" [ref=e1643] [cursor=pointer]:
+                      - /url: https://huggingface.co/spaces/bigscience/license
+                    - text: /
+                    - link "DeepSeek" [ref=e1644] [cursor=pointer]:
+                      - /url: https://github.com/deepseek-ai/DeepSeek-LLM/blob/main/LICENSE-MODEL
+                    - text: /
+                    - link "Falcon" [ref=e1645] [cursor=pointer]:
+                      - /url: https://huggingface.co/tiiuae/falcon-180B/blob/main/LICENSE.txt
+                    - text: /
+                    - link "Gemma" [ref=e1646] [cursor=pointer]:
+                      - /url: https://ai.google.dev/gemma/terms
+                    - text: /
+                    - link "GLM-4" [ref=e1647] [cursor=pointer]:
+                      - /url: https://huggingface.co/THUDM/glm-4-9b/blob/main/LICENSE
+                    - text: /
+                    - link "GPT-2" [ref=e1648] [cursor=pointer]:
+                      - /url: https://github.com/openai/gpt-2/blob/master/LICENSE
+                    - text: /
+                    - link "Granite" [ref=e1649] [cursor=pointer]:
+                      - /url: /hiyouga/LlamaFactory/blob/main/LICENSE
+                    - text: /
+                    - link "InternLM" [ref=e1650] [cursor=pointer]:
+                      - /url: https://github.com/InternLM/InternLM#license
+                    - text: /
+                    - link "Llama" [ref=e1651] [cursor=pointer]:
+                      - /url: https://github.com/facebookresearch/llama/blob/main/MODEL_CARD.md
+                    - text: /
+                    - link "Llama 2" [ref=e1652] [cursor=pointer]:
+                      - /url: https://ai.meta.com/llama/license/
+                    - text: /
+                    - link "Llama 3" [ref=e1653] [cursor=pointer]:
+                      - /url: https://llama.meta.com/llama3/license/
+                    - text: /
+                    - link "Llama 4" [ref=e1654] [cursor=pointer]:
+                      - /url: https://github.com/meta-llama/llama-models/blob/main/models/llama4/LICENSE
+                    - text: /
+                    - link "MiniCPM" [ref=e1655] [cursor=pointer]:
+                      - /url: https://github.com/OpenBMB/MiniCPM/blob/main/MiniCPM%20Model%20License.md
+                    - text: /
+                    - link "Mistral/Mixtral/Pixtral" [ref=e1656] [cursor=pointer]:
+                      - /url: /hiyouga/LlamaFactory/blob/main/LICENSE
+                    - text: /
+                    - link "Phi-3/Phi-4" [ref=e1657] [cursor=pointer]:
+                      - /url: https://huggingface.co/microsoft/Phi-3-mini-4k-instruct/blob/main/LICENSE
+                    - text: /
+                    - link "Qwen" [ref=e1658] [cursor=pointer]:
+                      - /url: https://github.com/QwenLM/Qwen/blob/main/Tongyi%20Qianwen%20LICENSE%20AGREEMENT
+                    - text: /
+                    - link "StarCoder 2" [ref=e1659] [cursor=pointer]:
+                      - /url: https://huggingface.co/spaces/bigcode/bigcode-model-license-agreement
+                    - text: /
+                    - link "TeleChat2" [ref=e1660] [cursor=pointer]:
+                      - /url: https://huggingface.co/Tele-AI/telechat-7B/blob/main/TeleChat%E6%A8%A1%E5%9E%8B%E7%A4%BE%E5%8C%BA%E8%AE%B8%E5%8F%AF%E5%8D%8F%E8%AE%AE.pdf
+                    - text: /
+                    - link "Yuan 2" [ref=e1661] [cursor=pointer]:
+                      - /url: https://github.com/IEIT-Yuan/Yuan-2.0/blob/main/LICENSE-Yuan
+                  - generic [ref=e1662]:
+                    - heading "Citation" [level=2] [ref=e1663]
+                    - 'link "Permalink: Citation" [ref=e1664] [cursor=pointer]':
+                      - /url: "#citation"
+                      - img [ref=e1665]
+                  - paragraph [ref=e1667]: "If this work is helpful, please kindly cite as:"
+                  - generic [ref=e1668]:
+                    - generic [ref=e1669]:
+                      - text: "@inproceedings{zheng2024llamafactory, title="
+                      - generic [ref=e1670]: "{LlamaFactory: Unified Efficient Fine-Tuning of 100+ Language Models}"
+                      - text: ", author="
+                      - generic [ref=e1671]: "{Yaowei Zheng and Richong Zhang and Junhao Zhang and Yanhan Ye and Zheyan Luo and Zhangchi Feng and Yongqiang Ma}"
+                      - text: ", booktitle="
+                      - generic [ref=e1672]: "{Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 3: System Demonstrations)}"
+                      - text: ", address="
+                      - generic [ref=e1673]: "{Bangkok, Thailand}"
+                      - text: ", publisher="
+                      - generic [ref=e1674]: "{Association for Computational Linguistics}"
+                      - text: ", year="
+                      - generic [ref=e1675]: "{2024}"
+                      - text: ", url="
+                      - generic [ref=e1676]: "{http://arxiv.org/abs/2403.13372}"
+                      - text: "}"
+                    - button "Copy code to clipboard" [ref=e1678] [cursor=pointer]:
+                      - img [ref=e1679]
+                  - generic [ref=e1682]:
+                    - heading "Acknowledgement" [level=2] [ref=e1683]
+                    - 'link "Permalink: Acknowledgement" [ref=e1684] [cursor=pointer]':
+                      - /url: "#acknowledgement"
+                      - img [ref=e1685]
+                  - paragraph [ref=e1687]:
+                    - text: This repo benefits from
+                    - link "PEFT" [ref=e1688] [cursor=pointer]:
+                      - /url: https://github.com/huggingface/peft
+                    - text: ","
+                    - link "TRL" [ref=e1689] [cursor=pointer]:
+                      - /url: https://github.com/huggingface/trl
+                    - text: ","
+                    - link "QLoRA" [ref=e1690] [cursor=pointer]:
+                      - /url: https://github.com/artidoro/qlora
+                    - text: and
+                    - link "FastChat" [ref=e1691] [cursor=pointer]:
+                      - /url: https://github.com/lm-sys/FastChat
+                    - text: . Thanks for their wonderful works.
+                  - generic [ref=e1692]:
+                    - heading "Star History" [level=2] [ref=e1693]
+                    - 'link "Permalink: Star History" [ref=e1694] [cursor=pointer]':
+                      - /url: "#star-history"
+                      - img [ref=e1695]
+                  - paragraph [ref=e1697]:
+                    - link "Star History Chart" [ref=e1698] [cursor=pointer]:
+                      - /url: https://camo.githubusercontent.com/06c647c6639756bb7543c1277a4d02f0ea0606ee288b07724ea29f4b36e8243d/68747470733a2f2f6170692e737461722d686973746f72792e636f6d2f7376673f7265706f733d6869796f7567612f4c4c614d412d466163746f727926747970653d44617465
+                      - img "Star History Chart" [ref=e1699]
+  - alert [ref=e1703]

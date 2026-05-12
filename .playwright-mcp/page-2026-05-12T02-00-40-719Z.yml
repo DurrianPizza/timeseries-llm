@@ -1,0 +1,547 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - link "Skip to content" [ref=e4] [cursor=pointer]:
+        - /url: "#start-of-content"
+      - banner [ref=e6]:
+        - heading "Navigation Menu" [level=2] [ref=e7]
+        - generic [ref=e8]:
+          - link "Homepage" [ref=e10] [cursor=pointer]:
+            - /url: /
+            - img [ref=e11]
+          - generic [ref=e13]:
+            - navigation "Global" [ref=e16]:
+              - list [ref=e17]:
+                - listitem [ref=e18]:
+                  - button "Platform" [ref=e20] [cursor=pointer]:
+                    - text: Platform
+                    - img [ref=e21]
+                - listitem [ref=e23]:
+                  - button "Solutions" [ref=e25] [cursor=pointer]:
+                    - text: Solutions
+                    - img [ref=e26]
+                - listitem [ref=e28]:
+                  - button "Resources" [ref=e30] [cursor=pointer]:
+                    - text: Resources
+                    - img [ref=e31]
+                - listitem [ref=e33]:
+                  - button "Open Source" [ref=e35] [cursor=pointer]:
+                    - text: Open Source
+                    - img [ref=e36]
+                - listitem [ref=e38]:
+                  - button "Enterprise" [ref=e40] [cursor=pointer]:
+                    - text: Enterprise
+                    - img [ref=e41]
+                - listitem [ref=e43]:
+                  - link "Pricing" [ref=e44] [cursor=pointer]:
+                    - /url: https://github.com/pricing
+                    - generic [ref=e45]: Pricing
+            - generic [ref=e46]:
+              - button "Search or jump to…" [ref=e49] [cursor=pointer]:
+                - img [ref=e51]
+              - link "Sign in" [ref=e54] [cursor=pointer]:
+                - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fhiyouga%2FLlamaFactory%2Ftree%2Fmain%2Fexamples%2Ftrain_lora
+              - link "Sign up" [ref=e55] [cursor=pointer]:
+                - /url: /signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Ffiles%2Fdisambiguate&source=header-repo&source_repo=hiyouga%2FLlamaFactory
+              - button "Appearance settings" [ref=e58] [cursor=pointer]:
+                - img
+    - main [ref=e62]:
+      - generic [ref=e63]:
+        - generic [ref=e64]:
+          - generic [ref=e66]:
+            - img [ref=e67]
+            - link "hiyouga" [ref=e70] [cursor=pointer]:
+              - /url: /hiyouga
+            - generic [ref=e71]: /
+            - strong [ref=e72]:
+              - link "LlamaFactory" [ref=e73] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory
+            - generic [ref=e74]: Public
+          - generic [ref=e75]:
+            - list:
+              - listitem [ref=e76]:
+                - link "You must be signed in to change notification settings" [ref=e77] [cursor=pointer]:
+                  - /url: /login?return_to=%2Fhiyouga%2FLlamaFactory
+                  - img [ref=e78]
+                  - text: Notifications
+              - listitem [ref=e80]:
+                - link "Fork 8.7k" [ref=e81] [cursor=pointer]:
+                  - /url: /login?return_to=%2Fhiyouga%2FLlamaFactory
+                  - img [ref=e82]
+                  - text: Fork
+                  - generic "8,695" [ref=e84]: 8.7k
+              - listitem [ref=e85]:
+                - link "You must be signed in to star a repository" [ref=e87] [cursor=pointer]:
+                  - /url: /login?return_to=%2Fhiyouga%2FLlamaFactory
+                  - img [ref=e88]
+                  - text: Star
+                  - generic "71151 users starred this repository" [ref=e90]: 71.2k
+        - navigation "Repository" [ref=e91]:
+          - list [ref=e92]:
+            - listitem [ref=e93]:
+              - link "Code" [ref=e94] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory
+                - img [ref=e95]
+                - generic [ref=e97]: Code
+            - listitem [ref=e98]:
+              - link "Issues 956" [ref=e99] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory/issues
+                - img [ref=e100]
+                - generic [ref=e103]: Issues
+                - generic "956" [ref=e104]
+            - listitem [ref=e105]:
+              - link "Pull requests 49" [ref=e106] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory/pulls
+                - img [ref=e107]
+                - generic [ref=e109]: Pull requests
+                - generic "49" [ref=e110]
+            - listitem [ref=e111]:
+              - link "Discussions" [ref=e112] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory/discussions
+                - img [ref=e113]
+                - generic [ref=e115]: Discussions
+            - listitem [ref=e116]:
+              - link "Actions" [ref=e117] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory/actions
+                - img [ref=e118]
+                - generic [ref=e120]: Actions
+            - listitem [ref=e121]:
+              - link "Security and quality 4" [ref=e122] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory/security
+                - img [ref=e123]
+                - generic [ref=e125]: Security and quality
+                - generic "4" [ref=e126]
+            - listitem [ref=e127]:
+              - link "Insights" [ref=e128] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory/pulse
+                - img [ref=e129]
+                - generic [ref=e131]: Insights
+      - generic [ref=e139]:
+        - generic [ref=e141]:
+          - generic [ref=e144]:
+            - generic [ref=e145]:
+              - generic [ref=e146]:
+                - heading "Collapse file tree" [level=2] [ref=e147]:
+                  - button "Collapse file tree" [expanded] [ref=e148] [cursor=pointer]:
+                    - img [ref=e149]
+                - heading "Files" [level=2] [ref=e152]
+              - generic [ref=e153]:
+                - button "main branch" [ref=e155] [cursor=pointer]:
+                  - generic [ref=e156]:
+                    - generic [ref=e158]:
+                      - img [ref=e160]
+                      - generic [ref=e163]: main
+                    - generic:
+                      - img
+                - button "Search this repository (forward slash)" [ref=e165] [cursor=pointer]:
+                  - img [ref=e166]
+            - generic [ref=e169]:
+              - img [ref=e171]
+              - combobox "Go to file" [ref=e173]
+            - navigation "File Tree Navigation" [ref=e179]:
+              - tree "Files" [ref=e181]:
+                - treeitem ".ai" [level=1] [ref=e182]:
+                  - generic [ref=e183] [cursor=pointer]:
+                    - img [ref=e185]
+                    - generic [ref=e187]:
+                      - img [ref=e191]
+                      - generic [ref=e193]: .ai
+                - treeitem ".github" [level=1] [ref=e194]:
+                  - generic [ref=e195] [cursor=pointer]:
+                    - img [ref=e197]
+                    - generic [ref=e199]:
+                      - img [ref=e203]
+                      - generic [ref=e205]: .github
+                - treeitem "assets" [level=1] [ref=e206]:
+                  - generic [ref=e207] [cursor=pointer]:
+                    - img [ref=e209]
+                    - generic [ref=e211]:
+                      - img [ref=e215]
+                      - generic [ref=e217]: assets
+                - treeitem "data" [level=1] [ref=e218]:
+                  - generic [ref=e219] [cursor=pointer]:
+                    - img [ref=e221]
+                    - generic [ref=e223]:
+                      - img [ref=e227]
+                      - generic [ref=e229]: data
+                - treeitem "docker" [level=1] [ref=e230]:
+                  - generic [ref=e231] [cursor=pointer]:
+                    - img [ref=e233]
+                    - generic [ref=e235]:
+                      - img [ref=e239]
+                      - generic [ref=e241]: docker
+                - treeitem "docs" [level=1] [ref=e242]:
+                  - generic [ref=e243] [cursor=pointer]:
+                    - img [ref=e245]
+                    - generic [ref=e247]:
+                      - img [ref=e251]
+                      - generic [ref=e253]: docs
+                - treeitem "examples" [expanded] [level=1] [ref=e254]:
+                  - generic [ref=e255] [cursor=pointer]:
+                    - img [ref=e257]
+                    - generic [ref=e259]:
+                      - img [ref=e263]
+                      - generic [ref=e265]: examples
+                  - group "examples" [ref=e266]:
+                    - treeitem "accelerate" [level=2] [ref=e267]:
+                      - generic [ref=e268] [cursor=pointer]:
+                        - img [ref=e273]
+                        - generic [ref=e275]:
+                          - img [ref=e279]
+                          - generic [ref=e281]: accelerate
+                    - treeitem "ascend" [level=2] [ref=e282]:
+                      - generic [ref=e283] [cursor=pointer]:
+                        - img [ref=e288]
+                        - generic [ref=e290]:
+                          - img [ref=e294]
+                          - generic [ref=e296]: ascend
+                    - treeitem "deepspeed" [level=2] [ref=e297]:
+                      - generic [ref=e298] [cursor=pointer]:
+                        - img [ref=e303]
+                        - generic [ref=e305]:
+                          - img [ref=e309]
+                          - generic [ref=e311]: deepspeed
+                    - treeitem "extras" [level=2] [ref=e312]:
+                      - generic [ref=e313] [cursor=pointer]:
+                        - img [ref=e318]
+                        - generic [ref=e320]:
+                          - img [ref=e324]
+                          - generic [ref=e326]: extras
+                    - treeitem "inference" [level=2] [ref=e327]:
+                      - generic [ref=e328] [cursor=pointer]:
+                        - img [ref=e333]
+                        - generic [ref=e335]:
+                          - img [ref=e339]
+                          - generic [ref=e341]: inference
+                    - treeitem "ktransformers" [level=2] [ref=e342]:
+                      - generic [ref=e343] [cursor=pointer]:
+                        - img [ref=e348]
+                        - generic [ref=e350]:
+                          - img [ref=e354]
+                          - generic [ref=e356]: ktransformers
+                    - treeitem "megatron" [level=2] [ref=e357]:
+                      - generic [ref=e358] [cursor=pointer]:
+                        - img [ref=e363]
+                        - generic [ref=e365]:
+                          - img [ref=e369]
+                          - generic [ref=e371]: megatron
+                    - treeitem "merge_lora" [level=2] [ref=e372]:
+                      - generic [ref=e373] [cursor=pointer]:
+                        - img [ref=e378]
+                        - generic [ref=e380]:
+                          - img [ref=e384]
+                          - generic [ref=e386]: merge_lora
+                    - treeitem "train_full" [level=2] [ref=e387]:
+                      - generic [ref=e388] [cursor=pointer]:
+                        - img [ref=e393]
+                        - generic [ref=e395]:
+                          - img [ref=e399]
+                          - generic [ref=e401]: train_full
+                    - treeitem "train_lora" [expanded] [level=2] [ref=e402]:
+                      - generic [ref=e403] [cursor=pointer]:
+                        - img [ref=e408]
+                        - generic [ref=e410]:
+                          - img [ref=e414]
+                          - generic [ref=e416]: train_lora
+                      - group "train_lora" [ref=e417]:
+                        - treeitem "qwen3_lora_dpo.yaml" [level=3] [ref=e418]:
+                          - generic [ref=e424] [cursor=pointer]:
+                            - img [ref=e427]
+                            - generic [ref=e429]: qwen3_lora_dpo.yaml
+                        - treeitem "qwen3_lora_kto.yaml" [level=3] [ref=e430]:
+                          - generic [ref=e436] [cursor=pointer]:
+                            - img [ref=e439]
+                            - generic [ref=e441]: qwen3_lora_kto.yaml
+                        - treeitem "qwen3_lora_pretrain.yaml" [level=3] [ref=e442]:
+                          - generic [ref=e448] [cursor=pointer]:
+                            - img [ref=e451]
+                            - generic [ref=e453]: qwen3_lora_pretrain.yaml
+                        - treeitem "qwen3_lora_reward.yaml" [level=3] [ref=e454]:
+                          - generic [ref=e460] [cursor=pointer]:
+                            - img [ref=e463]
+                            - generic [ref=e465]: qwen3_lora_reward.yaml
+                        - treeitem "qwen3_lora_sft.sh" [level=3] [ref=e466]:
+                          - generic [ref=e472] [cursor=pointer]:
+                            - img [ref=e475]
+                            - generic [ref=e477]: qwen3_lora_sft.sh
+                        - treeitem "qwen3_lora_sft.yaml" [level=3] [ref=e478]:
+                          - generic [ref=e484] [cursor=pointer]:
+                            - img [ref=e487]
+                            - generic [ref=e489]: qwen3_lora_sft.yaml
+                        - treeitem "qwen3_lora_sft_ds3.yaml" [level=3] [ref=e490]:
+                          - generic [ref=e496] [cursor=pointer]:
+                            - img [ref=e499]
+                            - generic [ref=e501]: qwen3_lora_sft_ds3.yaml
+                        - treeitem "qwen3_lora_sft_ray.yaml" [level=3] [ref=e502]:
+                          - generic [ref=e508] [cursor=pointer]:
+                            - img [ref=e511]
+                            - generic [ref=e513]: qwen3_lora_sft_ray.yaml
+                        - treeitem "qwen3_preprocess.yaml" [level=3] [ref=e514]:
+                          - generic [ref=e520] [cursor=pointer]:
+                            - img [ref=e523]
+                            - generic [ref=e525]: qwen3_preprocess.yaml
+                        - treeitem "qwen3vl_lora_dpo.yaml" [level=3] [ref=e526]:
+                          - generic [ref=e532] [cursor=pointer]:
+                            - img [ref=e535]
+                            - generic [ref=e537]: qwen3vl_lora_dpo.yaml
+                        - treeitem "qwen3vl_lora_sft.yaml" [level=3] [ref=e538]:
+                          - generic [ref=e544] [cursor=pointer]:
+                            - img [ref=e547]
+                            - generic [ref=e549]: qwen3vl_lora_sft.yaml
+                    - treeitem "train_qlora" [level=2] [ref=e550]:
+                      - generic [ref=e551] [cursor=pointer]:
+                        - img [ref=e556]
+                        - generic [ref=e558]:
+                          - img [ref=e562]
+                          - generic [ref=e564]: train_qlora
+                    - treeitem "v1" [level=2] [ref=e565]:
+                      - generic [ref=e566] [cursor=pointer]:
+                        - img [ref=e571]
+                        - generic [ref=e573]:
+                          - img [ref=e577]
+                          - generic [ref=e579]: v1
+                    - treeitem "README.md" [level=2] [ref=e580]:
+                      - generic [ref=e585] [cursor=pointer]:
+                        - img [ref=e588]
+                        - generic [ref=e590]: README.md
+                    - treeitem "README_zh.md" [level=2] [ref=e591]:
+                      - generic [ref=e596] [cursor=pointer]:
+                        - img [ref=e599]
+                        - generic [ref=e601]: README_zh.md
+                - treeitem "requirements" [level=1] [ref=e602]:
+                  - generic [ref=e603] [cursor=pointer]:
+                    - img [ref=e605]
+                    - generic [ref=e607]:
+                      - img [ref=e611]
+                      - generic [ref=e613]: requirements
+                - treeitem "scripts" [level=1] [ref=e614]:
+                  - generic [ref=e615] [cursor=pointer]:
+                    - img [ref=e617]
+                    - generic [ref=e619]:
+                      - img [ref=e623]
+                      - generic [ref=e625]: scripts
+                - treeitem "src" [level=1] [ref=e626]:
+                  - generic [ref=e627] [cursor=pointer]:
+                    - img [ref=e629]
+                    - generic [ref=e631]:
+                      - img [ref=e635]
+                      - generic [ref=e637]: src
+                - treeitem "tests" [level=1] [ref=e638]:
+                  - generic [ref=e639] [cursor=pointer]:
+                    - img [ref=e641]
+                    - generic [ref=e643]:
+                      - img [ref=e647]
+                      - generic [ref=e649]: tests
+                - treeitem "tests_v1" [level=1] [ref=e650]:
+                  - generic [ref=e651] [cursor=pointer]:
+                    - img [ref=e653]
+                    - generic [ref=e655]:
+                      - img [ref=e659]
+                      - generic [ref=e661]: tests_v1
+                - treeitem ".dockerignore" [level=1] [ref=e662]:
+                  - generic [ref=e664] [cursor=pointer]:
+                    - img [ref=e667]
+                    - generic [ref=e669]: .dockerignore
+                - treeitem ".env.local" [level=1] [ref=e670]:
+                  - generic [ref=e672] [cursor=pointer]:
+                    - img [ref=e675]
+                    - generic [ref=e677]: .env.local
+                - treeitem ".gitattributes" [level=1] [ref=e678]:
+                  - generic [ref=e680] [cursor=pointer]:
+                    - img [ref=e683]
+                    - generic [ref=e685]: .gitattributes
+                - treeitem ".gitignore" [level=1] [ref=e686]:
+                  - generic [ref=e688] [cursor=pointer]:
+                    - img [ref=e691]
+                    - generic [ref=e693]: .gitignore
+                - treeitem ".pre-commit-config.yaml" [level=1] [ref=e694]:
+                  - generic [ref=e696] [cursor=pointer]:
+                    - img [ref=e699]
+                    - generic [ref=e701]: .pre-commit-config.yaml
+                - treeitem "CITATION.cff" [level=1] [ref=e702]:
+                  - generic [ref=e704] [cursor=pointer]:
+                    - img [ref=e707]
+                    - generic [ref=e709]: CITATION.cff
+                - treeitem "CLAUDE.md" [level=1] [ref=e710]:
+                  - generic [ref=e712] [cursor=pointer]:
+                    - img [ref=e715]
+                    - generic [ref=e717]: CLAUDE.md
+                - treeitem "LICENSE" [level=1] [ref=e718]:
+                  - generic [ref=e720] [cursor=pointer]:
+                    - img [ref=e723]
+                    - generic [ref=e725]: LICENSE
+                - treeitem "MANIFEST.in" [level=1] [ref=e726]:
+                  - generic [ref=e728] [cursor=pointer]:
+                    - img [ref=e731]
+                    - generic [ref=e733]: MANIFEST.in
+                - treeitem "Makefile" [level=1] [ref=e734]:
+                  - generic [ref=e736] [cursor=pointer]:
+                    - img [ref=e739]
+                    - generic [ref=e741]: Makefile
+                - treeitem "README.md" [level=1] [ref=e742]:
+                  - generic [ref=e744] [cursor=pointer]:
+                    - img [ref=e747]
+                    - generic [ref=e749]: README.md
+                - treeitem "README_zh.md" [level=1] [ref=e750]:
+                  - generic [ref=e752] [cursor=pointer]:
+                    - img [ref=e755]
+                    - generic [ref=e757]: README_zh.md
+                - treeitem "pyproject.toml" [level=1] [ref=e758]:
+                  - generic [ref=e760] [cursor=pointer]:
+                    - img [ref=e763]
+                    - generic [ref=e765]: pyproject.toml
+          - slider "Draggable pane splitter" [ref=e767]
+        - generic [ref=e770]:
+          - generic [ref=e774]:
+            - generic [ref=e776]:
+              - navigation "Breadcrumbs" [ref=e777]:
+                - heading "Breadcrumbs" [level=2] [ref=e778]
+                - list [ref=e779]:
+                  - listitem [ref=e780]:
+                    - link "LlamaFactory" [ref=e781] [cursor=pointer]:
+                      - /url: /hiyouga/LlamaFactory/tree/main
+                  - listitem [ref=e782]:
+                    - text: /
+                    - link "examples" [ref=e783] [cursor=pointer]:
+                      - /url: /hiyouga/LlamaFactory/tree/main/examples
+              - generic [ref=e784]:
+                - text: /
+                - heading "train_lora" [level=1] [ref=e785]
+                - text: /
+              - button "Copy path" [ref=e786] [cursor=pointer]:
+                - img [ref=e787]
+            - generic [ref=e792]:
+              - heading "Directory actions" [level=2] [ref=e793]
+              - heading "More options" [level=2] [ref=e794]
+              - button "More options" [ref=e795] [cursor=pointer]:
+                - img [ref=e796]
+          - generic [ref=e798]:
+            - generic [ref=e800]:
+              - heading "Latest commit" [level=2] [ref=e801]
+              - generic [ref=e804]:
+                - heading "History" [level=2] [ref=e805]
+                - link "History" [ref=e806] [cursor=pointer]:
+                  - /url: /hiyouga/LlamaFactory/commits/main/examples/train_lora
+                  - generic [ref=e807]:
+                    - generic:
+                      - img
+                    - generic [ref=e808]: History
+            - generic [ref=e810]:
+              - heading "Folders and files" [level=2] [ref=e811]
+              - table "Folders and files" [ref=e812]:
+                - rowgroup [ref=e813]:
+                  - row "Name Last commit message Last commit date" [ref=e814]:
+                    - columnheader "Name" [ref=e815]
+                    - columnheader "Last commit message" [ref=e816]:
+                      - generic "Last commit message" [ref=e817]
+                    - columnheader "Last commit date" [ref=e818]:
+                      - generic "Last commit date" [ref=e819]
+                - rowgroup [ref=e820]:
+                  - row "parent directory Parent directory" [ref=e821]:
+                    - cell "parent directory Parent directory" [ref=e822]:
+                      - heading "parent directory" [level=3] [ref=e823]
+                      - link "Parent directory" [ref=e824] [cursor=pointer]:
+                        - /url: /hiyouga/LlamaFactory/tree/main/examples
+                        - generic [ref=e825]:
+                          - img [ref=e826]
+                          - text: ..
+                  - row "qwen3_lora_dpo.yaml, (File)" [ref=e828]:
+                    - cell "qwen3_lora_dpo.yaml, (File)" [ref=e829]:
+                      - generic [ref=e830]:
+                        - img [ref=e831]
+                        - link "qwen3_lora_dpo.yaml, (File)" [ref=e836] [cursor=pointer]:
+                          - /url: /hiyouga/LlamaFactory/blob/main/examples/train_lora/qwen3_lora_dpo.yaml
+                          - text: qwen3_lora_dpo.yaml
+                    - cell [ref=e837]
+                    - cell [ref=e839]
+                  - row "qwen3_lora_kto.yaml, (File)" [ref=e842]:
+                    - cell "qwen3_lora_kto.yaml, (File)" [ref=e843]:
+                      - generic [ref=e844]:
+                        - img [ref=e845]
+                        - link "qwen3_lora_kto.yaml, (File)" [ref=e850] [cursor=pointer]:
+                          - /url: /hiyouga/LlamaFactory/blob/main/examples/train_lora/qwen3_lora_kto.yaml
+                          - text: qwen3_lora_kto.yaml
+                    - cell [ref=e851]
+                    - cell [ref=e853]
+                  - row "qwen3_lora_pretrain.yaml, (File)" [ref=e856]:
+                    - cell "qwen3_lora_pretrain.yaml, (File)" [ref=e857]:
+                      - generic [ref=e858]:
+                        - img [ref=e859]
+                        - link "qwen3_lora_pretrain.yaml, (File)" [ref=e864] [cursor=pointer]:
+                          - /url: /hiyouga/LlamaFactory/blob/main/examples/train_lora/qwen3_lora_pretrain.yaml
+                          - text: qwen3_lora_pretrain.yaml
+                    - cell [ref=e865]
+                    - cell [ref=e867]
+                  - row "qwen3_lora_reward.yaml, (File)" [ref=e870]:
+                    - cell "qwen3_lora_reward.yaml, (File)" [ref=e871]:
+                      - generic [ref=e872]:
+                        - img [ref=e873]
+                        - link "qwen3_lora_reward.yaml, (File)" [ref=e878] [cursor=pointer]:
+                          - /url: /hiyouga/LlamaFactory/blob/main/examples/train_lora/qwen3_lora_reward.yaml
+                          - text: qwen3_lora_reward.yaml
+                    - cell [ref=e879]
+                    - cell [ref=e881]
+                  - row "qwen3_lora_sft.sh, (File)" [ref=e884]:
+                    - cell "qwen3_lora_sft.sh, (File)" [ref=e885]:
+                      - generic [ref=e886]:
+                        - img [ref=e887]
+                        - link "qwen3_lora_sft.sh, (File)" [ref=e892] [cursor=pointer]:
+                          - /url: /hiyouga/LlamaFactory/blob/main/examples/train_lora/qwen3_lora_sft.sh
+                          - text: qwen3_lora_sft.sh
+                    - cell [ref=e893]
+                    - cell [ref=e895]
+                  - row "qwen3_lora_sft.yaml, (File)" [ref=e898]:
+                    - cell "qwen3_lora_sft.yaml, (File)" [ref=e899]:
+                      - generic [ref=e900]:
+                        - img [ref=e901]
+                        - link "qwen3_lora_sft.yaml, (File)" [ref=e906] [cursor=pointer]:
+                          - /url: /hiyouga/LlamaFactory/blob/main/examples/train_lora/qwen3_lora_sft.yaml
+                          - text: qwen3_lora_sft.yaml
+                    - cell [ref=e907]
+                    - cell [ref=e909]
+                  - row "qwen3_lora_sft_ds3.yaml, (File)" [ref=e912]:
+                    - cell "qwen3_lora_sft_ds3.yaml, (File)" [ref=e913]:
+                      - generic [ref=e914]:
+                        - img [ref=e915]
+                        - link "qwen3_lora_sft_ds3.yaml, (File)" [ref=e920] [cursor=pointer]:
+                          - /url: /hiyouga/LlamaFactory/blob/main/examples/train_lora/qwen3_lora_sft_ds3.yaml
+                          - text: qwen3_lora_sft_ds3.yaml
+                    - cell [ref=e921]
+                    - cell [ref=e923]
+                  - row "qwen3_lora_sft_ray.yaml, (File)" [ref=e926]:
+                    - cell "qwen3_lora_sft_ray.yaml, (File)" [ref=e927]:
+                      - generic [ref=e928]:
+                        - img [ref=e929]
+                        - link "qwen3_lora_sft_ray.yaml, (File)" [ref=e934] [cursor=pointer]:
+                          - /url: /hiyouga/LlamaFactory/blob/main/examples/train_lora/qwen3_lora_sft_ray.yaml
+                          - text: qwen3_lora_sft_ray.yaml
+                    - cell [ref=e935]
+                    - cell [ref=e937]
+                  - row "qwen3_preprocess.yaml, (File)" [ref=e940]:
+                    - cell "qwen3_preprocess.yaml, (File)" [ref=e941]:
+                      - generic [ref=e942]:
+                        - img [ref=e943]
+                        - link "qwen3_preprocess.yaml, (File)" [ref=e948] [cursor=pointer]:
+                          - /url: /hiyouga/LlamaFactory/blob/main/examples/train_lora/qwen3_preprocess.yaml
+                          - text: qwen3_preprocess.yaml
+                    - cell [ref=e949]
+                    - cell [ref=e951]
+                  - row "qwen3vl_lora_dpo.yaml, (File)" [ref=e954]:
+                    - cell "qwen3vl_lora_dpo.yaml, (File)" [ref=e955]:
+                      - generic [ref=e956]:
+                        - img [ref=e957]
+                        - link "qwen3vl_lora_dpo.yaml, (File)" [ref=e962] [cursor=pointer]:
+                          - /url: /hiyouga/LlamaFactory/blob/main/examples/train_lora/qwen3vl_lora_dpo.yaml
+                          - text: qwen3vl_lora_dpo.yaml
+                    - cell [ref=e963]
+                    - cell [ref=e965]
+                  - row "qwen3vl_lora_sft.yaml, (File)" [ref=e968]:
+                    - cell "qwen3vl_lora_sft.yaml, (File)" [ref=e969]:
+                      - generic [ref=e970]:
+                        - img [ref=e971]
+                        - link "qwen3vl_lora_sft.yaml, (File)" [ref=e976] [cursor=pointer]:
+                          - /url: /hiyouga/LlamaFactory/blob/main/examples/train_lora/qwen3vl_lora_sft.yaml
+                          - text: qwen3vl_lora_sft.yaml
+                    - cell [ref=e977]
+                    - cell [ref=e979]
+  - alert [ref=e985]

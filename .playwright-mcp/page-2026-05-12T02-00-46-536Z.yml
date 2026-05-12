@@ -1,0 +1,295 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - link "Skip to content" [ref=e4] [cursor=pointer]:
+      - /url: "#start-of-content"
+    - banner [ref=e6]:
+      - heading "Navigation Menu" [level=2] [ref=e7]
+      - generic [ref=e8]:
+        - link "Homepage" [ref=e10] [cursor=pointer]:
+          - /url: /
+          - img [ref=e11]
+        - generic [ref=e13]:
+          - navigation "Global" [ref=e16]:
+            - list [ref=e17]:
+              - listitem [ref=e18]:
+                - button "Platform" [ref=e20] [cursor=pointer]:
+                  - text: Platform
+                  - img [ref=e21]
+              - listitem [ref=e23]:
+                - button "Solutions" [ref=e25] [cursor=pointer]:
+                  - text: Solutions
+                  - img [ref=e26]
+              - listitem [ref=e28]:
+                - button "Resources" [ref=e30] [cursor=pointer]:
+                  - text: Resources
+                  - img [ref=e31]
+              - listitem [ref=e33]:
+                - button "Open Source" [ref=e35] [cursor=pointer]:
+                  - text: Open Source
+                  - img [ref=e36]
+              - listitem [ref=e38]:
+                - button "Enterprise" [ref=e40] [cursor=pointer]:
+                  - text: Enterprise
+                  - img [ref=e41]
+              - listitem [ref=e43]:
+                - link "Pricing" [ref=e44] [cursor=pointer]:
+                  - /url: https://github.com/pricing
+                  - generic [ref=e45]: Pricing
+          - generic [ref=e46]:
+            - button "Search or jump to…" [ref=e49] [cursor=pointer]:
+              - img [ref=e51]
+            - generic [ref=e53]:
+              - link "Sign in" [ref=e54] [cursor=pointer]:
+                - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fhiyouga%2FLlamaFactory%2Fblob%2Fmain%2Fexamples%2Ftrain_lora%2Fqwen2_lora_ds.yaml
+              - generic [ref=e56]:
+                - heading "Sign in to GitHub" [level=4] [ref=e57]
+                - generic [ref=e58]:
+                  - text: Username or email address
+                  - textbox "Username or email address" [active] [ref=e59]
+                  - generic [ref=e60]:
+                    - text: Password
+                    - textbox "Password" [ref=e61]
+                    - link "Forgot password?" [ref=e62] [cursor=pointer]:
+                      - /url: /password_reset
+                    - button "Sign in" [ref=e63] [cursor=pointer]
+                - link "or continue with other methods" [ref=e66] [cursor=pointer]:
+                  - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fhiyouga%2FLlamaFactory%2Fblob%2Fmain%2Fexamples%2Ftrain_lora%2Fqwen2_lora_ds.yaml
+                  - generic [ref=e68]: or continue with other methods
+            - link "Sign up" [ref=e69] [cursor=pointer]:
+              - /url: /signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fblob%2Fshow&source=header-repo&source_repo=hiyouga%2FLlamaFactory
+            - button "Appearance settings" [ref=e72] [cursor=pointer]:
+              - img
+  - main [ref=e76]:
+    - generic [ref=e77]:
+      - generic [ref=e78]:
+        - generic [ref=e80]:
+          - img [ref=e81]
+          - link "hiyouga" [ref=e84] [cursor=pointer]:
+            - /url: /hiyouga
+          - generic [ref=e85]: /
+          - strong [ref=e86]:
+            - link "LlamaFactory" [ref=e87] [cursor=pointer]:
+              - /url: /hiyouga/LlamaFactory
+          - generic [ref=e88]: Public
+        - generic [ref=e89]:
+          - list:
+            - listitem [ref=e90]:
+              - link "You must be signed in to change notification settings" [ref=e91] [cursor=pointer]:
+                - /url: /login?return_to=%2Fhiyouga%2FLlamaFactory
+                - img [ref=e92]
+                - text: Notifications
+            - listitem [ref=e94]:
+              - link "Fork 8.7k" [ref=e95] [cursor=pointer]:
+                - /url: /login?return_to=%2Fhiyouga%2FLlamaFactory
+                - img [ref=e96]
+                - text: Fork
+                - generic "8,695" [ref=e98]: 8.7k
+            - listitem [ref=e99]:
+              - link "You must be signed in to star a repository" [ref=e101] [cursor=pointer]:
+                - /url: /login?return_to=%2Fhiyouga%2FLlamaFactory
+                - img [ref=e102]
+                - text: Star
+                - generic "71151 users starred this repository" [ref=e104]: 71.2k
+      - navigation "Repository" [ref=e105]:
+        - list [ref=e106]:
+          - listitem [ref=e107]:
+            - link "Code" [ref=e108] [cursor=pointer]:
+              - /url: /hiyouga/LlamaFactory
+              - img [ref=e109]
+              - generic [ref=e111]: Code
+          - listitem [ref=e112]:
+            - link "Issues 956" [ref=e113] [cursor=pointer]:
+              - /url: /hiyouga/LlamaFactory/issues
+              - img [ref=e114]
+              - generic [ref=e117]: Issues
+              - generic "956" [ref=e118]
+          - listitem [ref=e119]:
+            - link "Pull requests 49" [ref=e120] [cursor=pointer]:
+              - /url: /hiyouga/LlamaFactory/pulls
+              - img [ref=e121]
+              - generic [ref=e123]: Pull requests
+              - generic "49" [ref=e124]
+          - listitem [ref=e125]:
+            - link "Discussions" [ref=e126] [cursor=pointer]:
+              - /url: /hiyouga/LlamaFactory/discussions
+              - img [ref=e127]
+              - generic [ref=e129]: Discussions
+          - listitem [ref=e130]:
+            - link "Actions" [ref=e131] [cursor=pointer]:
+              - /url: /hiyouga/LlamaFactory/actions
+              - img [ref=e132]
+              - generic [ref=e134]: Actions
+          - listitem [ref=e135]:
+            - link "Security and quality 4" [ref=e136] [cursor=pointer]:
+              - /url: /hiyouga/LlamaFactory/security
+              - img [ref=e137]
+              - generic [ref=e139]: Security and quality
+              - generic "4" [ref=e140]
+          - listitem [ref=e141]:
+            - link "Insights" [ref=e142] [cursor=pointer]:
+              - /url: /hiyouga/LlamaFactory/pulse
+              - img [ref=e143]
+              - generic [ref=e145]: Insights
+    - generic [ref=e153]:
+      - generic [ref=e155]:
+        - generic [ref=e158]:
+          - generic [ref=e159]:
+            - generic [ref=e160]:
+              - heading "Collapse file tree" [level=2] [ref=e161]:
+                - button "Collapse file tree" [expanded] [ref=e162] [cursor=pointer]:
+                  - img [ref=e163]
+              - heading "Files" [level=2] [ref=e166]
+            - generic [ref=e167]:
+              - button "main branch" [ref=e169] [cursor=pointer]:
+                - generic [ref=e170]:
+                  - generic [ref=e172]:
+                    - img [ref=e174]
+                    - generic [ref=e177]: main
+                  - generic:
+                    - img
+              - button "Search this repository (forward slash)" [ref=e179] [cursor=pointer]:
+                - img [ref=e180]
+          - generic [ref=e183]:
+            - img [ref=e185]
+            - combobox "Go to file" [ref=e187]
+          - navigation "File Tree Navigation" [ref=e193]:
+            - tree "Files" [ref=e195]:
+              - treeitem ".ai" [level=1] [ref=e196]:
+                - generic [ref=e197] [cursor=pointer]:
+                  - img [ref=e199]
+                  - generic [ref=e201]:
+                    - img [ref=e205]
+                    - generic [ref=e207]: .ai
+              - treeitem ".github" [level=1] [ref=e208]:
+                - generic [ref=e209] [cursor=pointer]:
+                  - img [ref=e211]
+                  - generic [ref=e213]:
+                    - img [ref=e217]
+                    - generic [ref=e219]: .github
+              - treeitem "assets" [level=1] [ref=e220]:
+                - generic [ref=e221] [cursor=pointer]:
+                  - img [ref=e223]
+                  - generic [ref=e225]:
+                    - img [ref=e229]
+                    - generic [ref=e231]: assets
+              - treeitem "data" [level=1] [ref=e232]:
+                - generic [ref=e233] [cursor=pointer]:
+                  - img [ref=e235]
+                  - generic [ref=e237]:
+                    - img [ref=e241]
+                    - generic [ref=e243]: data
+              - treeitem "docker" [level=1] [ref=e244]:
+                - generic [ref=e245] [cursor=pointer]:
+                  - img [ref=e247]
+                  - generic [ref=e249]:
+                    - img [ref=e253]
+                    - generic [ref=e255]: docker
+              - treeitem "docs" [level=1] [ref=e256]:
+                - generic [ref=e257] [cursor=pointer]:
+                  - img [ref=e259]
+                  - generic [ref=e261]:
+                    - img [ref=e265]
+                    - generic [ref=e267]: docs
+              - treeitem "examples" [level=1] [ref=e268]:
+                - generic [ref=e269] [cursor=pointer]:
+                  - img [ref=e271]
+                  - generic [ref=e273]:
+                    - img [ref=e277]
+                    - generic [ref=e279]: examples
+              - treeitem "requirements" [level=1] [ref=e280]:
+                - generic [ref=e281] [cursor=pointer]:
+                  - img [ref=e283]
+                  - generic [ref=e285]:
+                    - img [ref=e289]
+                    - generic [ref=e291]: requirements
+              - treeitem "scripts" [level=1] [ref=e292]:
+                - generic [ref=e293] [cursor=pointer]:
+                  - img [ref=e295]
+                  - generic [ref=e297]:
+                    - img [ref=e301]
+                    - generic [ref=e303]: scripts
+              - treeitem "src" [level=1] [ref=e304]:
+                - generic [ref=e305] [cursor=pointer]:
+                  - img [ref=e307]
+                  - generic [ref=e309]:
+                    - img [ref=e313]
+                    - generic [ref=e315]: src
+              - treeitem "tests" [level=1] [ref=e316]:
+                - generic [ref=e317] [cursor=pointer]:
+                  - img [ref=e319]
+                  - generic [ref=e321]:
+                    - img [ref=e325]
+                    - generic [ref=e327]: tests
+              - treeitem "tests_v1" [level=1] [ref=e328]:
+                - generic [ref=e329] [cursor=pointer]:
+                  - img [ref=e331]
+                  - generic [ref=e333]:
+                    - img [ref=e337]
+                    - generic [ref=e339]: tests_v1
+              - treeitem ".dockerignore" [level=1] [ref=e340]:
+                - generic [ref=e342] [cursor=pointer]:
+                  - img [ref=e345]
+                  - generic [ref=e347]: .dockerignore
+              - treeitem ".env.local" [level=1] [ref=e348]:
+                - generic [ref=e350] [cursor=pointer]:
+                  - img [ref=e353]
+                  - generic [ref=e355]: .env.local
+              - treeitem ".gitattributes" [level=1] [ref=e356]:
+                - generic [ref=e358] [cursor=pointer]:
+                  - img [ref=e361]
+                  - generic [ref=e363]: .gitattributes
+              - treeitem ".gitignore" [level=1] [ref=e364]:
+                - generic [ref=e366] [cursor=pointer]:
+                  - img [ref=e369]
+                  - generic [ref=e371]: .gitignore
+              - treeitem ".pre-commit-config.yaml" [level=1] [ref=e372]:
+                - generic [ref=e374] [cursor=pointer]:
+                  - img [ref=e377]
+                  - generic [ref=e379]: .pre-commit-config.yaml
+              - treeitem "CITATION.cff" [level=1] [ref=e380]:
+                - generic [ref=e382] [cursor=pointer]:
+                  - img [ref=e385]
+                  - generic [ref=e387]: CITATION.cff
+              - treeitem "CLAUDE.md" [level=1] [ref=e388]:
+                - generic [ref=e390] [cursor=pointer]:
+                  - img [ref=e393]
+                  - generic [ref=e395]: CLAUDE.md
+              - treeitem "LICENSE" [level=1] [ref=e396]:
+                - generic [ref=e398] [cursor=pointer]:
+                  - img [ref=e401]
+                  - generic [ref=e403]: LICENSE
+              - treeitem "MANIFEST.in" [level=1] [ref=e404]:
+                - generic [ref=e406] [cursor=pointer]:
+                  - img [ref=e409]
+                  - generic [ref=e411]: MANIFEST.in
+              - treeitem "Makefile" [level=1] [ref=e412]:
+                - generic [ref=e414] [cursor=pointer]:
+                  - img [ref=e417]
+                  - generic [ref=e419]: Makefile
+              - treeitem "README.md" [level=1] [ref=e420]:
+                - generic [ref=e422] [cursor=pointer]:
+                  - img [ref=e425]
+                  - generic [ref=e427]: README.md
+              - treeitem "README_zh.md" [level=1] [ref=e428]:
+                - generic [ref=e430] [cursor=pointer]:
+                  - img [ref=e433]
+                  - generic [ref=e435]: README_zh.md
+              - treeitem "pyproject.toml" [level=1] [ref=e436]:
+                - generic [ref=e438] [cursor=pointer]:
+                  - img [ref=e441]
+                  - generic [ref=e443]: pyproject.toml
+        - slider "Draggable pane splitter" [ref=e445]
+      - generic [ref=e450]:
+        - img [ref=e451]
+        - generic [ref=e453]:
+          - generic [ref=e454]: 404 - page not found
+          - generic [ref=e455]:
+            - text: The
+            - paragraph [ref=e456]: main
+            - text: branch of
+            - paragraph [ref=e457]: LlamaFactory
+            - text: does not contain the path
+            - paragraph [ref=e458]: examples/train_lora/qwen2_lora_ds.yaml.
+        - link "go to Overview" [ref=e459] [cursor=pointer]:
+          - /url: /hiyouga/LlamaFactory
+          - generic [ref=e461]: Return to the repository overview

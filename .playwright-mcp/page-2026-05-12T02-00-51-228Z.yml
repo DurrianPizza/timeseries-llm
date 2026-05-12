@@ -1,0 +1,1119 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - link "Skip to content" [ref=e4] [cursor=pointer]:
+        - /url: "#start-of-content"
+      - banner [ref=e6]:
+        - heading "Navigation Menu" [level=2] [ref=e7]
+        - generic [ref=e8]:
+          - link "Homepage" [ref=e10] [cursor=pointer]:
+            - /url: /
+            - img [ref=e11]
+          - generic [ref=e13]:
+            - navigation "Global" [ref=e16]:
+              - list [ref=e17]:
+                - listitem [ref=e18]:
+                  - button "Platform" [ref=e20] [cursor=pointer]:
+                    - text: Platform
+                    - img [ref=e21]
+                - listitem [ref=e23]:
+                  - button "Solutions" [ref=e25] [cursor=pointer]:
+                    - text: Solutions
+                    - img [ref=e26]
+                - listitem [ref=e28]:
+                  - button "Resources" [ref=e30] [cursor=pointer]:
+                    - text: Resources
+                    - img [ref=e31]
+                - listitem [ref=e33]:
+                  - button "Open Source" [ref=e35] [cursor=pointer]:
+                    - text: Open Source
+                    - img [ref=e36]
+                - listitem [ref=e38]:
+                  - button "Enterprise" [ref=e40] [cursor=pointer]:
+                    - text: Enterprise
+                    - img [ref=e41]
+                - listitem [ref=e43]:
+                  - link "Pricing" [ref=e44] [cursor=pointer]:
+                    - /url: https://github.com/pricing
+                    - generic [ref=e45]: Pricing
+            - generic [ref=e46]:
+              - button "Search or jump to…" [ref=e49] [cursor=pointer]:
+                - img [ref=e51]
+              - link "Sign in" [ref=e54] [cursor=pointer]:
+                - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fhiyouga%2FLlamaFactory%2Ftree%2Fmain%2Fexamples
+              - link "Sign up" [ref=e55] [cursor=pointer]:
+                - /url: /signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Ffiles%2Fdisambiguate&source=header-repo&source_repo=hiyouga%2FLlamaFactory
+              - button "Appearance settings" [ref=e58] [cursor=pointer]:
+                - img
+    - main [ref=e62]:
+      - generic [ref=e63]:
+        - generic [ref=e64]:
+          - generic [ref=e66]:
+            - img [ref=e67]
+            - link "hiyouga" [ref=e70] [cursor=pointer]:
+              - /url: /hiyouga
+            - generic [ref=e71]: /
+            - strong [ref=e72]:
+              - link "LlamaFactory" [ref=e73] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory
+            - generic [ref=e74]: Public
+          - generic [ref=e75]:
+            - list:
+              - listitem [ref=e76]:
+                - link "You must be signed in to change notification settings" [ref=e77] [cursor=pointer]:
+                  - /url: /login?return_to=%2Fhiyouga%2FLlamaFactory
+                  - img [ref=e78]
+                  - text: Notifications
+              - listitem [ref=e80]:
+                - link "Fork 8.7k" [ref=e81] [cursor=pointer]:
+                  - /url: /login?return_to=%2Fhiyouga%2FLlamaFactory
+                  - img [ref=e82]
+                  - text: Fork
+                  - generic "8,695" [ref=e84]: 8.7k
+              - listitem [ref=e85]:
+                - link "You must be signed in to star a repository" [ref=e87] [cursor=pointer]:
+                  - /url: /login?return_to=%2Fhiyouga%2FLlamaFactory
+                  - img [ref=e88]
+                  - text: Star
+                  - generic "71151 users starred this repository" [ref=e90]: 71.2k
+        - navigation "Repository" [ref=e91]:
+          - list [ref=e92]:
+            - listitem [ref=e93]:
+              - link "Code" [ref=e94] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory
+                - img [ref=e95]
+                - generic [ref=e97]: Code
+            - listitem [ref=e98]:
+              - link "Issues 956" [ref=e99] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory/issues
+                - img [ref=e100]
+                - generic [ref=e103]: Issues
+                - generic "956" [ref=e104]
+            - listitem [ref=e105]:
+              - link "Pull requests 49" [ref=e106] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory/pulls
+                - img [ref=e107]
+                - generic [ref=e109]: Pull requests
+                - generic "49" [ref=e110]
+            - listitem [ref=e111]:
+              - link "Discussions" [ref=e112] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory/discussions
+                - img [ref=e113]
+                - generic [ref=e115]: Discussions
+            - listitem [ref=e116]:
+              - link "Actions" [ref=e117] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory/actions
+                - img [ref=e118]
+                - generic [ref=e120]: Actions
+            - listitem [ref=e121]:
+              - link "Security and quality 4" [ref=e122] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory/security
+                - img [ref=e123]
+                - generic [ref=e125]: Security and quality
+                - generic "4" [ref=e126]
+            - listitem [ref=e127]:
+              - link "Insights" [ref=e128] [cursor=pointer]:
+                - /url: /hiyouga/LlamaFactory/pulse
+                - img [ref=e129]
+                - generic [ref=e131]: Insights
+      - generic [ref=e139]:
+        - generic [ref=e141]:
+          - generic [ref=e144]:
+            - generic [ref=e145]:
+              - generic [ref=e146]:
+                - heading "Collapse file tree" [level=2] [ref=e147]:
+                  - button "Collapse file tree" [expanded] [ref=e148] [cursor=pointer]:
+                    - img [ref=e149]
+                - heading "Files" [level=2] [ref=e152]
+              - generic [ref=e153]:
+                - button "main branch" [ref=e155] [cursor=pointer]:
+                  - generic [ref=e156]:
+                    - generic [ref=e158]:
+                      - img [ref=e160]
+                      - generic [ref=e163]: main
+                    - generic:
+                      - img
+                - button "Search this repository (forward slash)" [ref=e165] [cursor=pointer]:
+                  - img [ref=e166]
+            - generic [ref=e169]:
+              - img [ref=e171]
+              - combobox "Go to file" [ref=e173]
+            - navigation "File Tree Navigation" [ref=e179]:
+              - tree "Files" [ref=e181]:
+                - treeitem ".ai" [level=1] [ref=e182]:
+                  - generic [ref=e183] [cursor=pointer]:
+                    - img [ref=e185]
+                    - generic [ref=e187]:
+                      - img [ref=e191]
+                      - generic [ref=e193]: .ai
+                - treeitem ".github" [level=1] [ref=e194]:
+                  - generic [ref=e195] [cursor=pointer]:
+                    - img [ref=e197]
+                    - generic [ref=e199]:
+                      - img [ref=e203]
+                      - generic [ref=e205]: .github
+                - treeitem "assets" [level=1] [ref=e206]:
+                  - generic [ref=e207] [cursor=pointer]:
+                    - img [ref=e209]
+                    - generic [ref=e211]:
+                      - img [ref=e215]
+                      - generic [ref=e217]: assets
+                - treeitem "data" [level=1] [ref=e218]:
+                  - generic [ref=e219] [cursor=pointer]:
+                    - img [ref=e221]
+                    - generic [ref=e223]:
+                      - img [ref=e227]
+                      - generic [ref=e229]: data
+                - treeitem "docker" [level=1] [ref=e230]:
+                  - generic [ref=e231] [cursor=pointer]:
+                    - img [ref=e233]
+                    - generic [ref=e235]:
+                      - img [ref=e239]
+                      - generic [ref=e241]: docker
+                - treeitem "docs" [level=1] [ref=e242]:
+                  - generic [ref=e243] [cursor=pointer]:
+                    - img [ref=e245]
+                    - generic [ref=e247]:
+                      - img [ref=e251]
+                      - generic [ref=e253]: docs
+                - treeitem "examples" [expanded] [level=1] [ref=e254]:
+                  - generic [ref=e255] [cursor=pointer]:
+                    - img [ref=e257]
+                    - generic [ref=e259]:
+                      - img [ref=e263]
+                      - generic [ref=e265]: examples
+                  - group "examples" [ref=e266]:
+                    - treeitem "accelerate" [level=2] [ref=e267]:
+                      - generic [ref=e268] [cursor=pointer]:
+                        - img [ref=e273]
+                        - generic [ref=e275]:
+                          - img [ref=e279]
+                          - generic [ref=e281]: accelerate
+                    - treeitem "ascend" [level=2] [ref=e282]:
+                      - generic [ref=e283] [cursor=pointer]:
+                        - img [ref=e288]
+                        - generic [ref=e290]:
+                          - img [ref=e294]
+                          - generic [ref=e296]: ascend
+                    - treeitem "deepspeed" [level=2] [ref=e297]:
+                      - generic [ref=e298] [cursor=pointer]:
+                        - img [ref=e303]
+                        - generic [ref=e305]:
+                          - img [ref=e309]
+                          - generic [ref=e311]: deepspeed
+                    - treeitem "extras" [level=2] [ref=e312]:
+                      - generic [ref=e313] [cursor=pointer]:
+                        - img [ref=e318]
+                        - generic [ref=e320]:
+                          - img [ref=e324]
+                          - generic [ref=e326]: extras
+                    - treeitem "inference" [level=2] [ref=e327]:
+                      - generic [ref=e328] [cursor=pointer]:
+                        - img [ref=e333]
+                        - generic [ref=e335]:
+                          - img [ref=e339]
+                          - generic [ref=e341]: inference
+                    - treeitem "ktransformers" [level=2] [ref=e342]:
+                      - generic [ref=e343] [cursor=pointer]:
+                        - img [ref=e348]
+                        - generic [ref=e350]:
+                          - img [ref=e354]
+                          - generic [ref=e356]: ktransformers
+                    - treeitem "megatron" [level=2] [ref=e357]:
+                      - generic [ref=e358] [cursor=pointer]:
+                        - img [ref=e363]
+                        - generic [ref=e365]:
+                          - img [ref=e369]
+                          - generic [ref=e371]: megatron
+                    - treeitem "merge_lora" [level=2] [ref=e372]:
+                      - generic [ref=e373] [cursor=pointer]:
+                        - img [ref=e378]
+                        - generic [ref=e380]:
+                          - img [ref=e384]
+                          - generic [ref=e386]: merge_lora
+                    - treeitem "train_full" [level=2] [ref=e387]:
+                      - generic [ref=e388] [cursor=pointer]:
+                        - img [ref=e393]
+                        - generic [ref=e395]:
+                          - img [ref=e399]
+                          - generic [ref=e401]: train_full
+                    - treeitem "train_lora" [level=2] [ref=e402]:
+                      - generic [ref=e403] [cursor=pointer]:
+                        - img [ref=e408]
+                        - generic [ref=e410]:
+                          - img [ref=e414]
+                          - generic [ref=e416]: train_lora
+                    - treeitem "train_qlora" [level=2] [ref=e417]:
+                      - generic [ref=e418] [cursor=pointer]:
+                        - img [ref=e423]
+                        - generic [ref=e425]:
+                          - img [ref=e429]
+                          - generic [ref=e431]: train_qlora
+                    - treeitem "v1" [level=2] [ref=e432]:
+                      - generic [ref=e433] [cursor=pointer]:
+                        - img [ref=e438]
+                        - generic [ref=e440]:
+                          - img [ref=e444]
+                          - generic [ref=e446]: v1
+                    - treeitem "README.md" [level=2] [ref=e447]:
+                      - generic [ref=e452] [cursor=pointer]:
+                        - img [ref=e455]
+                        - generic [ref=e457]: README.md
+                    - treeitem "README_zh.md" [level=2] [ref=e458]:
+                      - generic [ref=e463] [cursor=pointer]:
+                        - img [ref=e466]
+                        - generic [ref=e468]: README_zh.md
+                - treeitem "requirements" [level=1] [ref=e469]:
+                  - generic [ref=e470] [cursor=pointer]:
+                    - img [ref=e472]
+                    - generic [ref=e474]:
+                      - img [ref=e478]
+                      - generic [ref=e480]: requirements
+                - treeitem "scripts" [level=1] [ref=e481]:
+                  - generic [ref=e482] [cursor=pointer]:
+                    - img [ref=e484]
+                    - generic [ref=e486]:
+                      - img [ref=e490]
+                      - generic [ref=e492]: scripts
+                - treeitem "src" [level=1] [ref=e493]:
+                  - generic [ref=e494] [cursor=pointer]:
+                    - img [ref=e496]
+                    - generic [ref=e498]:
+                      - img [ref=e502]
+                      - generic [ref=e504]: src
+                - treeitem "tests" [level=1] [ref=e505]:
+                  - generic [ref=e506] [cursor=pointer]:
+                    - img [ref=e508]
+                    - generic [ref=e510]:
+                      - img [ref=e514]
+                      - generic [ref=e516]: tests
+                - treeitem "tests_v1" [level=1] [ref=e517]:
+                  - generic [ref=e518] [cursor=pointer]:
+                    - img [ref=e520]
+                    - generic [ref=e522]:
+                      - img [ref=e526]
+                      - generic [ref=e528]: tests_v1
+                - treeitem ".dockerignore" [level=1] [ref=e529]:
+                  - generic [ref=e531] [cursor=pointer]:
+                    - img [ref=e534]
+                    - generic [ref=e536]: .dockerignore
+                - treeitem ".env.local" [level=1] [ref=e537]:
+                  - generic [ref=e539] [cursor=pointer]:
+                    - img [ref=e542]
+                    - generic [ref=e544]: .env.local
+                - treeitem ".gitattributes" [level=1] [ref=e545]:
+                  - generic [ref=e547] [cursor=pointer]:
+                    - img [ref=e550]
+                    - generic [ref=e552]: .gitattributes
+                - treeitem ".gitignore" [level=1] [ref=e553]:
+                  - generic [ref=e555] [cursor=pointer]:
+                    - img [ref=e558]
+                    - generic [ref=e560]: .gitignore
+                - treeitem ".pre-commit-config.yaml" [level=1] [ref=e561]:
+                  - generic [ref=e563] [cursor=pointer]:
+                    - img [ref=e566]
+                    - generic [ref=e568]: .pre-commit-config.yaml
+                - treeitem "CITATION.cff" [level=1] [ref=e569]:
+                  - generic [ref=e571] [cursor=pointer]:
+                    - img [ref=e574]
+                    - generic [ref=e576]: CITATION.cff
+                - treeitem "CLAUDE.md" [level=1] [ref=e577]:
+                  - generic [ref=e579] [cursor=pointer]:
+                    - img [ref=e582]
+                    - generic [ref=e584]: CLAUDE.md
+                - treeitem "LICENSE" [level=1] [ref=e585]:
+                  - generic [ref=e587] [cursor=pointer]:
+                    - img [ref=e590]
+                    - generic [ref=e592]: LICENSE
+                - treeitem "MANIFEST.in" [level=1] [ref=e593]:
+                  - generic [ref=e595] [cursor=pointer]:
+                    - img [ref=e598]
+                    - generic [ref=e600]: MANIFEST.in
+                - treeitem "Makefile" [level=1] [ref=e601]:
+                  - generic [ref=e603] [cursor=pointer]:
+                    - img [ref=e606]
+                    - generic [ref=e608]: Makefile
+                - treeitem "README.md" [level=1] [ref=e609]:
+                  - generic [ref=e611] [cursor=pointer]:
+                    - img [ref=e614]
+                    - generic [ref=e616]: README.md
+                - treeitem "README_zh.md" [level=1] [ref=e617]:
+                  - generic [ref=e619] [cursor=pointer]:
+                    - img [ref=e622]
+                    - generic [ref=e624]: README_zh.md
+                - treeitem "pyproject.toml" [level=1] [ref=e625]:
+                  - generic [ref=e627] [cursor=pointer]:
+                    - img [ref=e630]
+                    - generic [ref=e632]: pyproject.toml
+          - slider "Draggable pane splitter" [ref=e634]
+        - generic [ref=e637]:
+          - generic [ref=e641]:
+            - generic [ref=e643]:
+              - navigation "Breadcrumbs" [ref=e644]:
+                - heading "Breadcrumbs" [level=2] [ref=e645]
+                - list [ref=e646]:
+                  - listitem [ref=e647]:
+                    - link "LlamaFactory" [ref=e648] [cursor=pointer]:
+                      - /url: /hiyouga/LlamaFactory/tree/main
+              - generic [ref=e649]:
+                - text: /
+                - heading "examples" [level=1] [ref=e650]
+                - text: /
+              - button "Copy path" [ref=e651] [cursor=pointer]:
+                - img [ref=e652]
+            - generic [ref=e657]:
+              - heading "Directory actions" [level=2] [ref=e658]
+              - heading "More options" [level=2] [ref=e659]
+              - button "More options" [ref=e660] [cursor=pointer]:
+                - img [ref=e661]
+          - generic [ref=e663]:
+            - generic [ref=e665]:
+              - heading "Latest commit" [level=2] [ref=e666]
+              - generic [ref=e667]:
+                - generic [ref=e669]:
+                  - link "simulikeit" [ref=e670] [cursor=pointer]:
+                    - /url: /simulikeit
+                    - img "simulikeit" [ref=e671]
+                  - link "commits by simulikeit" [ref=e672] [cursor=pointer]:
+                    - /url: /hiyouga/LlamaFactory/commits?author=simulikeit
+                    - text: simulikeit
+                - generic [ref=e675]:
+                  - link "[assets] correct typo in examples/README_zh.md (" [ref=e676] [cursor=pointer]:
+                    - /url: /hiyouga/LlamaFactory/commit/1e503a982d51ba5716f3eaf2295d61e1f57e58b6
+                  - link "#10462" [ref=e677] [cursor=pointer]:
+                    - /url: https://github.com/hiyouga/LlamaFactory/pull/10462
+                  - link ")" [ref=e678] [cursor=pointer]:
+                    - /url: /hiyouga/LlamaFactory/commit/1e503a982d51ba5716f3eaf2295d61e1f57e58b6
+              - generic [ref=e679]:
+                - generic [ref=e681]:
+                  - link "Commit 1e503a9" [ref=e682] [cursor=pointer]:
+                    - /url: /hiyouga/LlamaFactory/commit/1e503a982d51ba5716f3eaf2295d61e1f57e58b6
+                    - text: 1e503a9
+                  - text: ·
+                  - generic "May 7, 2026, 12:42 AM GMT+8" [ref=e683]: May 7, 20265 days ago
+                - generic [ref=e684]:
+                  - heading "History" [level=2] [ref=e685]
+                  - link "History" [ref=e686] [cursor=pointer]:
+                    - /url: /hiyouga/LlamaFactory/commits/main/examples
+                    - generic [ref=e687]:
+                      - generic:
+                        - img
+                      - generic [ref=e688]: History
+            - generic [ref=e689]:
+              - generic [ref=e690]:
+                - heading "Folders and files" [level=2] [ref=e691]
+                - table "Folders and files" [ref=e692]:
+                  - rowgroup [ref=e693]:
+                    - row "Name Last commit message Last commit date" [ref=e694]:
+                      - columnheader "Name" [ref=e695]
+                      - columnheader "Last commit message" [ref=e696]:
+                        - generic "Last commit message" [ref=e697]
+                      - columnheader "Last commit date" [ref=e698]:
+                        - generic "Last commit date" [ref=e699]
+                  - rowgroup [ref=e700]:
+                    - row "parent directory Parent directory" [ref=e701]:
+                      - cell "parent directory Parent directory" [ref=e702]:
+                        - heading "parent directory" [level=3] [ref=e703]
+                        - link "Parent directory" [ref=e704] [cursor=pointer]:
+                          - /url: /hiyouga/LlamaFactory/tree/main
+                          - generic [ref=e705]:
+                            - img [ref=e706]
+                            - text: ..
+                    - row "accelerate, (Directory) [npu] add Qwen3.5 support with Partial RoPE and Hybrid Attention (#10421 Apr 27, 20262 weeks ago" [ref=e708]:
+                      - cell "accelerate, (Directory)" [ref=e709]:
+                        - generic [ref=e710]:
+                          - img [ref=e711]
+                          - link "accelerate, (Directory)" [ref=e716] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/tree/main/examples/accelerate
+                            - text: accelerate
+                      - cell "[npu] add Qwen3.5 support with Partial RoPE and Hybrid Attention (#10421" [ref=e717]:
+                        - generic [ref=e719]:
+                          - link "[npu] add Qwen3.5 support with Partial RoPE and Hybrid Attention (" [ref=e720] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/2092abc2177cf88a51afe97c89c5b3b37fb80c4c
+                          - link "#10421" [ref=e721] [cursor=pointer]:
+                            - /url: https://github.com/hiyouga/LlamaFactory/pull/10421
+                      - cell "Apr 27, 20262 weeks ago" [ref=e722]:
+                        - generic [ref=e723]: Apr 27, 20262 weeks ago
+                    - row "ascend, (Directory) [npu] add Qwen3.5 support with Partial RoPE and Hybrid Attention (#10421 Apr 27, 20262 weeks ago" [ref=e724]:
+                      - cell "ascend, (Directory)" [ref=e725]:
+                        - generic [ref=e726]:
+                          - img [ref=e727]
+                          - link "ascend, (Directory)" [ref=e732] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/tree/main/examples/ascend
+                            - text: ascend
+                      - cell "[npu] add Qwen3.5 support with Partial RoPE and Hybrid Attention (#10421" [ref=e733]:
+                        - generic [ref=e735]:
+                          - link "[npu] add Qwen3.5 support with Partial RoPE and Hybrid Attention (" [ref=e736] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/2092abc2177cf88a51afe97c89c5b3b37fb80c4c
+                          - link "#10421" [ref=e737] [cursor=pointer]:
+                            - /url: https://github.com/hiyouga/LlamaFactory/pull/10421
+                      - cell "Apr 27, 20262 weeks ago" [ref=e738]:
+                        - generic [ref=e739]: Apr 27, 20262 weeks ago
+                    - row "deepspeed, (Directory) [example] add deepspeed autotp config and example (#9602) Dec 15, 20255 months ago" [ref=e740]:
+                      - cell "deepspeed, (Directory)" [ref=e741]:
+                        - generic [ref=e742]:
+                          - img [ref=e743]
+                          - link "deepspeed, (Directory)" [ref=e748] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/tree/main/examples/deepspeed
+                            - text: deepspeed
+                      - cell "[example] add deepspeed autotp config and example (#9602)" [ref=e749]:
+                        - generic [ref=e751]:
+                          - link "[example] add deepspeed autotp config and example (" [ref=e752] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/a0179772ab5b68aaaddba87bdc1c7a1c2015fb18
+                          - link "#9602" [ref=e753] [cursor=pointer]:
+                            - /url: https://github.com/hiyouga/LlamaFactory/pull/9602
+                          - link ")" [ref=e754] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/a0179772ab5b68aaaddba87bdc1c7a1c2015fb18
+                      - cell "Dec 15, 20255 months ago" [ref=e755]:
+                        - generic [ref=e756]: Dec 15, 20255 months ago
+                    - row "extras, (Directory) [algo] add ASFT (#10174) Feb 12, 20263 months ago" [ref=e757]:
+                      - cell "extras, (Directory)" [ref=e758]:
+                        - generic [ref=e759]:
+                          - img [ref=e760]
+                          - link "extras, (Directory)" [ref=e765] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/tree/main/examples/extras
+                            - text: extras
+                      - cell "[algo] add ASFT (#10174)" [ref=e766]:
+                        - generic [ref=e768]:
+                          - link "[algo] add ASFT (" [ref=e769] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/675ce8cc7f70a65de403ccfd05195ca3ea6f3bd4
+                          - link "#10174" [ref=e770] [cursor=pointer]:
+                            - /url: https://github.com/hiyouga/LlamaFactory/pull/10174
+                          - link ")" [ref=e771] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/675ce8cc7f70a65de403ccfd05195ca3ea6f3bd4
+                      - cell "Feb 12, 20263 months ago" [ref=e772]:
+                        - generic [ref=e773]: Feb 12, 20263 months ago
+                    - row "inference, (Directory) [release] Bye 2025 (#9702) Dec 31, 20254 months ago" [ref=e774]:
+                      - cell "inference, (Directory)" [ref=e775]:
+                        - generic [ref=e776]:
+                          - img [ref=e777]
+                          - link "inference, (Directory)" [ref=e782] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/tree/main/examples/inference
+                            - text: inference
+                      - cell "[release] Bye 2025 (#9702)" [ref=e783]:
+                        - generic [ref=e785]:
+                          - link "[release] Bye 2025 (" [ref=e786] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/95ac3f2373b82662c1bd855c284d3379e6a763d3
+                          - link "#9702" [ref=e787] [cursor=pointer]:
+                            - /url: https://github.com/hiyouga/LlamaFactory/pull/9702
+                          - link ")" [ref=e788] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/95ac3f2373b82662c1bd855c284d3379e6a763d3
+                      - cell "Dec 31, 20254 months ago" [ref=e789]:
+                        - generic [ref=e790]: Dec 31, 20254 months ago
+                    - row "ktransformers, (Directory) [refactor] Add KTransformers AMX MoE SFT support via Accelerate (#10430) May 1, 20262 weeks ago" [ref=e791]:
+                      - cell "ktransformers, (Directory)" [ref=e792]:
+                        - generic [ref=e793]:
+                          - img [ref=e794]
+                          - link "ktransformers, (Directory)" [ref=e799] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/tree/main/examples/ktransformers
+                            - text: ktransformers
+                      - cell "[refactor] Add KTransformers AMX MoE SFT support via Accelerate (#10430)" [ref=e800]:
+                        - generic [ref=e802]:
+                          - link "[refactor] Add KTransformers AMX MoE SFT support via Accelerate (" [ref=e803] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/887ee2b121e0eaa1799b33805413cc63e4acb2b6
+                          - link "#10430" [ref=e804] [cursor=pointer]:
+                            - /url: https://github.com/hiyouga/LlamaFactory/pull/10430
+                          - link ")" [ref=e805] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/887ee2b121e0eaa1799b33805413cc63e4acb2b6
+                      - cell "May 1, 20262 weeks ago" [ref=e806]:
+                        - generic [ref=e807]: May 1, 20262 weeks ago
+                    - row "megatron, (Directory) [feat] support megatron-LM training by mcore_adapter (#9237) Oct 26, 20257 months ago" [ref=e808]:
+                      - cell "megatron, (Directory)" [ref=e809]:
+                        - generic [ref=e810]:
+                          - img [ref=e811]
+                          - link "megatron, (Directory)" [ref=e816] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/tree/main/examples/megatron
+                            - text: megatron
+                      - cell "[feat] support megatron-LM training by mcore_adapter (#9237)" [ref=e817]:
+                        - generic [ref=e819]:
+                          - link "[feat] support megatron-LM training by mcore_adapter (" [ref=e820] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/13170577b2dbde8384ee7cb57eac3943f8faf6d8
+                          - link "#9237" [ref=e821] [cursor=pointer]:
+                            - /url: https://github.com/hiyouga/LlamaFactory/pull/9237
+                          - link ")" [ref=e822] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/13170577b2dbde8384ee7cb57eac3943f8faf6d8
+                      - cell "Oct 26, 20257 months ago" [ref=e823]:
+                        - generic [ref=e824]: Oct 26, 20257 months ago
+                    - row "merge_lora, (Directory) [release] Bye 2025 (#9702) Dec 31, 20254 months ago" [ref=e825]:
+                      - cell "merge_lora, (Directory)" [ref=e826]:
+                        - generic [ref=e827]:
+                          - img [ref=e828]
+                          - link "merge_lora, (Directory)" [ref=e833] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/tree/main/examples/merge_lora
+                            - text: merge_lora
+                      - cell "[release] Bye 2025 (#9702)" [ref=e834]:
+                        - generic [ref=e836]:
+                          - link "[release] Bye 2025 (" [ref=e837] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/95ac3f2373b82662c1bd855c284d3379e6a763d3
+                          - link "#9702" [ref=e838] [cursor=pointer]:
+                            - /url: https://github.com/hiyouga/LlamaFactory/pull/9702
+                          - link ")" [ref=e839] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/95ac3f2373b82662c1bd855c284d3379e6a763d3
+                      - cell "Dec 31, 20254 months ago" [ref=e840]:
+                        - generic [ref=e841]: Dec 31, 20254 months ago
+                    - row "train_full, (Directory) [release] Bye 2025 (#9702) Dec 31, 20254 months ago" [ref=e842]:
+                      - cell "train_full, (Directory)" [ref=e843]:
+                        - generic [ref=e844]:
+                          - img [ref=e845]
+                          - link "train_full, (Directory)" [ref=e850] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/tree/main/examples/train_full
+                            - text: train_full
+                      - cell "[release] Bye 2025 (#9702)" [ref=e851]:
+                        - generic [ref=e853]:
+                          - link "[release] Bye 2025 (" [ref=e854] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/95ac3f2373b82662c1bd855c284d3379e6a763d3
+                          - link "#9702" [ref=e855] [cursor=pointer]:
+                            - /url: https://github.com/hiyouga/LlamaFactory/pull/9702
+                          - link ")" [ref=e856] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/95ac3f2373b82662c1bd855c284d3379e6a763d3
+                      - cell "Dec 31, 20254 months ago" [ref=e857]:
+                        - generic [ref=e858]: Dec 31, 20254 months ago
+                    - row "train_lora, (Directory) [fix] unused keys in ray example (#10290) Mar 18, 20262 months ago" [ref=e859]:
+                      - cell "train_lora, (Directory)" [ref=e860]:
+                        - generic [ref=e861]:
+                          - img [ref=e862]
+                          - link "train_lora, (Directory)" [ref=e867] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/tree/main/examples/train_lora
+                            - text: train_lora
+                      - cell "[fix] unused keys in ray example (#10290)" [ref=e868]:
+                        - generic [ref=e870]:
+                          - link "[fix] unused keys in ray example (" [ref=e871] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/78cad1e332c15efa39b8a1582894f7031af45df3
+                          - link "#10290" [ref=e872] [cursor=pointer]:
+                            - /url: https://github.com/hiyouga/LlamaFactory/pull/10290
+                          - link ")" [ref=e873] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/78cad1e332c15efa39b8a1582894f7031af45df3
+                      - cell "Mar 18, 20262 months ago" [ref=e874]:
+                        - generic [ref=e875]: Mar 18, 20262 months ago
+                    - row "train_qlora, (Directory) [release] Bye 2025 (#9702) Dec 31, 20254 months ago" [ref=e876]:
+                      - cell "train_qlora, (Directory)" [ref=e877]:
+                        - generic [ref=e878]:
+                          - img [ref=e879]
+                          - link "train_qlora, (Directory)" [ref=e884] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/tree/main/examples/train_qlora
+                            - text: train_qlora
+                      - cell "[release] Bye 2025 (#9702)" [ref=e885]:
+                        - generic [ref=e887]:
+                          - link "[release] Bye 2025 (" [ref=e888] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/95ac3f2373b82662c1bd855c284d3379e6a763d3
+                          - link "#9702" [ref=e889] [cursor=pointer]:
+                            - /url: https://github.com/hiyouga/LlamaFactory/pull/9702
+                          - link ")" [ref=e890] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/95ac3f2373b82662c1bd855c284d3379e6a763d3
+                      - cell "Dec 31, 20254 months ago" [ref=e891]:
+                        - generic [ref=e892]: Dec 31, 20254 months ago
+                    - row "v1, (Directory) [v1] add deepspeed zero3 trigger for low memory usage weight loading (#… Apr 21, 20263 weeks ago" [ref=e893]:
+                      - cell "v1, (Directory)" [ref=e894]:
+                        - generic [ref=e895]:
+                          - img [ref=e896]
+                          - link "v1, (Directory)" [ref=e901] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/tree/main/examples/v1
+                            - text: v1
+                      - cell "[v1] add deepspeed zero3 trigger for low memory usage weight loading (#…" [ref=e902]:
+                        - generic [ref=e904]:
+                          - link "[v1] add deepspeed zero3 trigger for low memory usage weight loading (" [ref=e905] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/28a6ea1cdc6fba34760c236504fece8df5e642f4
+                          - link "#…" [ref=e906] [cursor=pointer]:
+                            - /url: https://github.com/hiyouga/LlamaFactory/pull/10300
+                      - cell "Apr 21, 20263 weeks ago" [ref=e907]:
+                        - generic [ref=e908]: Apr 21, 20263 weeks ago
+                    - row "README.md, (File) [release] Bye 2025 (#9702) Dec 31, 20254 months ago" [ref=e909]:
+                      - cell "README.md, (File)" [ref=e910]:
+                        - generic [ref=e911]:
+                          - img [ref=e912]
+                          - link "README.md, (File)" [ref=e917] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/blob/main/examples/README.md
+                            - text: README.md
+                      - cell "[release] Bye 2025 (#9702)" [ref=e918]:
+                        - generic [ref=e920]:
+                          - link "[release] Bye 2025 (" [ref=e921] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/95ac3f2373b82662c1bd855c284d3379e6a763d3
+                          - link "#9702" [ref=e922] [cursor=pointer]:
+                            - /url: https://github.com/hiyouga/LlamaFactory/pull/9702
+                          - link ")" [ref=e923] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/95ac3f2373b82662c1bd855c284d3379e6a763d3
+                      - cell "Dec 31, 20254 months ago" [ref=e924]:
+                        - generic [ref=e925]: Dec 31, 20254 months ago
+                    - row "README_zh.md, (File) [assets] correct typo in examples/README_zh.md (#10462) May 7, 20265 days ago" [ref=e926]:
+                      - cell "README_zh.md, (File)" [ref=e927]:
+                        - generic [ref=e928]:
+                          - img [ref=e929]
+                          - link "README_zh.md, (File)" [ref=e934] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/blob/main/examples/README_zh.md
+                            - text: README_zh.md
+                      - cell "[assets] correct typo in examples/README_zh.md (#10462)" [ref=e935]:
+                        - generic [ref=e937]:
+                          - link "[assets] correct typo in examples/README_zh.md (" [ref=e938] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/1e503a982d51ba5716f3eaf2295d61e1f57e58b6
+                          - link "#10462" [ref=e939] [cursor=pointer]:
+                            - /url: https://github.com/hiyouga/LlamaFactory/pull/10462
+                          - link ")" [ref=e940] [cursor=pointer]:
+                            - /url: /hiyouga/LlamaFactory/commit/1e503a982d51ba5716f3eaf2295d61e1f57e58b6
+                      - cell "May 7, 20265 days ago" [ref=e941]:
+                        - generic [ref=e942]: May 7, 20265 days ago
+              - generic [ref=e944]:
+                - generic [ref=e945]:
+                  - heading "README.md" [level=2] [ref=e946]:
+                    - link "README.md" [ref=e947] [cursor=pointer]:
+                      - /url: "#readme"
+                  - button "Outline" [ref=e948] [cursor=pointer]:
+                    - img [ref=e949]
+                - article [ref=e952]:
+                  - paragraph [ref=e953]: We provide diverse examples about fine-tuning LLMs.
+                  - paragraph [ref=e954]:
+                    - text: Make sure to execute these commands in the
+                    - code [ref=e955]: LLaMA-Factory
+                    - text: directory.
+                  - generic [ref=e956]:
+                    - heading "Table of Contents" [level=2] [ref=e957]
+                    - 'link "Permalink: Table of Contents" [ref=e958] [cursor=pointer]':
+                      - /url: "#table-of-contents"
+                      - img [ref=e959]
+                  - list [ref=e961]:
+                    - listitem [ref=e962]:
+                      - link "LoRA Fine-Tuning" [ref=e963] [cursor=pointer]:
+                        - /url: "#lora-fine-tuning"
+                    - listitem [ref=e964]:
+                      - link "QLoRA Fine-Tuning" [ref=e965] [cursor=pointer]:
+                        - /url: "#qlora-fine-tuning"
+                    - listitem [ref=e966]:
+                      - link "Full-Parameter Fine-Tuning" [ref=e967] [cursor=pointer]:
+                        - /url: "#full-parameter-fine-tuning"
+                    - listitem [ref=e968]:
+                      - link "Merging LoRA Adapters and Quantization" [ref=e969] [cursor=pointer]:
+                        - /url: "#merging-lora-adapters-and-quantization"
+                    - listitem [ref=e970]:
+                      - link "Inferring LoRA Fine-Tuned Models" [ref=e971] [cursor=pointer]:
+                        - /url: "#inferring-lora-fine-tuned-models"
+                    - listitem [ref=e972]:
+                      - link "Extras" [ref=e973] [cursor=pointer]:
+                        - /url: "#extras"
+                  - paragraph [ref=e974]:
+                    - text: Use
+                    - code [ref=e975]: CUDA_VISIBLE_DEVICES
+                    - text: (GPU) or
+                    - code [ref=e976]: ASCEND_RT_VISIBLE_DEVICES
+                    - text: (NPU) to choose computing devices.
+                  - paragraph [ref=e977]: By default, LLaMA-Factory uses all visible computing devices.
+                  - paragraph [ref=e978]: "Basic usage:"
+                  - generic [ref=e979]:
+                    - generic [ref=e980]: llamafactory-cli train examples/train_lora/qwen3_lora_sft.yaml
+                    - button "Copy code to clipboard" [ref=e982] [cursor=pointer]:
+                      - img [ref=e983]
+                  - paragraph [ref=e986]: "Advanced usage:"
+                  - generic [ref=e987]:
+                    - generic [ref=e988]: CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_lora/qwen3_lora_sft.yaml \ learning_rate=1e-5 \ logging_steps=1
+                    - button "Copy code to clipboard" [ref=e990] [cursor=pointer]:
+                      - img [ref=e991]
+                  - generic [ref=e994]:
+                    - generic [ref=e995]: bash examples/train_lora/qwen3_lora_sft.sh
+                    - button "Copy code to clipboard" [ref=e997] [cursor=pointer]:
+                      - img [ref=e998]
+                  - generic [ref=e1001]:
+                    - heading "Examples" [level=2] [ref=e1002]
+                    - 'link "Permalink: Examples" [ref=e1003] [cursor=pointer]':
+                      - /url: "#examples"
+                      - img [ref=e1004]
+                  - generic [ref=e1006]:
+                    - heading "LoRA Fine-Tuning" [level=3] [ref=e1007]
+                    - 'link "Permalink: LoRA Fine-Tuning" [ref=e1008] [cursor=pointer]':
+                      - /url: "#lora-fine-tuning"
+                      - img [ref=e1009]
+                  - generic [ref=e1011]:
+                    - heading "(Continuous) Pre-Training" [level=4] [ref=e1012]
+                    - 'link "Permalink: (Continuous) Pre-Training" [ref=e1013] [cursor=pointer]':
+                      - /url: "#continuous-pre-training"
+                      - img [ref=e1014]
+                  - generic [ref=e1016]:
+                    - generic [ref=e1017]: llamafactory-cli train examples/train_lora/qwen3_lora_pretrain.yaml
+                    - button "Copy code to clipboard" [ref=e1019] [cursor=pointer]:
+                      - img [ref=e1020]
+                  - generic [ref=e1023]:
+                    - heading "Supervised Fine-Tuning" [level=4] [ref=e1024]
+                    - 'link "Permalink: Supervised Fine-Tuning" [ref=e1025] [cursor=pointer]':
+                      - /url: "#supervised-fine-tuning"
+                      - img [ref=e1026]
+                  - generic [ref=e1028]:
+                    - generic [ref=e1029]: llamafactory-cli train examples/train_lora/qwen3_lora_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1031] [cursor=pointer]:
+                      - img [ref=e1032]
+                  - generic [ref=e1035]:
+                    - heading "Multimodal Supervised Fine-Tuning" [level=4] [ref=e1036]
+                    - 'link "Permalink: Multimodal Supervised Fine-Tuning" [ref=e1037] [cursor=pointer]':
+                      - /url: "#multimodal-supervised-fine-tuning"
+                      - img [ref=e1038]
+                  - generic [ref=e1040]:
+                    - generic [ref=e1041]: llamafactory-cli train examples/train_lora/qwen3vl_lora_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1043] [cursor=pointer]:
+                      - img [ref=e1044]
+                  - generic [ref=e1047]:
+                    - heading "DPO/ORPO/SimPO Training" [level=4] [ref=e1048]
+                    - 'link "Permalink: DPO/ORPO/SimPO Training" [ref=e1049] [cursor=pointer]':
+                      - /url: "#dpoorposimpo-training"
+                      - img [ref=e1050]
+                  - generic [ref=e1052]:
+                    - generic [ref=e1053]: llamafactory-cli train examples/train_lora/qwen3_lora_dpo.yaml
+                    - button "Copy code to clipboard" [ref=e1055] [cursor=pointer]:
+                      - img [ref=e1056]
+                  - generic [ref=e1059]:
+                    - heading "Multimodal DPO/ORPO/SimPO Training" [level=4] [ref=e1060]
+                    - 'link "Permalink: Multimodal DPO/ORPO/SimPO Training" [ref=e1061] [cursor=pointer]':
+                      - /url: "#multimodal-dpoorposimpo-training"
+                      - img [ref=e1062]
+                  - generic [ref=e1064]:
+                    - generic [ref=e1065]: llamafactory-cli train examples/train_lora/qwen3vl_lora_dpo.yaml
+                    - button "Copy code to clipboard" [ref=e1067] [cursor=pointer]:
+                      - img [ref=e1068]
+                  - generic [ref=e1071]:
+                    - heading "Reward Modeling" [level=4] [ref=e1072]
+                    - 'link "Permalink: Reward Modeling" [ref=e1073] [cursor=pointer]':
+                      - /url: "#reward-modeling"
+                      - img [ref=e1074]
+                  - generic [ref=e1076]:
+                    - generic [ref=e1077]: llamafactory-cli train examples/train_lora/qwen3_lora_reward.yaml
+                    - button "Copy code to clipboard" [ref=e1079] [cursor=pointer]:
+                      - img [ref=e1080]
+                  - generic [ref=e1083]:
+                    - heading "KTO Training" [level=4] [ref=e1084]
+                    - 'link "Permalink: KTO Training" [ref=e1085] [cursor=pointer]':
+                      - /url: "#kto-training"
+                      - img [ref=e1086]
+                  - generic [ref=e1088]:
+                    - generic [ref=e1089]: llamafactory-cli train examples/train_lora/qwen3_lora_kto.yaml
+                    - button "Copy code to clipboard" [ref=e1091] [cursor=pointer]:
+                      - img [ref=e1092]
+                  - generic [ref=e1095]:
+                    - heading "Preprocess Dataset" [level=4] [ref=e1096]
+                    - 'link "Permalink: Preprocess Dataset" [ref=e1097] [cursor=pointer]':
+                      - /url: "#preprocess-dataset"
+                      - img [ref=e1098]
+                  - paragraph [ref=e1100]:
+                    - text: It is useful for large dataset, use
+                    - code [ref=e1101]: tokenized_path
+                    - text: in config to load the preprocessed dataset.
+                  - generic [ref=e1102]:
+                    - generic [ref=e1103]: llamafactory-cli train examples/train_lora/qwen3_preprocess.yaml
+                    - button "Copy code to clipboard" [ref=e1105] [cursor=pointer]:
+                      - img [ref=e1106]
+                  - generic [ref=e1109]:
+                    - heading "Supervised Fine-Tuning on Multiple Nodes" [level=4] [ref=e1110]
+                    - 'link "Permalink: Supervised Fine-Tuning on Multiple Nodes" [ref=e1111] [cursor=pointer]':
+                      - /url: "#supervised-fine-tuning-on-multiple-nodes"
+                      - img [ref=e1112]
+                  - generic [ref=e1114]:
+                    - generic [ref=e1115]: FORCE_TORCHRUN=1 NNODES=2 NODE_RANK=0 MASTER_ADDR=192.168.0.1 MASTER_PORT=29500 llamafactory-cli train examples/train_lora/qwen3_lora_sft.yaml FORCE_TORCHRUN=1 NNODES=2 NODE_RANK=1 MASTER_ADDR=192.168.0.1 MASTER_PORT=29500 llamafactory-cli train examples/train_lora/qwen3_lora_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1117] [cursor=pointer]:
+                      - img [ref=e1118]
+                  - generic [ref=e1121]:
+                    - heading "Supervised Fine-Tuning with DeepSpeed ZeRO-3 (Weight Sharding)" [level=4] [ref=e1122]
+                    - 'link "Permalink: Supervised Fine-Tuning with DeepSpeed ZeRO-3 (Weight Sharding)" [ref=e1123] [cursor=pointer]':
+                      - /url: "#supervised-fine-tuning-with-deepspeed-zero-3-weight-sharding"
+                      - img [ref=e1124]
+                  - generic [ref=e1126]:
+                    - generic [ref=e1127]: FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen3_lora_sft_ds3.yaml
+                    - button "Copy code to clipboard" [ref=e1129] [cursor=pointer]:
+                      - img [ref=e1130]
+                  - generic [ref=e1133]:
+                    - heading "Supervised Fine-Tuning with Ray on 4 GPUs" [level=4] [ref=e1134]
+                    - 'link "Permalink: Supervised Fine-Tuning with Ray on 4 GPUs" [ref=e1135] [cursor=pointer]':
+                      - /url: "#supervised-fine-tuning-with-ray-on-4-gpus"
+                      - img [ref=e1136]
+                  - generic [ref=e1138]:
+                    - generic [ref=e1139]: USE_RAY=1 llamafactory-cli train examples/train_lora/qwen3_lora_sft_ray.yaml
+                    - button "Copy code to clipboard" [ref=e1141] [cursor=pointer]:
+                      - img [ref=e1142]
+                  - generic [ref=e1145]:
+                    - heading "QLoRA Fine-Tuning" [level=3] [ref=e1146]
+                    - 'link "Permalink: QLoRA Fine-Tuning" [ref=e1147] [cursor=pointer]':
+                      - /url: "#qlora-fine-tuning"
+                      - img [ref=e1148]
+                  - generic [ref=e1150]:
+                    - heading "Supervised Fine-Tuning with 4/8-bit Bitsandbytes/HQQ/EETQ Quantization (Recommended)" [level=4] [ref=e1151]
+                    - 'link "Permalink: Supervised Fine-Tuning with 4/8-bit Bitsandbytes/HQQ/EETQ Quantization (Recommended)" [ref=e1152] [cursor=pointer]':
+                      - /url: "#supervised-fine-tuning-with-48-bit-bitsandbyteshqqeetq-quantization-recommended"
+                      - img [ref=e1153]
+                  - generic [ref=e1155]:
+                    - generic [ref=e1156]: llamafactory-cli train examples/train_qlora/qwen3_lora_sft_otfq.yaml
+                    - button "Copy code to clipboard" [ref=e1158] [cursor=pointer]:
+                      - img [ref=e1159]
+                  - generic [ref=e1162]:
+                    - heading "Supervised Fine-Tuning with 4-bit Bitsandbytes Quantization on Ascend NPU" [level=4] [ref=e1163]
+                    - 'link "Permalink: Supervised Fine-Tuning with 4-bit Bitsandbytes Quantization on Ascend NPU" [ref=e1164] [cursor=pointer]':
+                      - /url: "#supervised-fine-tuning-with-4-bit-bitsandbytes-quantization-on-ascend-npu"
+                      - img [ref=e1165]
+                  - generic [ref=e1167]:
+                    - generic [ref=e1168]: llamafactory-cli train examples/train_qlora/qwen3_lora_sft_bnb_npu.yaml
+                    - button "Copy code to clipboard" [ref=e1170] [cursor=pointer]:
+                      - img [ref=e1171]
+                  - generic [ref=e1174]:
+                    - heading "Supervised Fine-Tuning with 4/8-bit GPTQ Quantization" [level=4] [ref=e1175]
+                    - 'link "Permalink: Supervised Fine-Tuning with 4/8-bit GPTQ Quantization" [ref=e1176] [cursor=pointer]':
+                      - /url: "#supervised-fine-tuning-with-48-bit-gptq-quantization"
+                      - img [ref=e1177]
+                  - generic [ref=e1179]:
+                    - generic [ref=e1180]: llamafactory-cli train examples/train_qlora/llama3_lora_sft_gptq.yaml
+                    - button "Copy code to clipboard" [ref=e1182] [cursor=pointer]:
+                      - img [ref=e1183]
+                  - generic [ref=e1186]:
+                    - heading "Supervised Fine-Tuning with 4-bit AWQ Quantization" [level=4] [ref=e1187]
+                    - 'link "Permalink: Supervised Fine-Tuning with 4-bit AWQ Quantization" [ref=e1188] [cursor=pointer]':
+                      - /url: "#supervised-fine-tuning-with-4-bit-awq-quantization"
+                      - img [ref=e1189]
+                  - generic [ref=e1191]:
+                    - generic [ref=e1192]: llamafactory-cli train examples/train_qlora/llama3_lora_sft_awq.yaml
+                    - button "Copy code to clipboard" [ref=e1194] [cursor=pointer]:
+                      - img [ref=e1195]
+                  - generic [ref=e1198]:
+                    - heading "Supervised Fine-Tuning with 2-bit AQLM Quantization" [level=4] [ref=e1199]
+                    - 'link "Permalink: Supervised Fine-Tuning with 2-bit AQLM Quantization" [ref=e1200] [cursor=pointer]':
+                      - /url: "#supervised-fine-tuning-with-2-bit-aqlm-quantization"
+                      - img [ref=e1201]
+                  - generic [ref=e1203]:
+                    - generic [ref=e1204]: llamafactory-cli train examples/train_qlora/llama3_lora_sft_aqlm.yaml
+                    - button "Copy code to clipboard" [ref=e1206] [cursor=pointer]:
+                      - img [ref=e1207]
+                  - generic [ref=e1210]:
+                    - heading "Full-Parameter Fine-Tuning" [level=3] [ref=e1211]
+                    - 'link "Permalink: Full-Parameter Fine-Tuning" [ref=e1212] [cursor=pointer]':
+                      - /url: "#full-parameter-fine-tuning"
+                      - img [ref=e1213]
+                  - generic [ref=e1215]:
+                    - heading "Supervised Fine-Tuning on Single Node" [level=4] [ref=e1216]
+                    - 'link "Permalink: Supervised Fine-Tuning on Single Node" [ref=e1217] [cursor=pointer]':
+                      - /url: "#supervised-fine-tuning-on-single-node"
+                      - img [ref=e1218]
+                  - generic [ref=e1220]:
+                    - generic [ref=e1221]: FORCE_TORCHRUN=1 llamafactory-cli train examples/train_full/qwen3_full_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1223] [cursor=pointer]:
+                      - img [ref=e1224]
+                  - generic [ref=e1227]:
+                    - heading "Supervised Fine-Tuning on Multiple Nodes" [level=4] [ref=e1228]
+                    - 'link "Permalink: Supervised Fine-Tuning on Multiple Nodes" [ref=e1229] [cursor=pointer]':
+                      - /url: "#supervised-fine-tuning-on-multiple-nodes-1"
+                      - img [ref=e1230]
+                  - generic [ref=e1232]:
+                    - generic [ref=e1233]: FORCE_TORCHRUN=1 NNODES=2 NODE_RANK=0 MASTER_ADDR=192.168.0.1 MASTER_PORT=29500 llamafactory-cli train examples/train_full/qwen3_full_sft.yaml FORCE_TORCHRUN=1 NNODES=2 NODE_RANK=1 MASTER_ADDR=192.168.0.1 MASTER_PORT=29500 llamafactory-cli train examples/train_full/qwen3_full_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1235] [cursor=pointer]:
+                      - img [ref=e1236]
+                  - generic [ref=e1239]:
+                    - heading "Elastic and Fault-Tolerant Supervised Fine-Tuning on Multiple Nodes" [level=3] [ref=e1240]
+                    - 'link "Permalink: Elastic and Fault-Tolerant Supervised Fine-Tuning on Multiple Nodes" [ref=e1241] [cursor=pointer]':
+                      - /url: "#elastic-and-fault-tolerant-supervised-fine-tuning-on-multiple-nodes"
+                      - img [ref=e1242]
+                  - paragraph [ref=e1244]:
+                    - text: To launch an elastic job with
+                    - code [ref=e1245]: MAX_RESTARTS
+                    - text: failures retries, run the following on at least
+                    - code [ref=e1246]: MIN_NNODES
+                    - text: nodes and at most
+                    - code [ref=e1247]: MAX_NNODES
+                    - text: nodes.
+                    - code [ref=e1248]: RDZV_ID
+                    - text: should be set as a unique job id (shared by all nodes participating in the job). See also
+                    - link "torchrun" [ref=e1249] [cursor=pointer]:
+                      - /url: https://docs.pytorch.org/docs/stable/elastic/run.html
+                    - text: .
+                  - generic [ref=e1250]:
+                    - generic [ref=e1251]: FORCE_TORCHRUN=1 MIN_NNODES=1 MAX_NNODES=3 MAX_RESTARTS=3 RDZV_ID=llamafactory MASTER_ADDR=192.168.0.1 MASTER_PORT=29500 llamafactory-cli train examples/train_full/qwen3_full_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1253] [cursor=pointer]:
+                      - img [ref=e1254]
+                  - generic [ref=e1257]:
+                    - heading "Multimodal Supervised Fine-Tuning" [level=4] [ref=e1258]
+                    - 'link "Permalink: Multimodal Supervised Fine-Tuning" [ref=e1259] [cursor=pointer]':
+                      - /url: "#multimodal-supervised-fine-tuning-1"
+                      - img [ref=e1260]
+                  - generic [ref=e1262]:
+                    - generic [ref=e1263]: FORCE_TORCHRUN=1 llamafactory-cli train examples/train_full/qwen3vl_full_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1265] [cursor=pointer]:
+                      - img [ref=e1266]
+                  - generic [ref=e1269]:
+                    - heading "Merging LoRA Adapters and Quantization" [level=3] [ref=e1270]
+                    - 'link "Permalink: Merging LoRA Adapters and Quantization" [ref=e1271] [cursor=pointer]':
+                      - /url: "#merging-lora-adapters-and-quantization"
+                      - img [ref=e1272]
+                  - generic [ref=e1274]:
+                    - heading "Merge LoRA Adapters" [level=4] [ref=e1275]
+                    - 'link "Permalink: Merge LoRA Adapters" [ref=e1276] [cursor=pointer]':
+                      - /url: "#merge-lora-adapters"
+                      - img [ref=e1277]
+                  - paragraph [ref=e1279]:
+                    - text: "Note: DO NOT use quantized model or"
+                    - code [ref=e1280]: quantization_bit
+                    - text: when merging LoRA adapters.
+                  - generic [ref=e1281]:
+                    - generic [ref=e1282]: llamafactory-cli export examples/merge_lora/qwen3_lora_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1284] [cursor=pointer]:
+                      - img [ref=e1285]
+                  - generic [ref=e1288]:
+                    - heading "Quantizing Model using AutoGPTQ" [level=4] [ref=e1289]
+                    - 'link "Permalink: Quantizing Model using AutoGPTQ" [ref=e1290] [cursor=pointer]':
+                      - /url: "#quantizing-model-using-autogptq"
+                      - img [ref=e1291]
+                  - generic [ref=e1293]:
+                    - generic [ref=e1294]: llamafactory-cli export examples/merge_lora/qwen3_gptq.yaml
+                    - button "Copy code to clipboard" [ref=e1296] [cursor=pointer]:
+                      - img [ref=e1297]
+                  - generic [ref=e1300]:
+                    - heading "Save Ollama modelfile" [level=3] [ref=e1301]
+                    - 'link "Permalink: Save Ollama modelfile" [ref=e1302] [cursor=pointer]':
+                      - /url: "#save-ollama-modelfile"
+                      - img [ref=e1303]
+                  - generic [ref=e1305]:
+                    - generic [ref=e1306]: llamafactory-cli export examples/merge_lora/qwen3_full_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1308] [cursor=pointer]:
+                      - img [ref=e1309]
+                  - generic [ref=e1312]:
+                    - heading "Inferring LoRA Fine-Tuned Models" [level=3] [ref=e1313]
+                    - 'link "Permalink: Inferring LoRA Fine-Tuned Models" [ref=e1314] [cursor=pointer]':
+                      - /url: "#inferring-lora-fine-tuned-models"
+                      - img [ref=e1315]
+                  - generic [ref=e1317]:
+                    - heading "Evaluation using vLLM's Multi-GPU Inference" [level=4] [ref=e1318]
+                    - 'link "Permalink: Evaluation using vLLM''s Multi-GPU Inference" [ref=e1319] [cursor=pointer]':
+                      - /url: "#evaluation-using-vllms-multi-gpu-inference"
+                      - img [ref=e1320]
+                  - generic [ref=e1322]:
+                    - code [ref=e1324]: python scripts/vllm_infer.py --model_name_or_path Qwen/Qwen3-4B-Instruct-2507 --template qwen3_nothink --dataset alpaca_en_demo python scripts/eval_bleu_rouge.py generated_predictions.jsonl
+                    - button "Copy code to clipboard" [ref=e1326] [cursor=pointer]:
+                      - img [ref=e1327]
+                  - generic [ref=e1330]:
+                    - heading "Use CLI ChatBox" [level=4] [ref=e1331]
+                    - 'link "Permalink: Use CLI ChatBox" [ref=e1332] [cursor=pointer]':
+                      - /url: "#use-cli-chatbox"
+                      - img [ref=e1333]
+                  - generic [ref=e1335]:
+                    - generic [ref=e1336]: llamafactory-cli chat examples/inference/qwen3_lora_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1338] [cursor=pointer]:
+                      - img [ref=e1339]
+                  - generic [ref=e1342]:
+                    - heading "Use Web UI ChatBox" [level=4] [ref=e1343]
+                    - 'link "Permalink: Use Web UI ChatBox" [ref=e1344] [cursor=pointer]':
+                      - /url: "#use-web-ui-chatbox"
+                      - img [ref=e1345]
+                  - generic [ref=e1347]:
+                    - generic [ref=e1348]: llamafactory-cli webchat examples/inference/qwen3_lora_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1350] [cursor=pointer]:
+                      - img [ref=e1351]
+                  - generic [ref=e1354]:
+                    - heading "Launch OpenAI-style API" [level=4] [ref=e1355]
+                    - 'link "Permalink: Launch OpenAI-style API" [ref=e1356] [cursor=pointer]':
+                      - /url: "#launch-openai-style-api"
+                      - img [ref=e1357]
+                  - generic [ref=e1359]:
+                    - generic [ref=e1360]: llamafactory-cli api examples/inference/qwen3_lora_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1362] [cursor=pointer]:
+                      - img [ref=e1363]
+                  - generic [ref=e1366]:
+                    - heading "Extras" [level=3] [ref=e1367]
+                    - 'link "Permalink: Extras" [ref=e1368] [cursor=pointer]':
+                      - /url: "#extras"
+                      - img [ref=e1369]
+                  - generic [ref=e1371]:
+                    - heading "Full-Parameter Fine-Tuning using GaLore" [level=4] [ref=e1372]
+                    - 'link "Permalink: Full-Parameter Fine-Tuning using GaLore" [ref=e1373] [cursor=pointer]':
+                      - /url: "#full-parameter-fine-tuning-using-galore"
+                      - img [ref=e1374]
+                  - generic [ref=e1376]:
+                    - generic [ref=e1377]: llamafactory-cli train examples/extras/galore/llama3_full_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1379] [cursor=pointer]:
+                      - img [ref=e1380]
+                  - generic [ref=e1383]:
+                    - heading "Full-Parameter Fine-Tuning using APOLLO" [level=4] [ref=e1384]
+                    - 'link "Permalink: Full-Parameter Fine-Tuning using APOLLO" [ref=e1385] [cursor=pointer]':
+                      - /url: "#full-parameter-fine-tuning-using-apollo"
+                      - img [ref=e1386]
+                  - generic [ref=e1388]:
+                    - generic [ref=e1389]: llamafactory-cli train examples/extras/apollo/llama3_full_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1391] [cursor=pointer]:
+                      - img [ref=e1392]
+                  - generic [ref=e1395]:
+                    - heading "Full-Parameter Fine-Tuning using BAdam" [level=4] [ref=e1396]
+                    - 'link "Permalink: Full-Parameter Fine-Tuning using BAdam" [ref=e1397] [cursor=pointer]':
+                      - /url: "#full-parameter-fine-tuning-using-badam"
+                      - img [ref=e1398]
+                  - generic [ref=e1400]:
+                    - generic [ref=e1401]: llamafactory-cli train examples/extras/badam/llama3_full_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1403] [cursor=pointer]:
+                      - img [ref=e1404]
+                  - generic [ref=e1407]:
+                    - heading "Full-Parameter Fine-Tuning using Adam-mini" [level=4] [ref=e1408]
+                    - 'link "Permalink: Full-Parameter Fine-Tuning using Adam-mini" [ref=e1409] [cursor=pointer]':
+                      - /url: "#full-parameter-fine-tuning-using-adam-mini"
+                      - img [ref=e1410]
+                  - generic [ref=e1412]:
+                    - generic [ref=e1413]: llamafactory-cli train examples/extras/adam_mini/qwen2_full_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1415] [cursor=pointer]:
+                      - img [ref=e1416]
+                  - generic [ref=e1419]:
+                    - heading "Full-Parameter Fine-Tuning using Muon" [level=4] [ref=e1420]
+                    - 'link "Permalink: Full-Parameter Fine-Tuning using Muon" [ref=e1421] [cursor=pointer]':
+                      - /url: "#full-parameter-fine-tuning-using-muon"
+                      - img [ref=e1422]
+                  - generic [ref=e1424]:
+                    - generic [ref=e1425]: llamafactory-cli train examples/extras/muon/qwen2_full_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1427] [cursor=pointer]:
+                      - img [ref=e1428]
+                  - generic [ref=e1431]:
+                    - heading "LoRA+ Fine-Tuning" [level=4] [ref=e1432]
+                    - 'link "Permalink: LoRA+ Fine-Tuning" [ref=e1433] [cursor=pointer]':
+                      - /url: "#lora-fine-tuning-1"
+                      - img [ref=e1434]
+                  - generic [ref=e1436]:
+                    - generic [ref=e1437]: llamafactory-cli train examples/extras/loraplus/llama3_lora_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1439] [cursor=pointer]:
+                      - img [ref=e1440]
+                  - generic [ref=e1443]:
+                    - heading "PiSSA Fine-Tuning" [level=4] [ref=e1444]
+                    - 'link "Permalink: PiSSA Fine-Tuning" [ref=e1445] [cursor=pointer]':
+                      - /url: "#pissa-fine-tuning"
+                      - img [ref=e1446]
+                  - generic [ref=e1448]:
+                    - generic [ref=e1449]: llamafactory-cli train examples/extras/pissa/llama3_lora_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1451] [cursor=pointer]:
+                      - img [ref=e1452]
+                  - generic [ref=e1455]:
+                    - heading "Mixture-of-Depths Fine-Tuning" [level=4] [ref=e1456]
+                    - 'link "Permalink: Mixture-of-Depths Fine-Tuning" [ref=e1457] [cursor=pointer]':
+                      - /url: "#mixture-of-depths-fine-tuning"
+                      - img [ref=e1458]
+                  - generic [ref=e1460]:
+                    - generic [ref=e1461]: llamafactory-cli train examples/extras/mod/llama3_full_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1463] [cursor=pointer]:
+                      - img [ref=e1464]
+                  - generic [ref=e1467]:
+                    - heading "LLaMA-Pro Fine-Tuning" [level=4] [ref=e1468]
+                    - 'link "Permalink: LLaMA-Pro Fine-Tuning" [ref=e1469] [cursor=pointer]':
+                      - /url: "#llama-pro-fine-tuning"
+                      - img [ref=e1470]
+                  - generic [ref=e1472]:
+                    - generic [ref=e1473]: bash examples/extras/llama_pro/expand.sh llamafactory-cli train examples/extras/llama_pro/llama3_freeze_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1475] [cursor=pointer]:
+                      - img [ref=e1476]
+                  - generic [ref=e1479]:
+                    - heading "FSDP+QLoRA Fine-Tuning" [level=4] [ref=e1480]
+                    - 'link "Permalink: FSDP+QLoRA Fine-Tuning" [ref=e1481] [cursor=pointer]':
+                      - /url: "#fsdpqlora-fine-tuning"
+                      - img [ref=e1482]
+                  - generic [ref=e1484]:
+                    - generic [ref=e1485]: bash examples/extras/fsdp_qlora/train.sh
+                    - button "Copy code to clipboard" [ref=e1487] [cursor=pointer]:
+                      - img [ref=e1488]
+                  - generic [ref=e1491]:
+                    - heading "OFT Fine-Tuning" [level=4] [ref=e1492]
+                    - 'link "Permalink: OFT Fine-Tuning" [ref=e1493] [cursor=pointer]':
+                      - /url: "#oft-fine-tuning"
+                      - img [ref=e1494]
+                  - generic [ref=e1496]:
+                    - generic [ref=e1497]: llamafactory-cli train examples/extras/oft/llama3_oft_sft.yaml
+                    - button "Copy code to clipboard" [ref=e1499] [cursor=pointer]:
+                      - img [ref=e1500]
+                  - generic [ref=e1503]:
+                    - heading "QOFT Fine-Tuning" [level=4] [ref=e1504]
+                    - 'link "Permalink: QOFT Fine-Tuning" [ref=e1505] [cursor=pointer]':
+                      - /url: "#qoft-fine-tuning"
+                      - img [ref=e1506]
+                  - generic [ref=e1508]:
+                    - generic [ref=e1509]: llamafactory-cli train examples/extras/qoft/llama3_oft_sft_bnb_npu.yaml
+                    - button "Copy code to clipboard" [ref=e1511] [cursor=pointer]:
+                      - img [ref=e1512]
+  - alert [ref=e1518]
