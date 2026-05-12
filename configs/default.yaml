@@ -16,5 +16,5 @@ data:
   num_samples: 100000
   min_len: 128
   max_len: 128
-  min_dims: 1
-  max_dims: 1
+  min_dims: 8
+  max_dims: 8
