@@ -45,7 +45,7 @@ class TimeSeriesLLM(nn.Module):
 
     def __init__(
         self,
-        llm_name: str = "Qwen/Qwen2-0.5B-Instruct",
+        llm_name: str = "Qwen/Qwen3.5-0.8B",
         encoder_dim: int = 256,
         llm_dim: int = 896,
         num_encoder_layers: int = 2,
