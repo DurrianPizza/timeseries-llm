@@ -119,8 +119,10 @@ class TimeSeriesLLM(nn.Module):
         llm_dtype = self.llm.dtype if hasattr(self.llm, 'dtype') else torch.float32
         print(f"[INFO] LLM dtype: {llm_dtype}, converting encoder to same")
 
-        # Move encoder to the same device and dtype as LLM
+        # Move encoder (and fusion for original mode) to the same device and dtype as LLM
         self.encoder = self.encoder.to(device=device, dtype=llm_dtype)
+        if hasattr(self, 'fusion'):
+            self.fusion = self.fusion.to(device=device, dtype=llm_dtype)
 
     def forward(self, input_ids: torch.LongTensor, ts_embeddings: torch.Tensor = None, attention_mask: torch.Tensor = None, raw_ts: torch.Tensor = None):
         """
