@@ -64,7 +64,7 @@ def main():
     train_parser.add_argument("--save-path", type=str, default="checkpoints/model.pt", help="Path to save checkpoint")
 
     infer_parser = subparsers.add_parser("infer", help="Run inference")
-    infer_parser.add_argument("--llm-name", type=str, default="Qwen/Qwen2-0.5B-Instruct")
+    infer_parser.add_argument("--llm-name", type=str, default="Qwen/Qwen3.5-0.8B")
     infer_parser.add_argument("--encoder-dim", type=int, default=256)
     infer_parser.add_argument("--llm-dim", type=int, default=896)
     infer_parser.add_argument("--checkpoint", type=str, default=None, help="Path to model checkpoint")
