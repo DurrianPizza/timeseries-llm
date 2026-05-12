@@ -12,25 +12,33 @@ def _load_model_and_tokenizer(model_name: str):
     Returns:
         Tuple of (model, tokenizer)
     """
+    print(f"[INFO] Loading model: {model_name}")
+
     # Try ModelScope first (better for China)
     try:
+        print(f"[INFO] Trying ModelScope...")
         from modelscope import AutoModelForCausalLM as MsModel
         from modelscope import AutoTokenizer as MsTokenizer
+        print(f"[INFO] Downloading model from ModelScope (this may take a while)...")
         model = MsModel.from_pretrained(model_name, trust_remote_code=True)
+        print(f"[INFO] Model downloaded, loading tokenizer...")
         tokenizer = MsTokenizer.from_pretrained(model_name, trust_remote_code=True)
+        print(f"[INFO] Model and tokenizer loaded successfully")
         return model, tokenizer
-    except Exception:
-        pass
+    except Exception as e:
+        print(f"[INFO] ModelScope failed: {e}")
 
     # Fall back to HuggingFace
     try:
+        print(f"[INFO] Trying HuggingFace...")
         model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True)
         tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+        print(f"[INFO] Model and tokenizer loaded successfully")
         return model, tokenizer
-    except Exception:
+    except Exception as e:
         raise ImportError(
             f"Failed to load model '{model_name}' from both HuggingFace and ModelScope. "
-            "Please check the model name and your network connection."
+            f"Please check the model name and your network connection. Last error: {e}"
         )
 
 

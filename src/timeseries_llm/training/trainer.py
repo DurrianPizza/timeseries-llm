@@ -59,9 +59,12 @@ class Trainer:
     """Trainer for TimeSeries-LLM."""
 
     def __init__(self, config: Dict):
+        print("[INFO] Initializing Trainer...")
         self.config = config
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        print(f"[INFO] Using device: {self.device}")
         from timeseries_llm.models.llm_wrapper import TimeSeriesLLM
+        print("[INFO] Loading LLM model...")
         self.model = TimeSeriesLLM(
             llm_name=config["model"]["llm_name"],
             encoder_dim=config["model"]["encoder_dim"],
@@ -72,6 +75,7 @@ class Trainer:
             self.model.parameters(),
             lr=config["training"]["learning_rate"],
         )
+        print(f"[INFO] Pre-generating {config['data']['num_samples']} training samples...")
         self.dataset = TimeSeriesDataset(
             num_samples=config["data"]["num_samples"],
             min_len=config["data"]["min_len"],
