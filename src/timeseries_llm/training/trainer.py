@@ -163,17 +163,15 @@ class Trainer:
         )
         loss = outputs.loss
 
-        if self.current_step % 10 == 0:
-            # Check gradients every 10 steps
-            print(f"[DEBUG] step={self.current_step}, loss={loss.item():.4f}, loss.requires_grad={loss.requires_grad}")
+        if self.current_step == 0:
+            # Check gradients on first step
+            print(f"[DEBUG] step=0, loss={loss.item():.4f}, loss.requires_grad={loss.requires_grad}")
             print(f"[DEBUG] encoder_output.requires_grad={encoder_output.requires_grad}")
-            grad_norms = {}
-            for name, p in self.model.named_parameters():
-                if p.grad is not None:
-                    grad_norms[name] = p.grad.norm().item()
-            # Show first few gradients
-            sample = dict(list(grad_norms.items())[:5])
-            print(f"[DEBUG] grads={sample}")
+            # Check if encoder params are in the computation graph
+            for name, p in self.model.encoder.named_parameters():
+                print(f"[DEBUG] encoder.{name}: requires_grad={p.requires_grad}, grad={p.grad}")
+            for name, p in self.model.fusion.named_parameters():
+                print(f"[DEBUG] fusion.{name}: requires_grad={p.requires_grad}, grad={p.grad}")
 
         loss.backward()
         self.optimizer.step()
