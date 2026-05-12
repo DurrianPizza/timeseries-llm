@@ -19,6 +19,7 @@ def collate_fn(batch):
         pad_c = max_channels - ts.shape[0]
         pad_l = max_len - ts.shape[1]
         if pad_c > 0 or pad_l > 0:
+            # Pad: (left, right, top, bottom) for (C, L) -> (C+pad_c, L+pad_l)
             ts = torch.nn.functional.pad(ts, (0, pad_l, 0, pad_c))
         padded_ts.append(ts)
 
