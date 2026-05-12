@@ -165,11 +165,13 @@ class Trainer:
 
         if self.current_step % 10 == 0:
             # Check gradients every 10 steps
-            grad_norm = 0.0
-            for p in self.model.parameters():
+            grad_norms = {}
+            for name, p in self.model.named_parameters():
                 if p.grad is not None:
-                    grad_norm += p.grad.norm().item()
-            print(f"[DEBUG] step={self.current_step}, loss={loss.item():.4f}, grad_norm={grad_norm:.4f}")
+                    grad_norms[name] = p.grad.norm().item()
+            # Show first few gradients
+            sample = dict(list(grad_norms.items())[:5])
+            print(f"[DEBUG] step={self.current_step}, loss={loss.item():.4f}, grads={sample}")
 
         loss.backward()
         self.optimizer.step()
