@@ -1,7 +1,7 @@
 model:
   llm_name: "Qwen/Qwen3.5-0.8B"  # ModelScope path
   encoder_dim: 256
-  llm_dim: 896  # Qwen2-0.5B hidden size
+  llm_dim: 1024  # Qwen2-0.5B hidden size
   max_seq_len: 2048
 
 training:
