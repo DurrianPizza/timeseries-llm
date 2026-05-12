@@ -146,6 +146,8 @@ class TimeSeriesLLM(nn.Module):
                 ts_embeddings = self.encoder(raw_ts)  # Already projected to llm_dim
             elif self.mode == "encoder_decoder":
                 ts_embeddings, reconstructed = self.encoder(raw_ts)  # Returns (llm_out, reconstructed)
+            elif self.mode == "lossless":
+                ts_embeddings = self.encoder(raw_ts)  # SimpleLosslessEncoder
         elif ts_embeddings is None:
             raise ValueError("Must provide either ts_embeddings or raw_ts")
 
