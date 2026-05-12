@@ -3,16 +3,20 @@ import torch.nn as nn
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
-def _load_model_and_tokenizer(model_name: str):
+def _load_model_and_tokenizer(model_name: str, device: str = "cpu"):
     """Load model and tokenizer from ModelScope or HuggingFace.
 
     Args:
         model_name: Model identifier (HuggingFace path or ModelScope path)
+        device: Device to load model on (cpu, mps, cuda)
 
     Returns:
         Tuple of (model, tokenizer)
     """
     print(f"[INFO] Loading model: {model_name}")
+
+    # For MPS, use fp32 to avoid bf16 issues
+    torch_dtype = torch.float32 if device == "mps" else torch.bfloat16
 
     # Try ModelScope first (better for China)
     try:
@@ -20,7 +24,7 @@ def _load_model_and_tokenizer(model_name: str):
         from modelscope import AutoModelForCausalLM as MsModel
         from modelscope import AutoTokenizer as MsTokenizer
         print(f"[INFO] Downloading model from ModelScope (this may take a while)...")
-        model = MsModel.from_pretrained(model_name, trust_remote_code=True)
+        model = MsModel.from_pretrained(model_name, torch_dtype=torch_dtype, device_map=device, trust_remote_code=True)
         print(f"[INFO] Model downloaded, loading tokenizer...")
         tokenizer = MsTokenizer.from_pretrained(model_name, trust_remote_code=True)
         print(f"[INFO] Model and tokenizer loaded successfully")
@@ -31,7 +35,7 @@ def _load_model_and_tokenizer(model_name: str):
     # Fall back to HuggingFace
     try:
         print(f"[INFO] Trying HuggingFace...")
-        model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True)
+        model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=torch_dtype, device_map=device, trust_remote_code=True)
         tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
         print(f"[INFO] Model and tokenizer loaded successfully")
         return model, tokenizer
@@ -57,6 +61,7 @@ class TimeSeriesLLM(nn.Module):
         encoder_dim: int = 256,
         llm_dim: int = 896,
         num_encoder_layers: int = 2,
+        device: str = "cpu",
     ):
         super().__init__()
         self.llm_name = llm_name
@@ -79,7 +84,8 @@ class TimeSeriesLLM(nn.Module):
         self.fusion = MLPFusion(encoder_dim=encoder_dim, llm_dim=llm_dim)
 
         # LLM - try HuggingFace first, then ModelScope
-        self.llm, self.tokenizer = _load_model_and_tokenizer(llm_name)
+        # Note: MPS doesn't support bf16 well, so we pass device to handle dtype
+        self.llm, self.tokenizer = _load_model_and_tokenizer(llm_name, device=device)
 
     def forward(self, input_ids: torch.LongTensor, encoder_outputs: torch.Tensor, attention_mask: torch.Tensor = None, labels: torch.LongTensor = None):
         """

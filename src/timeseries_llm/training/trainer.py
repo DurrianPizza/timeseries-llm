@@ -102,6 +102,7 @@ class Trainer:
             llm_name=config["model"]["llm_name"],
             encoder_dim=config["model"]["encoder_dim"],
             llm_dim=config["model"]["llm_dim"],
+            device=str(self.device),
         )
         self.model.to(self.device)
         self.optimizer = torch.optim.AdamW(
