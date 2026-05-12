@@ -29,13 +29,29 @@ def infer(args):
         checkpoint_path=args.checkpoint,
     )
 
-    ts_gen = TimeSeriesGenerator()
-    ts, _ = ts_gen.generate()
+    ts_gen = TimeSeriesGenerator(seed=args.seed)  # 添加 seed 支持便于复现
+    ts, info = ts_gen.generate()
+
+    print("=" * 60)
+    print("生成的时间序列信息:")
+    print(f"  Pattern: {info['pattern']}")
+    print(f"  Length:  {info['length']}")
+    print(f"  Dims:    {info['dims']}")
+    print(f"  Shape:   {list(ts.shape)}")
+    print("-" * 60)
+    print("统计信息:")
+    print(f"  Min:    {ts.mean(dim=-1).min().item():.4f}")  # 简化的多维度统计
+    print(f"  Max:    {ts.mean(dim=-1).max().item():.4f}")
+    print(f"  Mean:   {ts.mean().item():.4f}")
+    print("-" * 60)
+    print("前10个值 (dim=0):")
+    print(f"  {ts[0, :10].numpy().round(4)}")
+    print("=" * 60)
 
     question = args.question or "What is the maximum value in this time series?"
     answer = pipeline.predict(ts, question)
 
-    print(f"Question: {question}")
+    print(f"\nQuestion: {question}")
     print(f"Answer: {answer}")
 
 
@@ -53,6 +69,7 @@ def main():
     infer_parser.add_argument("--llm-dim", type=int, default=896)
     infer_parser.add_argument("--checkpoint", type=str, default=None, help="Path to model checkpoint")
     infer_parser.add_argument("--question", type=str, default=None, help="Question to ask")
+    infer_parser.add_argument("--seed", type=int, default=None, help="Random seed for reproducibility")
 
     args = parser.parse_args()
 
