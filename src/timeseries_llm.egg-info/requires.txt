@@ -1,0 +1,11 @@
+torch>=2.0.0
+transformers>=4.40.0
+einops>=0.7.0
+pyyaml>=6.0
+numpy>=1.24.0
+pytest>=9.0.3
+
+[dev]
+pytest>=8.0.0
+black>=24.0.0
+ruff>=0.3.0

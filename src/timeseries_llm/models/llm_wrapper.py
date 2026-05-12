@@ -4,7 +4,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
 def _load_model_and_tokenizer(model_name: str):
-    """Load model and tokenizer, trying HuggingFace first, then ModelScope.
+    """Load model and tokenizer from ModelScope or HuggingFace.
 
     Args:
         model_name: Model identifier (HuggingFace path or ModelScope path)
@@ -12,25 +12,25 @@ def _load_model_and_tokenizer(model_name: str):
     Returns:
         Tuple of (model, tokenizer)
     """
-    # Try HuggingFace first
-    try:
-        model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True)
-        tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
-        return model, tokenizer
-    except Exception:
-        pass
-
-    # Fall back to ModelScope
+    # Try ModelScope first (better for China)
     try:
         from modelscope import AutoModelForCausalLM as MsModel
         from modelscope import AutoTokenizer as MsTokenizer
         model = MsModel.from_pretrained(model_name, trust_remote_code=True)
         tokenizer = MsTokenizer.from_pretrained(model_name, trust_remote_code=True)
         return model, tokenizer
-    except ImportError:
+    except Exception:
+        pass
+
+    # Fall back to HuggingFace
+    try:
+        model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True)
+        tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+        return model, tokenizer
+    except Exception:
         raise ImportError(
             f"Failed to load model '{model_name}' from both HuggingFace and ModelScope. "
-            "Please install modelscope: uv add modelscope"
+            "Please check the model name and your network connection."
         )
 
 

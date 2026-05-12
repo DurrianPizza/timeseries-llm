@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: timeseries-llm
+Version: 0.1.0
+Summary: TimeSeries-LLM alignment for precise numerical understanding
+Requires-Python: >=3.10
+Requires-Dist: torch>=2.0.0
+Requires-Dist: transformers>=4.40.0
+Requires-Dist: einops>=0.7.0
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: pytest>=9.0.3
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0.0; extra == "dev"
+Requires-Dist: black>=24.0.0; extra == "dev"
+Requires-Dist: ruff>=0.3.0; extra == "dev"
