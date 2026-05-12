@@ -145,8 +145,11 @@ class Trainer:
             show_progress=True,
         )
         self.current_step = 0
-        self.max_steps = config["training"]["max_steps"]
         self.batch_size = config["training"]["batch_size"]
+        self.epochs = config["training"].get("epochs", 1)
+        self.steps_per_epoch = len(self.dataset) // self.batch_size
+        self.max_steps = self.epochs * self.steps_per_epoch
+        print(f"[INFO] Training: {self.epochs} epochs = {self.max_steps} steps")
 
         # Gradient clipping value
         self.max_grad_norm = config["training"].get("max_grad_norm", 1.0)

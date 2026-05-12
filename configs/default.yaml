@@ -10,7 +10,7 @@ training:
   gradient_accumulation_steps: 8
   learning_rate: 0.0001
   warmup_steps: 10
-  max_steps: 100
+  epochs: 5  # Number of training epochs
   fp16: false
   reconstruction_weight: 0.1  # Weight for reconstruction loss in encoder_decoder mode
 
