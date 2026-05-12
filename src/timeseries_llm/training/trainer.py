@@ -194,8 +194,12 @@ class Trainer:
         shift_logits = logits[:, ts_len:text_len+ts_len-1, :].contiguous()
         shift_labels = labels[:, 1:].contiguous()
 
-        # Question length (approx tokens in "Question: ... Answer:")
-        question_len = 15
+        # Dynamically calculate question prefix length
+        question_prefix = "Question: "
+        answer_prefix = "\nAnswer:"
+        question_prefix_len = len(self.tokenizer.encode(question_prefix))
+        answer_prefix_len = len(self.tokenizer.encode(answer_prefix))
+        question_len = question_prefix_len + answer_prefix_len  # Question part ends here
 
         # Create weight mask: only compute loss on answer portion of TEXT
         weights = torch.zeros_like(shift_labels, dtype=torch.float32)
