@@ -91,10 +91,13 @@ class Trainer:
         # Check for MPS (Apple Silicon), CUDA, or fall back to CPU
         if torch.backends.mps.is_available():
             self.device = torch.device("mps")
+            print("[INFO] Device: Apple Silicon MPS (GPU)")
         elif torch.cuda.is_available():
             self.device = torch.device("cuda")
+            print("[INFO] Device: NVIDIA CUDA (GPU)")
         else:
             self.device = torch.device("cpu")
+            print("[INFO] Device: CPU")
         print(f"[INFO] Using device: {self.device}")
         from timeseries_llm.models.llm_wrapper import TimeSeriesLLM
         print("[INFO] Loading LLM model...")
