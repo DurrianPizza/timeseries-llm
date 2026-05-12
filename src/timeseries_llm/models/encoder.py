@@ -42,13 +42,23 @@ class TimeSeriesEncoder(nn.Module):
         )
         self.transformer = nn.TransformerEncoder(encoder_layer, num_layers=num_layers)
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        # Auxiliary head: predict time series statistics
+        # This gives encoder a training signal independent of LLM
+        self.aux_head = nn.Sequential(
+            nn.Linear(hidden_dim, hidden_dim // 2),
+            nn.GELU(),
+            nn.Linear(hidden_dim // 2, 4),  # predict: mean, std, max, min
+        )
+
+    def forward(self, x: torch.Tensor, return_aux: bool = False):
         """
         Args:
             x: Input tensor of shape (batch, channels, seq_len)
+            return_aux: If True, also return auxiliary predictions
 
         Returns:
             Tensor of shape (batch, seq_len, hidden_dim)
+            If return_aux=True, also returns aux output (batch, 4)
         """
         # CNN: (batch, channels, seq_len) -> (batch, hidden_dim, seq_len)
         x = self.cnn(x)
@@ -60,4 +70,23 @@ class TimeSeriesEncoder(nn.Module):
         # Transformer encoding
         x = self.transformer(x)
 
+        # Auxiliary head: predict statistics from pooled output
+        pooled = x.mean(dim=1)  # (batch, hidden_dim)
+        aux_output = self.aux_head(pooled)  # (batch, 4)
+
+        if return_aux:
+            return x, aux_output
         return x
+
+    def compute_aux_loss(self, x: torch.Tensor, target_stats: torch.Tensor):
+        """Compute auxiliary loss for time series statistics prediction.
+
+        Args:
+            x: Input tensor of shape (batch, channels, seq_len)
+            target_stats: Target statistics of shape (batch, 4) - [mean, std, max, min]
+
+        Returns:
+            MSE loss between predicted and target statistics
+        """
+        _, aux_output = self.forward(x, return_aux=True)
+        return nn.functional.mse_loss(aux_output, target_stats)

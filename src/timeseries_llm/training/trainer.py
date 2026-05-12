@@ -150,20 +150,37 @@ class Trainer:
         input_ids = batch["input_ids"].to(self.device)
         attention_mask = batch["attention_mask"].to(self.device)
         labels = batch["labels"].to(self.device)
-        # Encode time series - model.forward will apply fusion internally
-        encoder_output = self.model.encoder(ts)
+
+        # Compute target statistics for auxiliary loss
+        target_mean = ts.mean(dim=-1)  # (batch, channels)
+        target_std = ts.std(dim=-1)
+        target_max = ts.max(dim=-1).values
+        target_min = ts.min(dim=-1).values
+        target_stats = torch.stack([target_mean, target_std, target_max, target_min], dim=-1)  # (batch, channels, 4)
+        target_stats = target_stats.mean(dim=1)  # (batch, 4)
+
+        # Encode time series
+        encoder_output, aux_output = self.model.encoder(ts, return_aux=True)
+
+        # Compute auxiliary loss (stats prediction)
+        aux_loss = nn.functional.mse_loss(aux_output, target_stats)
+
+        # LLM loss
         outputs = self.model(
             input_ids=input_ids,
             encoder_outputs=encoder_output,
             attention_mask=attention_mask,
             labels=labels,
         )
-        loss = outputs.loss
+        llm_loss = outputs.loss
+
+        # Combined loss: LLM loss + auxiliary loss
+        total_loss = llm_loss + 0.1 * aux_loss
 
         if self.current_step % 10 == 0:
-            print(f"[DEBUG] step={self.current_step}, loss={loss.item():.4f}")
+            print(f"[DEBUG] step={self.current_step}, llm_loss={llm_loss.item():.4f}, aux_loss={aux_loss.item():.4f}")
 
-        loss.backward()
+        total_loss.backward()
 
         if self.current_step % 10 == 0:
             # Check gradient norms for trainable params
@@ -174,11 +191,7 @@ class Trainer:
             print(f"[DEBUG] step={self.current_step}, grad_norms count={len(grad_norms)}, values={list(grad_norms.values())[:3]}")
 
         self.optimizer.step()
-        return loss.item()
-
-        loss.backward()
-        self.optimizer.step()
-        return loss.item()
+        return total_loss.item()
 
     def train(self):
         dataloader = DataLoader(self.dataset, batch_size=self.batch_size, shuffle=True, collate_fn=collate_fn)
