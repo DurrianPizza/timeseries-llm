@@ -42,6 +42,7 @@ class TimeSeriesDataset(Dataset):
         min_dims: int,
         max_dims: int,
         tokenizer,
+        show_progress: bool = False,
     ):
         self.num_samples = num_samples
         self.ts_generator = TimeSeriesGenerator(min_len, max_len, min_dims, max_dims)
@@ -50,7 +51,8 @@ class TimeSeriesDataset(Dataset):
 
         # Pre-generate all data at initialization
         self.data_pool = []
-        for _ in range(num_samples):
+        iterable = tqdm(range(num_samples), desc="Generating data") if show_progress else range(num_samples)
+        for _ in iterable:
             ts, meta = self.ts_generator.generate()
             qa_pairs = self.qa_generator.generate(ts)
             # Store all QA pairs for each time series
@@ -108,6 +110,7 @@ class Trainer:
             min_dims=config["data"]["min_dims"],
             max_dims=config["data"]["max_dims"],
             tokenizer=self.model.tokenizer,
+            show_progress=True,
         )
         self.current_step = 0
         self.max_steps = config["training"]["max_steps"]

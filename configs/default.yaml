@@ -8,12 +8,12 @@ training:
   batch_size: 2
   gradient_accumulation_steps: 8
   learning_rate: 0.0001
-  warmup_steps: 100
-  max_steps: 10000
+  warmup_steps: 10
+  max_steps: 100
   fp16: true
 
 data:
-  num_samples: 100000
+  num_samples: 10000
   min_len: 128
   max_len: 128
   min_dims: 8
