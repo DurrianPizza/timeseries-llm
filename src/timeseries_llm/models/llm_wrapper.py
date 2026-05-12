@@ -59,15 +59,16 @@ class TimeSeriesLLM(nn.Module):
     """TimeSeries-LLM wrapper combining encoder + fusion + LLM.
 
     Supports multiple modes:
+    - mode="original": Original encoder + fusion MLP (baseline)
     - mode="direct": Direct projection of time series values to LLM dim
     - mode="encoder_decoder": Encoder with reconstruction decoder
-    - mode="lossless": Lossless encoder with skip connections and multiple heads
+    - mode="lossless": Lossless encoder with skip connections
 
     Args:
         llm_name: HuggingFace or ModelScope model name for Qwen
         encoder_dim: Hidden dim of TimeSeries encoder
         llm_dim: Hidden dim of LLM
-        mode: "direct", "encoder_decoder", or "lossless"
+        mode: "original", "direct", "encoder_decoder", or "lossless"
     """
 
     def __init__(
@@ -84,30 +85,29 @@ class TimeSeriesLLM(nn.Module):
         self.llm_dim = llm_dim
         self.mode = mode
 
-        if mode == "direct":
+        if mode == "original":
+            # Original architecture: encoder + fusion MLP
+            from timeseries_llm.models.encoder import TimeSeriesEncoder
+            from timeseries_llm.models.fusion import MLPFusion
+            self.encoder = TimeSeriesEncoder(in_channels=1, hidden_dim=encoder_dim)
+            self.fusion = MLPFusion(encoder_dim=encoder_dim, llm_dim=llm_dim)
+            self.has_decoder = False
+        elif mode == "direct":
             # Direct projection - no compression, LLM sees raw values
             from timeseries_llm.models.timeseries_encoder import TimeSeriesEncoderDirect
-            self.encoder = TimeSeriesEncoderDirect(
-                in_channels=1,
-                llm_dim=llm_dim,
-            )
+            self.encoder = TimeSeriesEncoderDirect(in_channels=1, llm_dim=llm_dim)
             self.has_decoder = False
         elif mode == "encoder_decoder":
             # Encoder with reconstruction decoder
             from timeseries_llm.models.timeseries_encoder import TimeSeriesEncoderWithReconstruction
             self.encoder = TimeSeriesEncoderWithReconstruction(
-                in_channels=1,
-                encoder_dim=encoder_dim,
-                llm_dim=llm_dim,
+                in_channels=1, encoder_dim=encoder_dim, llm_dim=llm_dim
             )
             self.has_decoder = True
         elif mode == "lossless":
             # Lossless encoder with skip connections for better gradient flow
             from timeseries_llm.models.lossless_encoder import SimpleLosslessEncoder
-            self.encoder = SimpleLosslessEncoder(
-                in_channels=1,
-                llm_dim=llm_dim,
-            )
+            self.encoder = SimpleLosslessEncoder(in_channels=1, llm_dim=llm_dim)
             self.has_decoder = False
         else:
             raise ValueError(f"Unknown mode: {mode}. Use 'direct', 'encoder_decoder', or 'lossless'")
@@ -142,7 +142,11 @@ class TimeSeriesLLM(nn.Module):
         # Get time series embeddings
         if ts_embeddings is None and raw_ts is not None:
             # Compute time series embeddings from raw input
-            if self.mode == "direct":
+            if self.mode == "original":
+                # Original: encoder + fusion
+                encoded = self.encoder(raw_ts)
+                ts_embeddings = self.fusion(encoded)
+            elif self.mode == "direct":
                 ts_embeddings = self.encoder(raw_ts)  # Already projected to llm_dim
             elif self.mode == "encoder_decoder":
                 ts_embeddings, reconstructed = self.encoder(raw_ts)  # Returns (llm_out, reconstructed)

@@ -3,7 +3,7 @@ model:
   encoder_dim: 256
   llm_dim: 1024  # Qwen2-0.5B hidden size
   max_seq_len: 2048
-  mode: "lossless"  # "direct", "encoder_decoder", or "lossless"
+  mode: "original"  # "original", "direct", "encoder_decoder", or "lossless"
 
 training:
   batch_size: 4
