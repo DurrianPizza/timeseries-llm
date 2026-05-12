@@ -24,7 +24,8 @@ def _load_model_and_tokenizer(model_name: str, device: str = "cpu"):
         from modelscope import AutoModelForCausalLM as MsModel
         from modelscope import AutoTokenizer as MsTokenizer
         print(f"[INFO] Downloading model from ModelScope (this may take a while)...")
-        model = MsModel.from_pretrained(model_name, dtype=dtype, device_map=device, trust_remote_code=True)
+        model = MsModel.from_pretrained(model_name, dtype=dtype, trust_remote_code=True)
+        model = model.to(device)
         print(f"[INFO] Model downloaded, loading tokenizer...")
         tokenizer = MsTokenizer.from_pretrained(model_name, trust_remote_code=True)
         print(f"[INFO] Model and tokenizer loaded successfully")
@@ -35,7 +36,8 @@ def _load_model_and_tokenizer(model_name: str, device: str = "cpu"):
     # Fall back to HuggingFace
     try:
         print(f"[INFO] Trying HuggingFace...")
-        model = AutoModelForCausalLM.from_pretrained(model_name, dtype=dtype, device_map=device, trust_remote_code=True)
+        model = AutoModelForCausalLM.from_pretrained(model_name, dtype=dtype, trust_remote_code=True)
+        model = model.to(device)
         tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
         print(f"[INFO] Model and tokenizer loaded successfully")
         return model, tokenizer
