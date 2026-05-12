@@ -153,13 +153,32 @@ class Trainer:
 
         # Encode time series
         encoder_output = self.model.encoder(ts)
-        outputs = self.model(
+        logits = self.model(
             input_ids=input_ids,
             encoder_outputs=encoder_output,
             attention_mask=attention_mask,
             labels=labels,
         )
-        loss = outputs.loss
+
+        # Compute weighted loss: boost loss for numerical tokens
+        # Shift logits and labels for next-token prediction
+        min_len = min(logits.shape[1], labels.shape[1])
+        shift_logits = logits[:, :min_len-1, :].contiguous()
+        shift_labels = labels[:, :min_len-1].contiguous()
+
+        # Get per-token loss
+        ce_loss = nn.functional.cross_entropy(shift_logits.view(-1, shift_logits.size(-1)), shift_labels.view(-1), reduction='none')
+
+        # Create weight mask for numerical tokens
+        with torch.no_grad():
+            decoded = [self.model.tokenizer.decode([tok]) for tok in shift_labels.view(-1)]
+            weights = torch.ones_like(shift_labels, dtype=torch.float32)
+            for i, text in enumerate(decoded):
+                if any(c.isdigit() or c in '.-' for c in text):
+                    weights.view(-1)[i] = 10.0
+
+        # Apply weights and compute mean
+        loss = (ce_loss * weights.view(-1)).mean()
 
         if self.current_step % 10 == 0:
             print(f"[DEBUG] step={self.current_step}, loss={loss.item():.4f}")
@@ -167,7 +186,6 @@ class Trainer:
         loss.backward()
 
         if self.current_step % 10 == 0:
-            # Check gradient norms for trainable params
             grad_norms = {}
             for p in self.optimizer.param_groups[0]['params']:
                 if p.grad is not None:
