@@ -118,17 +118,25 @@ class Trainer:
         )
         self.model.to(self.device)
 
+        # Freeze LLM, only train encoder + fusion
+        for param in self.model.llm.parameters():
+            param.requires_grad = False
+
         # Check which modules are trainable
         trainable_params = []
         for name, param in self.model.named_parameters():
             if param.requires_grad:
                 trainable_params.append(name)
-        print(f"[INFO] Trainable parameters (count: {len(trainable_params)})")
+        print(f"[INFO] Trainable parameters: {trainable_params}")
 
         self.optimizer = torch.optim.AdamW(
-            self.model.parameters(),
+            self.model.encoder.parameters(),
             lr=config["training"]["learning_rate"],
         )
+        self.optimizer.add_param_group({
+            "params": self.model.fusion.parameters(),
+            "lr": config["training"]["learning_rate"],
+        })
         print(f"[INFO] Pre-generating {config['data']['num_samples']} training samples...")
         self.dataset = TimeSeriesDataset(
             num_samples=config["data"]["num_samples"],
