@@ -93,8 +93,17 @@ class Trainer:
             self.device = torch.device("mps")
             print("[INFO] Device: Apple Silicon MPS (GPU)")
         elif torch.cuda.is_available():
-            self.device = torch.device("cuda")
-            print("[INFO] Device: NVIDIA CUDA (GPU)")
+            # Verify CUDA actually works (driver might be too old)
+            try:
+                torch.cuda.init()
+                torch.zeros(1).cuda()
+                self.device = torch.device("cuda")
+                print("[INFO] Device: NVIDIA CUDA (GPU)")
+                print(f"[INFO] GPU: {torch.cuda.get_device_name(0)}")
+            except Exception as e:
+                print(f"[INFO] CUDA available but not usable: {e}")
+                print("[INFO] Falling back to CPU")
+                self.device = torch.device("cpu")
         else:
             self.device = torch.device("cpu")
             print("[INFO] Device: CPU")
