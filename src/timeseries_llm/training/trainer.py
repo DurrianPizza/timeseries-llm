@@ -271,6 +271,12 @@ class Trainer:
                 loss_history.append(loss)
                 pbar.update(1)
                 pbar.set_postfix({"loss": f"{loss:.4f}"})
+
+                # Save checkpoint every 100 steps
+                if self.current_step % 100 == 0:
+                    self.save(f"checkpoints/model_step_{self.current_step}.pt")
+                    print(f"[INFO] Checkpoint saved at step {self.current_step}")
+
                 if self.current_step >= self.max_steps:
                     break
         pbar.close()
