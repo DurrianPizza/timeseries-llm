@@ -13,7 +13,7 @@ class TimeSeriesPipeline:
         llm_dim: int = 896,
         checkpoint_path: str = None,
     ):
-        print(f"[DEBUG] Pipeline init: encoder_dim={encoder_dim}, llm_dim={llm_dim}")
+        print(f"[INFO] Pipeline init: encoder_dim={encoder_dim}, llm_dim={llm_dim}")
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model = TimeSeriesLLM(
             llm_name=llm_name,

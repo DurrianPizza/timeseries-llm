@@ -27,9 +27,9 @@ def infer(args):
 
     model_config = config.get("model", {})
     pipeline = TimeSeriesPipeline(
-        llm_name=args.llm_name or model_config.get("llm_name", "Qwen/Qwen3.5-0.8B"),
-        encoder_dim=args.encoder_dim or model_config.get("encoder_dim", 256),
-        llm_dim=args.llm_dim or model_config.get("llm_dim", 1024),
+        llm_name=args.llm_name if args.llm_name is not None else model_config.get("llm_name", "Qwen/Qwen3.5-0.8B"),
+        encoder_dim=args.encoder_dim if args.encoder_dim is not None else model_config.get("encoder_dim", 256),
+        llm_dim=args.llm_dim if args.llm_dim is not None else model_config.get("llm_dim", 1024),
         checkpoint_path=args.checkpoint,
     )
 
@@ -75,9 +75,9 @@ def main():
     train_parser.add_argument("--save-path", type=str, default="checkpoints/model.pt", help="Path to save checkpoint")
 
     infer_parser = subparsers.add_parser("infer", help="Run inference")
-    infer_parser.add_argument("--llm-name", type=str, default="Qwen/Qwen3.5-0.8B")
-    infer_parser.add_argument("--encoder-dim", type=int, default=256)
-    infer_parser.add_argument("--llm-dim", type=int, default=896)
+    infer_parser.add_argument("--llm-name", type=str, default=None)
+    infer_parser.add_argument("--encoder-dim", type=int, default=None)
+    infer_parser.add_argument("--llm-dim", type=int, default=None)
     infer_parser.add_argument("--checkpoint", type=str, default=None, help="Path to model checkpoint")
     infer_parser.add_argument("--question", type=str, default=None, help="Question to ask")
     infer_parser.add_argument("--seed", type=int, default=None, help="Random seed for reproducibility")
