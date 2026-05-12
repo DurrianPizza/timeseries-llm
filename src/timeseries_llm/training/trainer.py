@@ -195,14 +195,22 @@ class Trainer:
         # Apply weights and compute mean
         loss = (ce_loss * weights.view(-1)).sum() / (weights.sum() + 1e-8)
 
-        # Use accelerate.backward instead of loss.backward()
-        self.accelerator.backward(loss)
+        # Use standard backward (accelerate.backward requires prepare() to track model)
+        loss.backward()
 
         # Clip gradients
-        self.accelerator.clip_grad_norm_(
+        torch.nn.utils.clip_grad_norm_(
             list(self.model.encoder.parameters()) + list(self.model.fusion.parameters()),
             self.max_grad_norm,
         )
+
+        # Debug: print grad norms before step
+        if self.current_step % 10 == 0:
+            enc_norms = [p.grad.norm().item() for p in self.model.encoder.parameters() if p.grad is not None]
+            fus_norms = [p.grad.norm().item() for p in self.model.fusion.parameters() if p.grad is not None]
+            print(f"[DEBUG] step={self.current_step}, loss={loss.item():.4f}")
+            print(f"[DEBUG] enc_grad_norms: min={min(enc_norms):.6f}, max={max(enc_norms):.6f}")
+            print(f"[DEBUG] fus_grad_norms: min={min(fus_norms):.6f}, max={max(fus_norms):.6f}")
 
         self.optimizer.step()
 
