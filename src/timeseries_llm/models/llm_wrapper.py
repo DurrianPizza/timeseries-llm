@@ -94,9 +94,14 @@ class TimeSeriesLLM(nn.Module):
         """
         # Get LLM embeddings
         text_embeddings = self.llm.model.embed_tokens(input_ids)
+        print(f"[DEBUG llm_wrapper] input_ids shape: {input_ids.shape}")
+        print(f"[DEBUG llm_wrapper] text_embeddings shape: {text_embeddings.shape}")
+        print(f"[DEBUG llm_wrapper] encoder_outputs shape: {encoder_outputs.shape}")
 
         # Concatenate: text + time series (after fusion projection)
         fused_encoder_outputs = self.fusion(encoder_outputs)
+        print(f"[DEBUG llm_wrapper] fused_encoder_outputs shape: {fused_encoder_outputs.shape}")
+
         combined_embeddings = torch.cat([text_embeddings, fused_encoder_outputs], dim=1)
 
         # Forward through LLM
