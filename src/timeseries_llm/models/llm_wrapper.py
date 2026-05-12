@@ -100,7 +100,9 @@ class TimeSeriesLLM(nn.Module):
         fused_encoder_outputs = self.fusion(encoder_outputs)
         ts_seq_len = fused_encoder_outputs.shape[1]
 
-        combined_embeddings = torch.cat([text_embeddings, fused_encoder_outputs], dim=1)
+        # Ensure embeddings match model dtype (model may be bf16)
+        model_dtype = self.llm.dtype
+        combined_embeddings = torch.cat([text_embeddings.to(model_dtype), fused_encoder_outputs.to(model_dtype)], dim=1)
 
         # Extend attention mask to cover both text and time series tokens
         # Time series tokens can attend to all time series tokens (full attention within ts)
@@ -139,7 +141,9 @@ class TimeSeriesLLM(nn.Module):
         fused_encoder_outputs = self.fusion(encoder_outputs)
         ts_seq_len = fused_encoder_outputs.shape[1]
 
-        combined_embeddings = torch.cat([text_embeddings, fused_encoder_outputs], dim=1)
+        # Ensure embeddings match model dtype
+        model_dtype = self.llm.dtype
+        combined_embeddings = torch.cat([text_embeddings.to(model_dtype), fused_encoder_outputs.to(model_dtype)], dim=1)
 
         # Extend attention mask for time series tokens
         if attention_mask is not None:
