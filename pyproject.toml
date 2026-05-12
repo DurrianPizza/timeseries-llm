@@ -1,5 +1,5 @@
 [project]
-name = "timeseries-llm"
+name = "timeseries_llm"
 version = "0.1.0"
 description = "TimeSeries-LLM alignment for precise numerical understanding"
 requires-python = ">=3.10"
