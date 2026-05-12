@@ -115,6 +115,14 @@ class TimeSeriesLLM(nn.Module):
         else:
             extended_attention_mask = None
 
+        # Pad labels to match combined sequence length (use ignore_index=-100 for ts tokens)
+        if labels is not None:
+            text_len = labels.shape[1]
+            pad_len = combined_embeddings.shape[1] - text_len
+            if pad_len > 0:
+                pad_labels = labels.new_full((labels.shape[0], pad_len), -100)
+                labels = torch.cat([labels, pad_labels], dim=1)
+
         # Forward through LLM
         outputs = self.llm(
             inputs_embeds=combined_embeddings,
