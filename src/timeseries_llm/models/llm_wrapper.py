@@ -58,10 +58,15 @@ def _load_model_and_tokenizer(model_name: str, device: str = "cpu"):
 class TimeSeriesLLM(nn.Module):
     """TimeSeries-LLM wrapper combining encoder + fusion + LLM.
 
+    Supports two modes:
+    - mode="direct": Direct projection of time series values to LLM dim (Plan A)
+    - mode="encoder_decoder": Encoder with reconstruction decoder (Plan B)
+
     Args:
         llm_name: HuggingFace or ModelScope model name for Qwen
         encoder_dim: Hidden dim of TimeSeries encoder
         llm_dim: Hidden dim of LLM
+        mode: "direct" or "encoder_decoder"
     """
 
     def __init__(
@@ -70,106 +75,135 @@ class TimeSeriesLLM(nn.Module):
         encoder_dim: int = 256,
         llm_dim: int = 896,
         device: str = "cpu",
+        mode: str = "direct",
     ):
         super().__init__()
         self.llm_name = llm_name
         self.encoder_dim = encoder_dim
         self.llm_dim = llm_dim
+        self.mode = mode
 
-        # TimeSeries Encoder - linear projection without CNN/Transformer
-        from timeseries_llm.models.encoder import TimeSeriesEncoder
-        self.encoder = TimeSeriesEncoder(
-            in_channels=8,  # max_dims from config
-            hidden_dim=encoder_dim,
-        )
-
-        # Fusion MLP
-        from timeseries_llm.models.fusion import MLPFusion
-        self.fusion = MLPFusion(encoder_dim=encoder_dim, llm_dim=llm_dim)
+        if mode == "direct":
+            # Plan A: Direct projection - no compression, LLM sees raw values
+            from timeseries_llm.models.timeseries_encoder import TimeSeriesEncoderDirect
+            self.encoder = TimeSeriesEncoderDirect(
+                in_channels=1,
+                llm_dim=llm_dim,
+            )
+            self.has_decoder = False
+        elif mode == "encoder_decoder":
+            # Plan B: Encoder with reconstruction decoder
+            from timeseries_llm.models.timeseries_encoder import TimeSeriesEncoderWithReconstruction
+            self.encoder = TimeSeriesEncoderWithReconstruction(
+                in_channels=1,
+                encoder_dim=encoder_dim,
+                llm_dim=llm_dim,
+            )
+            self.has_decoder = True
+        else:
+            raise ValueError(f"Unknown mode: {mode}. Use 'direct' or 'encoder_decoder'")
 
         # LLM - try HuggingFace first, then ModelScope
-        # Note: MPS doesn't support bf16 well, so we pass device to handle dtype
         self.llm, self.tokenizer = _load_model_and_tokenizer(llm_name, device=device)
 
-        # Move encoder and fusion to the same device and dtype as LLM
+        # Move encoder to the same device and dtype as LLM
         self.encoder = self.encoder.to(device=device, dtype=self.llm.dtype)
-        self.fusion = self.fusion.to(device=device, dtype=self.llm.dtype)
 
-    def forward(self, input_ids: torch.LongTensor, encoder_outputs: torch.Tensor, attention_mask: torch.Tensor = None):
+    def forward(self, input_ids: torch.LongTensor, ts_embeddings: torch.Tensor = None, attention_mask: torch.Tensor = None, raw_ts: torch.Tensor = None):
         """
         Args:
             input_ids: Token IDs for text input, shape (batch, text_seq_len)
-            encoder_outputs: TimeSeries encoded tensor, shape (batch, ts_seq_len, encoder_dim)
+            ts_embeddings: Pre-computed time series embeddings (for backward compat)
+                           For mode="direct": shape (batch, seq_len, llm_dim)
+                           For mode="encoder_decoder": shape (batch, seq_len, llm_dim)
             attention_mask: Attention mask for text tokens only (will be extended for time series)
+            raw_ts: Raw time series tensor (batch, channels, seq_len) - used if ts_embeddings not provided
 
         Returns:
-            LLM output logits
+            For mode="direct": LLM output logits
+            For mode="encoder_decoder": tuple of (LLM logits, reconstructed_ts)
         """
         # Get LLM embeddings
         text_embeddings = self.llm.model.embed_tokens(input_ids)
-        text_seq_len = text_embeddings.shape[1]
 
-        # Concatenate: text + time series (after fusion projection)
-        # Fusion runs in fp32 for numerical stability, then convert output to model dtype
-        model_dtype = self.llm.dtype
-        fused_encoder_outputs = self.fusion(encoder_outputs)
-        ts_seq_len = fused_encoder_outputs.shape[1]
+        # Get time series embeddings
+        if ts_embeddings is None and raw_ts is not None:
+            # Compute time series embeddings from raw input
+            if self.mode == "direct":
+                ts_embeddings = self.encoder(raw_ts)  # Already projected to llm_dim
+            elif self.mode == "encoder_decoder":
+                ts_embeddings, reconstructed = self.encoder(raw_ts)  # Returns (llm_out, reconstructed)
+        elif ts_embeddings is None:
+            raise ValueError("Must provide either ts_embeddings or raw_ts")
 
-        # Ensure embeddings match model dtype (model may be bf16)
-        combined_embeddings = torch.cat([text_embeddings.to(model_dtype), fused_encoder_outputs.to(model_dtype)], dim=1)
+        ts_seq_len = ts_embeddings.shape[1]
 
-        # Extend attention mask to cover both text and time series tokens
-        # Time series tokens can attend to all time series tokens (full attention within ts)
-        # and can attend to all text tokens
+        # Put time series BEFORE text - critical so causal attention allows text to attend to ts
+        combined_embeddings = torch.cat([ts_embeddings, text_embeddings], dim=1)
+
+        # Extend attention mask: time series tokens first, then text tokens
         if attention_mask is not None:
-            # attention_mask shape: (batch, text_seq_len)
-            # Extend with ones for time series tokens: (batch, ts_seq_len)
             ts_attention_mask = attention_mask.new_ones(attention_mask.shape[0], ts_seq_len)
-            extended_attention_mask = torch.cat([attention_mask, ts_attention_mask], dim=1)
+            extended_attention_mask = torch.cat([ts_attention_mask, attention_mask], dim=1)
         else:
             extended_attention_mask = None
 
-        # Forward through LLM - don't pass labels, let trainer compute loss
+        # Forward through LLM
         outputs = self.llm(
             inputs_embeds=combined_embeddings,
             attention_mask=extended_attention_mask,
         )
+
+        if self.mode == "encoder_decoder":
+            return outputs.logits, reconstructed
         return outputs.logits
 
-    def generate(self, input_ids: torch.LongTensor, encoder_outputs: torch.Tensor, attention_mask: torch.Tensor = None, max_new_tokens: int = 100) -> torch.LongTensor:
+    def generate(self, input_ids: torch.LongTensor, ts_embeddings: torch.Tensor = None, attention_mask: torch.Tensor = None, raw_ts: torch.Tensor = None, max_new_tokens: int = 100, eos_token_id: int = None) -> torch.LongTensor:
         """Generate text given time series and question.
 
         Args:
             input_ids: Token IDs for text input
-            encoder_outputs: TimeSeries encoded tensor
+            ts_embeddings: Pre-computed time series embeddings
             attention_mask: Attention mask for text tokens only
+            raw_ts: Raw time series tensor (used if ts_embeddings not provided)
             max_new_tokens: Maximum tokens to generate
+            eos_token_id: End-of-sequence token id
 
         Returns:
             Generated token IDs
         """
         text_embeddings = self.llm.model.embed_tokens(input_ids)
-        text_seq_len = text_embeddings.shape[1]
 
-        fused_encoder_outputs = self.fusion(encoder_outputs)
-        ts_seq_len = fused_encoder_outputs.shape[1]
+        # Get time series embeddings
+        if ts_embeddings is None and raw_ts is not None:
+            if self.mode == "direct":
+                ts_embeddings = self.encoder(raw_ts)
+            elif self.mode == "encoder_decoder":
+                ts_embeddings, _ = self.encoder(raw_ts)
+        elif ts_embeddings is None:
+            raise ValueError("Must provide either ts_embeddings or raw_ts")
 
-        # Ensure embeddings match model dtype
-        model_dtype = self.llm.dtype
-        combined_embeddings = torch.cat([text_embeddings.to(model_dtype), fused_encoder_outputs.to(model_dtype)], dim=1)
+        ts_seq_len = ts_embeddings.shape[1]
 
-        # Extend attention mask for time series tokens
+        # Put time series BEFORE text (same as forward)
+        combined_embeddings = torch.cat([ts_embeddings, text_embeddings], dim=1)
+
+        # Extend attention mask: time series first, then text
         if attention_mask is not None:
             ts_attention_mask = attention_mask.new_ones(attention_mask.shape[0], ts_seq_len)
-            extended_attention_mask = torch.cat([attention_mask, ts_attention_mask], dim=1)
+            extended_attention_mask = torch.cat([ts_attention_mask, attention_mask], dim=1)
         else:
             extended_attention_mask = None
 
-        outputs = self.llm.generate(
-            inputs_embeds=combined_embeddings,
-            attention_mask=extended_attention_mask,
-            max_new_tokens=max_new_tokens,
-            do_sample=True,
-            temperature=0.7,
-        )
+        generate_kwargs = {
+            "inputs_embeds": combined_embeddings,
+            "attention_mask": extended_attention_mask,
+            "max_new_tokens": max_new_tokens,
+            "do_sample": True,
+            "temperature": 0.7,
+        }
+        if eos_token_id is not None:
+            generate_kwargs["eos_token_id"] = eos_token_id
+
+        outputs = self.llm.generate(**generate_kwargs)
         return outputs

@@ -12,8 +12,9 @@ class TimeSeriesPipeline:
         encoder_dim: int = 256,
         llm_dim: int = 896,
         checkpoint_path: str = None,
+        mode: str = "direct",
     ):
-        print(f"[INFO] Pipeline init: encoder_dim={encoder_dim}, llm_dim={llm_dim}")
+        print(f"[INFO] Pipeline init: encoder_dim={encoder_dim}, llm_dim={llm_dim}, mode={mode}")
         # Detect device: MPS > CUDA > CPU
         if torch.backends.mps.is_available():
             self.device = torch.device("mps")
@@ -28,6 +29,7 @@ class TimeSeriesPipeline:
             encoder_dim=encoder_dim,
             llm_dim=llm_dim,
             device=str(self.device),
+            mode=mode,
         )
         if checkpoint_path:
             checkpoint = torch.load(checkpoint_path, map_location=self.device)
@@ -46,14 +48,14 @@ class TimeSeriesPipeline:
         if time_series.dim() == 2:
             time_series = time_series.unsqueeze(0)
         time_series = time_series.to(self.device)
-        encoder_output = self.model.encoder(time_series)
         prompt = f"Question: {question}\nAnswer:"
         inputs = self.model.tokenizer(prompt, return_tensors="pt")
         input_ids = inputs["input_ids"].to(self.device)
         outputs = self.model.generate(
             input_ids=input_ids,
-            encoder_outputs=encoder_output,
+            raw_ts=time_series,
             max_new_tokens=max_new_tokens,
+            eos_token_id=self.model.tokenizer.eos_token_id,
         )
         answer = self.model.tokenizer.decode(outputs[0], skip_special_tokens=True)
         return answer

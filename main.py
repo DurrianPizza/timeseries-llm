@@ -59,11 +59,22 @@ def infer(args):
     print(f"  {ts[0, :10].numpy().round(4)}")
     print("=" * 60)
 
-    question = args.question or "What is the maximum value in this time series?"
-    answer = pipeline.predict(ts, question)
+    default_questions = [
+        "What is the maximum value in this time series?",
+        "What is the minimum value in this time series?",
+        "What is the mean value of this time series?",
+        "How many data points are in this time series?",
+        "What is the trend of this time series (increasing, decreasing, or stable)?",
+    ]
 
-    print(f"\nQuestion: {question}")
-    print(f"Answer: {answer}")
+    questions = [args.question] if args.question else default_questions
+
+    print("=" * 60)
+    for question in questions:
+        answer = pipeline.predict(ts, question)
+        print(f"\nQuestion: {question}")
+        print(f"Answer: {answer}")
+    print("=" * 60)
 
 
 def main():

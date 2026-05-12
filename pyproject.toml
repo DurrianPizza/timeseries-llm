@@ -22,14 +22,14 @@ dev = ["pytest>=8.0.0", "black>=24.0.0", "ruff>=0.3.0"]
 index-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 
 # ===== CUDA GPU 训练时取消注释以下配置 =====
-# [[tool.uv.index]]
-# name = "pytorch-cu126"
-# url = "https://download.pytorch.org/whl/cu126"
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
 #
-# [tool.uv.sources]
-# torch = { index = "pytorch-cu126" }
-# torchvision = { index = "pytorch-cu126" }
-# torchaudio = { index = "pytorch-cu126" }
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }
+torchvision = { index = "pytorch-cu126" }
+torchaudio = { index = "pytorch-cu126" }
 
 [tool.setuptools.packages.find]
 where = ["src"]

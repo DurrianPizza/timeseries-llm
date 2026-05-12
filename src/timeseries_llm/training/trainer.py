@@ -98,6 +98,8 @@ class Trainer:
         print(f"[INFO] Device: {self.device}")
 
         self.config = config
+        self.mode = config["model"].get("mode", "direct")
+        print(f"[INFO] Model mode: {self.mode}")
 
         from timeseries_llm.models.llm_wrapper import TimeSeriesLLM
         print("[INFO] Loading LLM model...")
@@ -106,22 +108,31 @@ class Trainer:
             encoder_dim=config["model"]["encoder_dim"],
             llm_dim=config["model"]["llm_dim"],
             device=str(self.device),
+            mode=self.mode,
         )
 
         # Save tokenizer reference
         self.tokenizer = self.model.tokenizer
 
-        # Don't freeze LLM - use different learning rates
-        # LLM has small lr, encoder+fusion have larger lr
-        # This works better on MPS where freezing causes gradient issues
-        trainable_params = list(self.model.encoder.parameters()) + list(self.model.fusion.parameters()) + list(self.model.llm.parameters())
-        print(f"[INFO] Training encoder+fusion+LLM (LLM has small lr)")
+        # Freeze LLM but keep embed_tokens trainable
+        print("[INFO] Freezing LLM transformer layers, training encoder+embed_tokens")
+        for name, param in self.model.llm.named_parameters():
+            if "embed_tokens" not in name:
+                param.requires_grad = False
 
-        # Two param groups: encoder+fusion with normal lr, LLM with tiny lr
+        # Trainable params: encoder + embed_tokens
+        encoder_params = list(self.model.encoder.parameters())
+        embed_params = list(self.model.llm.model.embed_tokens.parameters())
+
         self.optimizer = torch.optim.AdamW([
-            {"params": list(self.model.encoder.parameters()) + list(self.model.fusion.parameters()), "lr": config["training"]["learning_rate"]},
-            {"params": list(self.model.llm.parameters()), "lr": config["training"]["learning_rate"] * 0.01},
+            {"params": encoder_params, "lr": config["training"]["learning_rate"]},
+            {"params": embed_params, "lr": config["training"]["learning_rate"]},
         ], eps=1e-4)
+
+        print(f"[INFO] Trainable params: encoder={len(encoder_params)}, embed={len(embed_params)}")
+
+        # Reconstruction loss weight for encoder_decoder mode
+        self.recon_weight = config["training"].get("reconstruction_weight", 0.1)
 
         print(f"[INFO] Pre-generating {config['data']['num_samples']} training samples...")
         self.dataset = TimeSeriesDataset(
@@ -150,39 +161,51 @@ class Trainer:
         attention_mask = batch["attention_mask"].to(self.device)
         labels = batch["labels"].to(self.device)
 
-        # Encode time series
-        encoder_output = self.model.encoder(ts)
-        logits = self.model(
-            input_ids=input_ids,
-            encoder_outputs=encoder_output,
-            attention_mask=attention_mask,
-        )
+        # Forward pass - model handles encoding internally based on mode
+        recon_loss = None
+        if self.mode == "encoder_decoder":
+            logits, reconstructed = self.model(
+                input_ids=input_ids,
+                raw_ts=ts,
+                attention_mask=attention_mask,
+            )
+            # Compute reconstruction loss (Plan B)
+            recon_loss = nn.functional.mse_loss(reconstructed, ts)
+            if self.current_step % 10 == 0:
+                print(f"[DEBUG] recon_loss={recon_loss.item():.6f}, recon_mean={reconstructed.mean().item():.6f}, ts_mean={ts.mean().item():.6f}")
+        else:
+            logits = self.model(
+                input_ids=input_ids,
+                raw_ts=ts,
+                attention_mask=attention_mask,
+            )
 
-        # logits shape: [text_len + ts_len, vocab] = [Q+A+TS, vocab]
-        # labels shape: [Q+A]
-        # For next-token prediction: logits[i] predicts labels[i+1]
-        # After shift: position i (0 to text_len-2) predicts labels[i+1] (answer tokens)
+        # logits shape: [batch, text_len + ts_len, vocab]
+        # labels shape: [batch, Q+A]
+        # Time series is at positions [0:ts_len], text is at positions [ts_len:ts_len+text_len]
 
         text_len = labels.shape[1]  # Q + A tokens
+        ts_len = logits.shape[1] - text_len  # Time series tokens
 
-        # Truncate logits to match labels-1 for correct alignment
-        # logits[:, :text_len-1] aligns with labels[:, 1:]
-        shift_logits = logits[:, :text_len-1, :].contiguous()
+        # Shift for next-token prediction
+        shift_logits = logits[:, ts_len:text_len+ts_len-1, :].contiguous()
         shift_labels = labels[:, 1:].contiguous()
 
         # Question length (approx tokens in "Question: ... Answer:")
         question_len = 15
 
-        # Create weight mask: only compute loss on answer portion
+        # Create weight mask: only compute loss on answer portion of TEXT
         weights = torch.zeros_like(shift_labels, dtype=torch.float32)
-        weights[:, question_len-1:] = 1.0  # Answer positions get weight 1.0
+        weights[:, question_len-1:] = 1.0
 
         # Boost numerical tokens
         with torch.no_grad():
             decoded = [self.tokenizer.decode([tok]) for tok in shift_labels.view(-1)]
+            num_boosted = 0
             for i, text in enumerate(decoded):
                 if any(c.isdigit() or c in '.-' for c in text):
-                    weights.view(-1)[i] *= 10.0
+                    weights.view(-1)[i] *= 100.0
+                    num_boosted += 1
 
         # Get per-token loss
         ce_loss = nn.functional.cross_entropy(
@@ -194,22 +217,27 @@ class Trainer:
         # Apply weights and compute mean
         loss = (ce_loss * weights.view(-1)).sum() / (weights.sum() + 1e-8)
 
-        # Use standard backward (accelerate.backward requires prepare() to track model)
-        loss.backward()
+        # Add reconstruction loss for encoder_decoder mode
+        if self.mode == "encoder_decoder":
+            total_loss = loss + self.recon_weight * recon_loss
+        else:
+            total_loss = loss
+            recon_loss = None
 
-        # Clip gradients
-        torch.nn.utils.clip_grad_norm_(
-            list(self.model.encoder.parameters()) + list(self.model.fusion.parameters()),
-            self.max_grad_norm,
-        )
+        # Use standard backward
+        total_loss.backward()
 
-        # Debug: print grad norms before step
+        # Debug: print grad norms
         if self.current_step % 10 == 0:
             enc_norms = [p.grad.norm().item() for p in self.model.encoder.parameters() if p.grad is not None]
-            fus_norms = [p.grad.norm().item() for p in self.model.fusion.parameters() if p.grad is not None]
-            print(f"[DEBUG] step={self.current_step}, loss={loss.item():.4f}")
-            print(f"[DEBUG] enc_grad_norms: min={min(enc_norms):.6f}, max={max(enc_norms):.6f}")
-            print(f"[DEBUG] fus_grad_norms: min={min(fus_norms):.6f}, max={max(fus_norms):.6f}")
+            emb_norms = [p.grad.norm().item() for p in self.model.llm.model.embed_tokens.parameters() if p.grad is not None]
+            print(f"[DEBUG] step={self.current_step}, loss={loss.item():.4f}, recon_loss={recon_loss.item() if recon_loss else 0:.4f}")
+            print(f"[DEBUG] enc_grad: {enc_norms}")
+            print(f"[DEBUG] emb_grad: {emb_norms}")
+
+        # Clip gradients for trainable params only
+        trainable_params = [p for p in self.model.parameters() if p.requires_grad]
+        torch.nn.utils.clip_grad_norm_(trainable_params, self.max_grad_norm)
 
         self.optimizer.step()
 
@@ -223,17 +251,26 @@ class Trainer:
             collate_fn=collate_fn,
         )
 
+        loss_history = []
+
         pbar = tqdm(total=self.max_steps, desc="Training")
         while self.current_step < self.max_steps:
             for batch in dataloader:
                 loss = self.train_step(batch)
                 self.current_step += 1
+                loss_history.append(loss)
                 pbar.update(1)
                 pbar.set_postfix({"loss": f"{loss:.4f}"})
                 if self.current_step >= self.max_steps:
                     break
         pbar.close()
-        print(f"Training complete. Final step: {self.current_step}")
+
+        print(f"\n=== LOSS TRACE ===")
+        for i, l in enumerate(loss_history):
+            print(f"step {i}: {l:.6f}")
+        print(f"=== FINAL LOSS: {loss_history[-1]:.6f} ===")
+
+        return loss_history
 
     def save(self, path: str):
         torch.save({

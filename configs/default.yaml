@@ -3,6 +3,7 @@ model:
   encoder_dim: 256
   llm_dim: 1024  # Qwen2-0.5B hidden size
   max_seq_len: 2048
+  mode: "encoder_decoder"  # "direct" or "encoder_decoder"
 
 training:
   batch_size: 1
@@ -11,10 +12,11 @@ training:
   warmup_steps: 10
   max_steps: 100
   fp16: false
+  reconstruction_weight: 0.1  # Weight for reconstruction loss in encoder_decoder mode
 
 data:
   num_samples: 10000
   min_len: 128
   max_len: 128
-  min_dims: 8
-  max_dims: 8
+  min_dims: 1
+  max_dims: 1
