@@ -155,8 +155,11 @@ class Trainer:
         self.model.train()
         self.optimizer.zero_grad()
 
-        # Move batch data to device
-        ts = batch["time_series"].to(self.device)
+        # Get model dtype for input conversion
+        model_dtype = next(self.model.parameters()).dtype
+
+        # Move batch data to device and convert to model dtype
+        ts = batch["time_series"].to(self.device, dtype=model_dtype)
         input_ids = batch["input_ids"].to(self.device)
         attention_mask = batch["attention_mask"].to(self.device)
         labels = batch["labels"].to(self.device)

@@ -106,8 +106,12 @@ class TimeSeriesLLM(nn.Module):
         # LLM - try HuggingFace first, then ModelScope
         self.llm, self.tokenizer = _load_model_and_tokenizer(llm_name, device=device)
 
+        # Get LLM dtype - on CUDA this might be bf16
+        llm_dtype = self.llm.dtype if hasattr(self.llm, 'dtype') else torch.float32
+        print(f"[INFO] LLM dtype: {llm_dtype}, converting encoder to same")
+
         # Move encoder to the same device and dtype as LLM
-        self.encoder = self.encoder.to(device=device, dtype=self.llm.dtype)
+        self.encoder = self.encoder.to(device=device, dtype=llm_dtype)
 
     def forward(self, input_ids: torch.LongTensor, ts_embeddings: torch.Tensor = None, attention_mask: torch.Tensor = None, raw_ts: torch.Tensor = None):
         """

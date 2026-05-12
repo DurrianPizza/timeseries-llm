@@ -47,7 +47,8 @@ class TimeSeriesPipeline:
         """Answer a question about a time series."""
         if time_series.dim() == 2:
             time_series = time_series.unsqueeze(0)
-        time_series = time_series.to(self.device)
+        model_dtype = next(self.model.parameters()).dtype
+        time_series = time_series.to(self.device, dtype=model_dtype)
         prompt = f"Question: {question}\nAnswer:"
         inputs = self.model.tokenizer(prompt, return_tensors="pt")
         input_ids = inputs["input_ids"].to(self.device)
