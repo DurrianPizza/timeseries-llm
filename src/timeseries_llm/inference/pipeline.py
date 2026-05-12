@@ -37,7 +37,7 @@ class TimeSeriesPipeline:
         if time_series.dim() == 2:
             time_series = time_series.unsqueeze(0)
         time_series = time_series.to(self.device)
-        encoder_output = self.model.fusion(self.model.encoder(time_series))
+        encoder_output = self.model.encoder(time_series)
         prompt = f"Question: {question}\nAnswer:"
         inputs = self.model.tokenizer(prompt, return_tensors="pt")
         input_ids = inputs["input_ids"].to(self.device)
