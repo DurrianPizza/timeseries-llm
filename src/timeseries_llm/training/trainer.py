@@ -162,8 +162,10 @@ class Trainer:
 
         # Compute weighted loss: boost loss for numerical tokens
         # Shift logits and labels for next-token prediction
-        shift_logits = logits[..., :-1, :].contiguous()
-        shift_labels = labels[..., 1:].contiguous()
+        # Ensure they have the same sequence length
+        min_len = min(logits.shape[1], labels.shape[1])
+        shift_logits = logits[:, :min_len-1, :].contiguous()
+        shift_labels = labels[:, :min_len-1].contiguous()
 
         # Get per-token loss
         ce_loss = nn.functional.cross_entropy(shift_logits.view(-1, shift_logits.size(-1)), shift_labels.view(-1), reduction='none')
