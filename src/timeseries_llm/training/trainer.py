@@ -4,6 +4,7 @@ from torch.utils.data import Dataset, DataLoader
 from tqdm import tqdm
 from typing import Dict, List, Tuple
 from timeseries_llm.data.generator import TimeSeriesGenerator, QAGenerator
+from accelerate import Accelerator
 
 
 def collate_fn(batch):
@@ -83,31 +84,19 @@ class TimeSeriesDataset(Dataset):
 
 
 class Trainer:
-    """Trainer for TimeSeries-LLM."""
+    """Trainer for TimeSeries-LLM using Accelerate for mixed precision."""
 
     def __init__(self, config: Dict):
-        print("[INFO] Initializing Trainer...")
+        print("[INFO] Initializing Trainer with Accelerate...")
+
+        # Initialize Accelerator - only using backward and clip_grad_norm
+        # NOT using prepare() due to MPS compatibility issues
+        self.accelerator = Accelerator()
+        self.device = self.accelerator.device
+        print(f"[INFO] Device: {self.device}")
+
         self.config = config
-        # Check for MPS (Apple Silicon), CUDA, or fall back to CPU
-        if torch.backends.mps.is_available():
-            self.device = torch.device("mps")
-            print("[INFO] Device: Apple Silicon MPS (GPU)")
-        elif torch.cuda.is_available():
-            # Verify CUDA actually works (driver might be too old)
-            try:
-                torch.cuda.init()
-                torch.zeros(1).cuda()
-                self.device = torch.device("cuda")
-                print("[INFO] Device: NVIDIA CUDA (GPU)")
-                print(f"[INFO] GPU: {torch.cuda.get_device_name(0)}")
-            except Exception as e:
-                print(f"[INFO] CUDA available but not usable: {e}")
-                print("[INFO] Falling back to CPU")
-                self.device = torch.device("cpu")
-        else:
-            self.device = torch.device("cpu")
-            print("[INFO] Device: CPU")
-        print(f"[INFO] Using device: {self.device}")
+
         from timeseries_llm.models.llm_wrapper import TimeSeriesLLM
         print("[INFO] Loading LLM model...")
         self.model = TimeSeriesLLM(
@@ -116,19 +105,24 @@ class Trainer:
             llm_dim=config["model"]["llm_dim"],
             device=str(self.device),
         )
-        self.model.to(self.device)
 
-        # Filter out LLM parameters - only train encoder + fusion
-        encoder_params = list(self.model.encoder.parameters())
-        fusion_params = list(self.model.fusion.parameters())
+        # Save tokenizer reference
+        self.tokenizer = self.model.tokenizer
+
+        # Freeze LLM - only train encoder + fusion
+        for param in self.model.llm.parameters():
+            param.requires_grad = False
+
         trainable_params = [n for n, p in self.model.encoder.named_parameters()] + \
                           [n for n, p in self.model.fusion.named_parameters()]
         print(f"[INFO] Trainable parameters: {trainable_params}")
 
         self.optimizer = torch.optim.AdamW(
-            encoder_params + fusion_params,
+            list(self.model.encoder.parameters()) + list(self.model.fusion.parameters()),
             lr=config["training"]["learning_rate"],
+            eps=1e-4,  # Larger epsilon for numerical stability on MPS
         )
+
         print(f"[INFO] Pre-generating {config['data']['num_samples']} training samples...")
         self.dataset = TimeSeriesDataset(
             num_samples=config["data"]["num_samples"],
@@ -136,20 +130,24 @@ class Trainer:
             max_len=config["data"]["max_len"],
             min_dims=config["data"]["min_dims"],
             max_dims=config["data"]["max_dims"],
-            tokenizer=self.model.tokenizer,
+            tokenizer=self.tokenizer,
             show_progress=True,
         )
         self.current_step = 0
         self.max_steps = config["training"]["max_steps"]
         self.batch_size = config["training"]["batch_size"]
 
+        # Gradient clipping value
+        self.max_grad_norm = config["training"].get("max_grad_norm", 1.0)
+
     def train_step(self, batch: Dict) -> float:
         self.model.train()
         self.optimizer.zero_grad()
-        ts = batch["time_series"].to(self.device)
-        input_ids = batch["input_ids"].to(self.device)
-        attention_mask = batch["attention_mask"].to(self.device)
-        labels = batch["labels"].to(self.device)
+
+        ts = batch["time_series"]
+        input_ids = batch["input_ids"]
+        attention_mask = batch["attention_mask"]
+        labels = batch["labels"]
 
         # Encode time series
         encoder_output = self.model.encoder(ts)
@@ -167,11 +165,15 @@ class Trainer:
         shift_labels = labels[:, :min_len-1].contiguous()
 
         # Get per-token loss
-        ce_loss = nn.functional.cross_entropy(shift_logits.view(-1, shift_logits.size(-1)), shift_labels.view(-1), reduction='none')
+        ce_loss = nn.functional.cross_entropy(
+            shift_logits.view(-1, shift_logits.size(-1)),
+            shift_labels.view(-1),
+            reduction='none',
+        )
 
         # Create weight mask for numerical tokens
         with torch.no_grad():
-            decoded = [self.model.tokenizer.decode([tok]) for tok in shift_labels.view(-1)]
+            decoded = [self.tokenizer.decode([tok]) for tok in shift_labels.view(-1)]
             weights = torch.ones_like(shift_labels, dtype=torch.float32)
             for i, text in enumerate(decoded):
                 if any(c.isdigit() or c in '.-' for c in text):
@@ -180,23 +182,27 @@ class Trainer:
         # Apply weights and compute mean
         loss = (ce_loss * weights.view(-1)).mean()
 
-        if self.current_step % 10 == 0:
-            print(f"[DEBUG] step={self.current_step}, loss={loss.item():.4f}")
+        # Use accelerate.backward instead of loss.backward()
+        self.accelerator.backward(loss)
 
-        loss.backward()
-
-        if self.current_step % 10 == 0:
-            grad_norms = {}
-            for p in self.optimizer.param_groups[0]['params']:
-                if p.grad is not None:
-                    grad_norms[id(p)] = p.grad.norm().item()
-            print(f"[DEBUG] grad_norms count={len(grad_norms)}, values={list(grad_norms.values())[:3]}")
+        # Clip gradients
+        self.accelerator.clip_grad_norm_(
+            list(self.model.encoder.parameters()) + list(self.model.fusion.parameters()),
+            self.max_grad_norm,
+        )
 
         self.optimizer.step()
+
         return loss.item()
 
     def train(self):
-        dataloader = DataLoader(self.dataset, batch_size=self.batch_size, shuffle=True, collate_fn=collate_fn)
+        dataloader = DataLoader(
+            self.dataset,
+            batch_size=self.batch_size,
+            shuffle=True,
+            collate_fn=collate_fn,
+        )
+
         pbar = tqdm(total=self.max_steps, desc="Training")
         while self.current_step < self.max_steps:
             for batch in dataloader:

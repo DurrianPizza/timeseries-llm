@@ -24,11 +24,15 @@ def _load_model_and_tokenizer(model_name: str, device: str = "cpu"):
         from modelscope import AutoModelForCausalLM as MsModel
         from modelscope import AutoTokenizer as MsTokenizer
         print(f"[INFO] Downloading model from ModelScope (this may take a while)...")
-        model = MsModel.from_pretrained(model_name, dtype=dtype, trust_remote_code=True)
-        model = model.to(device)
+        model = MsModel.from_pretrained(model_name, trust_remote_code=True)
         print(f"[INFO] Model downloaded, loading tokenizer...")
         tokenizer = MsTokenizer.from_pretrained(model_name, trust_remote_code=True)
         print(f"[INFO] Model and tokenizer loaded successfully")
+        # Force dtype conversion after load (dtype param may not work correctly on MPS)
+        if device == "mps":
+            model = model.to(dtype=torch.float32, device=device)
+        else:
+            model = model.to(device=device)
         return model, tokenizer
     except Exception as e:
         print(f"[INFO] ModelScope failed: {e}")
@@ -36,8 +40,11 @@ def _load_model_and_tokenizer(model_name: str, device: str = "cpu"):
     # Fall back to HuggingFace
     try:
         print(f"[INFO] Trying HuggingFace...")
-        model = AutoModelForCausalLM.from_pretrained(model_name, dtype=dtype, trust_remote_code=True)
-        model = model.to(device)
+        model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True)
+        if device == "mps":
+            model = model.to(dtype=torch.float32, device=device)
+        else:
+            model = model.to(device=device)
         tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
         print(f"[INFO] Model and tokenizer loaded successfully")
         return model, tokenizer
@@ -89,6 +96,10 @@ class TimeSeriesLLM(nn.Module):
         # Note: MPS doesn't support bf16 well, so we pass device to handle dtype
         self.llm, self.tokenizer = _load_model_and_tokenizer(llm_name, device=device)
 
+        # Move encoder and fusion to the same device and dtype as LLM
+        self.encoder = self.encoder.to(device=device, dtype=self.llm.dtype)
+        self.fusion = self.fusion.to(device=device, dtype=self.llm.dtype)
+
     def forward(self, input_ids: torch.LongTensor, encoder_outputs: torch.Tensor, attention_mask: torch.Tensor = None, labels: torch.LongTensor = None):
         """
         Args:
@@ -105,11 +116,12 @@ class TimeSeriesLLM(nn.Module):
         text_seq_len = text_embeddings.shape[1]
 
         # Concatenate: text + time series (after fusion projection)
+        # Fusion runs in fp32 for numerical stability, then convert output to model dtype
+        model_dtype = self.llm.dtype
         fused_encoder_outputs = self.fusion(encoder_outputs)
         ts_seq_len = fused_encoder_outputs.shape[1]
 
         # Ensure embeddings match model dtype (model may be bf16)
-        model_dtype = self.llm.dtype
         combined_embeddings = torch.cat([text_embeddings.to(model_dtype), fused_encoder_outputs.to(model_dtype)], dim=1)
 
         # Extend attention mask to cover both text and time series tokens
