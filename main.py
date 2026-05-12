@@ -22,6 +22,9 @@ def train(args):
 
 def infer(args):
     """Run inference."""
+    with open(args.config, "r") as f:
+        config = yaml.safe_load(f)
+
     pipeline = TimeSeriesPipeline(
         llm_name=args.llm_name,
         encoder_dim=args.encoder_dim,
@@ -29,7 +32,14 @@ def infer(args):
         checkpoint_path=args.checkpoint,
     )
 
-    ts_gen = TimeSeriesGenerator(seed=args.seed)  # 添加 seed 支持便于复现
+    data_config = config.get("data", {})
+    ts_gen = TimeSeriesGenerator(
+        seed=args.seed,
+        min_len=data_config.get("min_len", 32),
+        max_len=data_config.get("max_len", 2048),
+        min_dims=data_config.get("min_dims", 1),
+        max_dims=data_config.get("max_dims", 8),
+    )
     ts, info = ts_gen.generate()
 
     print("=" * 60)
@@ -40,8 +50,8 @@ def infer(args):
     print(f"  Shape:   {list(ts.shape)}")
     print("-" * 60)
     print("统计信息:")
-    print(f"  Min:    {ts.mean(dim=-1).min().item():.4f}")  # 简化的多维度统计
-    print(f"  Max:    {ts.mean(dim=-1).max().item():.4f}")
+    print(f"  Min:    {ts.min().item():.4f}")
+    print(f"  Max:    {ts.max().item():.4f}")
     print(f"  Mean:   {ts.mean().item():.4f}")
     print("-" * 60)
     print("前10个值 (dim=0):")
@@ -70,6 +80,7 @@ def main():
     infer_parser.add_argument("--checkpoint", type=str, default=None, help="Path to model checkpoint")
     infer_parser.add_argument("--question", type=str, default=None, help="Question to ask")
     infer_parser.add_argument("--seed", type=int, default=None, help="Random seed for reproducibility")
+    infer_parser.add_argument("--config", type=str, default="configs/default.yaml", help="Config file path for data settings")
 
     args = parser.parse_args()
 
