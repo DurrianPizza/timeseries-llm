@@ -88,7 +88,13 @@ class Trainer:
     def __init__(self, config: Dict):
         print("[INFO] Initializing Trainer...")
         self.config = config
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        # Check for MPS (Apple Silicon), CUDA, or fall back to CPU
+        if torch.backends.mps.is_available():
+            self.device = torch.device("mps")
+        elif torch.cuda.is_available():
+            self.device = torch.device("cuda")
+        else:
+            self.device = torch.device("cpu")
         print(f"[INFO] Using device: {self.device}")
         from timeseries_llm.models.llm_wrapper import TimeSeriesLLM
         print("[INFO] Loading LLM model...")
