@@ -4,6 +4,7 @@ model:
   llm_dim: 1024  # Qwen2-0.5B hidden size
   max_seq_len: 2048
   mode: "original"  # "original", "direct", "encoder_decoder", or "lossless"
+  # Try original first to see if it achieves lower loss than lossless
 
 training:
   batch_size: 4
