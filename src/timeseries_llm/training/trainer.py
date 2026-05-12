@@ -4,7 +4,6 @@ from torch.utils.data import Dataset, DataLoader
 from tqdm import tqdm
 from typing import Dict, List, Tuple
 from timeseries_llm.data.generator import TimeSeriesGenerator, QAGenerator
-from accelerate import Accelerator
 
 
 def collate_fn(batch):
@@ -84,15 +83,18 @@ class TimeSeriesDataset(Dataset):
 
 
 class Trainer:
-    """Trainer for TimeSeries-LLM using Accelerate for mixed precision."""
+    """Trainer for TimeSeries-LLM."""
 
     def __init__(self, config: Dict):
-        print("[INFO] Initializing Trainer with Accelerate...")
+        print("[INFO] Initializing Trainer...")
 
-        # Initialize Accelerator - only using backward and clip_grad_norm
-        # NOT using prepare() due to MPS compatibility issues
-        self.accelerator = Accelerator()
-        self.device = self.accelerator.device
+        # Detect device: MPS > CUDA > CPU
+        if torch.backends.mps.is_available():
+            self.device = torch.device("mps")
+        elif torch.cuda.is_available():
+            self.device = torch.device("cuda")
+        else:
+            self.device = torch.device("cpu")
         print(f"[INFO] Device: {self.device}")
 
         self.config = config
