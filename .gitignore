@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+.pytest_cache/
+
+# Virtual environments
+.venv/
+.venv
+
+# UV
+uv.lock
+
+# Checkpoints
+checkpoints/
+
+# IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log

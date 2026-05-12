@@ -14,11 +14,20 @@ class TimeSeriesPipeline:
         checkpoint_path: str = None,
     ):
         print(f"[INFO] Pipeline init: encoder_dim={encoder_dim}, llm_dim={llm_dim}")
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        # Detect device: MPS > CUDA > CPU
+        if torch.backends.mps.is_available():
+            self.device = torch.device("mps")
+        elif torch.cuda.is_available():
+            self.device = torch.device("cuda")
+        else:
+            self.device = torch.device("cpu")
+        print(f"[INFO] Pipeline device: {self.device}")
+
         self.model = TimeSeriesLLM(
             llm_name=llm_name,
             encoder_dim=encoder_dim,
             llm_dim=llm_dim,
+            device=str(self.device),
         )
         if checkpoint_path:
             checkpoint = torch.load(checkpoint_path, map_location=self.device)
