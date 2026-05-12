@@ -162,6 +162,15 @@ class Trainer:
             labels=labels,
         )
         loss = outputs.loss
+
+        if self.current_step % 10 == 0:
+            # Check gradients every 10 steps
+            grad_norm = 0.0
+            for p in self.model.parameters():
+                if p.grad is not None:
+                    grad_norm += p.grad.norm().item()
+            print(f"[DEBUG] step={self.current_step}, loss={loss.item():.4f}, grad_norm={grad_norm:.4f}")
+
         loss.backward()
         self.optimizer.step()
         return loss.item()
