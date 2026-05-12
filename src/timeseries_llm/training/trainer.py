@@ -158,7 +158,6 @@ class Trainer:
             input_ids=input_ids,
             encoder_outputs=encoder_output,
             attention_mask=attention_mask,
-            labels=labels,
         )
 
         # logits shape: [text_len + ts_len, vocab] = [Q+A+TS, vocab]
